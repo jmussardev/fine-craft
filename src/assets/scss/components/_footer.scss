@@ -1,0 +1,54 @@
+.footer {
+  padding: 2rem;
+  background-image: url("./../../../../public/img/footer/mar-forest.jpg");
+  background-size: 100vw;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    @media (width >= 46.87em) {
+      max-width: 200rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__brand {
+    // height: fit-content;
+    width: 19rem;
+    text-align: center;
+    img {
+      height: fit-content;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  & h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0rem;
+    padding-bottom: 1rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+  }
+  & p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-family: "playfair_displayregular";
+  }
+
+  &__motto {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    img {
+      height: fit-content;
+      display: block;
+      width: 100%;
+    }
+  }
+}

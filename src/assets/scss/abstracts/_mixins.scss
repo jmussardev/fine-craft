@@ -1,0 +1,31 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (max-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+@mixin delayChild {
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      opacity: 100%;
+      transition: all 0.2s #{$i * 0.1}s ease-in;
+    }
+  }
+}

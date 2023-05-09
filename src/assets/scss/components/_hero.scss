@@ -1,0 +1,38 @@
+.hero {
+  position: relative;
+
+  background-image: url("./../../img/hero/hardgraft-mountain-not-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+
+    & p {
+      transition: 15ms ease-out;
+    }
+
+    &__arrow {
+      display: block;
+      padding-left: 1rem;
+      transition: 250ms ease-out;
+    }
+
+    &:hover {
+      color: var(--COLOR-HERO-HOVER-LINK);
+    }
+    &:hover &__arrow {
+      color: var(--COLOR-HERO-HOVER-LINK);
+      transform: translateX(0.5rem);
+      transition: 250ms ease-out;
+    }
+  }
+
+  @media (width >= 46.87em) {
+    background-image: url("./../../img/hero/hardgraft-rucksacks-not-wide.jpg");
+    background-size: cover;
+  }
+}

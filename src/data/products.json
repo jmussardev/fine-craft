@@ -1,0 +1,61 @@
+[
+  {
+    "id": "1",
+    "name": "fuzzy iphone 14 pro/pro max cover",
+    "price": 71.95,
+    "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
+    "variants": [
+      {
+        "variant": "dusty brown",
+        "isAvailable": true,
+        "photos": [
+          "./../../public/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-01_200x_crop_center.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02_200x_crop_center.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-03_200x_crop_center.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-04_200x_crop_center.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-05_200x_crop_center.jpg"
+        ],
+        "reviews": [
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 5,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "iPhone 14 Pro Max",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "3",
+            "first_name": "Sue",
+            "last_name": "Nguyen",
+            "rating": 5,
+            "description": "Still before use</br>Pleasant Save ^^</br>Nice Case!!",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": [
+              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "This snap-on fuzzy iPhone case is covered with premium hardwearing vegan Italian Alcantara. The Fuzzy iPhone Cover snaps softly onto your iPhone 14. The <strong>RAISED BEZEL EDGE</strong> protects the screen when lying face down. In the bottom corner you'll notice a discreet hardgraft logo. Inside is covered with the same alcantara. You'll never need to take it off, even when you’re <strong>CHARGING WIRELESSLY VIA MAGSAFE</strong>."
+  }
+]

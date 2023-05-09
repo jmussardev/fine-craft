@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "neue_helvetica_condensed_bqRg";
+  src: url("/fonts/neuehelveticacondensedbq-roman-webfont.woff2")
+      format("woff2"),
+    url("/fonts/neuehelveticacondensedbq-roman-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "playfair_displayregular";
+  src: url("playfairdisplay-variablefont_wght-webfont.woff2") format("woff2"),
+    url("playfairdisplay-variablefont_wght-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "work_sansregular";
+  src: url("worksans-variablefont_wght-webfont.woff2") format("woff2"),
+    url("worksans-variablefont_wght-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "rajdhanibold";
+  src: url("rajdhani-bold-webfont.woff2") format("woff2"),
+    url("rajdhani-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "work_sansregular", "neue_helvetica_condensed_bqRg",
+    "rajdhanibold", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.15rem;
+
+  min-height: 100vh;
+}

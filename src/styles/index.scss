@@ -1,0 +1,15 @@
+@use "reset";
+@use "vars";
+
+body {
+  height: fit-content;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}

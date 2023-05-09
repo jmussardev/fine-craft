@@ -1,0 +1,12 @@
+.separator {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  & div {
+    border-top: 1.5px solid var(--COLOR-SEPARATOR);
+  }
+
+  @media (width >= 46.87em) {
+    width: 60%;
+  }
+}

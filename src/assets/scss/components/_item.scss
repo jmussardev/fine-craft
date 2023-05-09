@@ -1,0 +1,141 @@
+.item {
+  display: flex;
+  flex-direction: column;
+
+  //   background-color: pink;
+
+  &__picture {
+    position: relative;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+
+    &__second {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      transition: 150ms ease-in;
+      &:hover {
+        opacity: 100%;
+      }
+    }
+  }
+  &__infos {
+    width: 100%;
+    text-align: center;
+
+    @include respond(big-desktop) {
+      padding: 0;
+    }
+    @include respond(tab-land) {
+      padding: 1.2rem;
+    }
+
+    &__title {
+      text-transform: capitalize;
+      line-height: 1.2;
+      letter-spacing: 0.09rem;
+    }
+    &__price {
+      font-size: 90%;
+      color: var(--COLOR-ITEM-INFO);
+    }
+    &__variants {
+      position: relative;
+      width: 100%;
+      font-size: 90%;
+      color: var(--COLOR-ITEM-INFO);
+      padding: 0.8rem 1.4rem;
+
+      &__grid {
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        right: -5px;
+        transform: translateY(-50%);
+        width: 100%;
+        opacity: 0%;
+        &:hover {
+          opacity: 100%;
+          transition: 350ms ease-in-out;
+        }
+        &:hover &__scrollbar .test {
+          @include delayChild;
+
+          // transition: 350ms ease-in-out;
+        }
+
+        &__actions {
+          z-index: 1;
+          position: absolute;
+          height: 2rem;
+          top: 50%;
+          left: -5px;
+          right: -5px;
+          padding: 0 1.4rem;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          &__btn {
+            border: none;
+            background-color: transparent;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+              filter: invert(17%) sepia(32%) saturate(1779%) hue-rotate(343deg)
+                brightness(94%) contrast(92%);
+            }
+
+            & img {
+              width: 2rem;
+              height: 2rem;
+            }
+          }
+          .btn--left {
+            transform: rotate(180deg);
+          }
+        }
+
+        &__scrollbar {
+          position: relative;
+          overflow-y: hidden;
+          overflow-x: auto;
+          background-color: var(--COLOR-BG);
+          top: 0;
+          transform: translate(-50%);
+          left: 50%;
+          min-height: 100%;
+          width: fit-content;
+          max-width: 70%;
+          display: flex;
+          justify-content: flex-start;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          img {
+            width: 100%;
+          }
+          div {
+            opacity: 0;
+            flex-shrink: 0;
+            flex-grow: 0;
+            height: 3rem;
+            width: 3rem;
+            margin: 0.5rem;
+            background-color: rgb(142, 142, 238);
+          }
+        }
+      }
+    }
+  }
+}

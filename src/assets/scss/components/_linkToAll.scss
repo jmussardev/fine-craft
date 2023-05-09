@@ -1,0 +1,38 @@
+.linkToAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  max-width: 100%;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+
+  & p {
+    transition: color 150ms ease-out;
+  }
+
+  &__arrow {
+    margin-left: 1.2rem;
+    transition: 250ms ease-out;
+  }
+
+  &:hover {
+    color: var(--COLOR-HERO-HOVER-LINK);
+  }
+  &:hover &__arrow {
+    color: var(--COLOR-HERO-HOVER-LINK);
+    transform: translateX(0.5rem);
+    transition: 250ms ease-out;
+  }
+}
+
+.linkWrapper {
+  height: calc(100vw * 0.1168);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
