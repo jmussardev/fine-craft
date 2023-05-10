@@ -1,11 +1,22 @@
 .footer {
-  padding: 2rem;
-  background-image: url("./../../../../public/img/footer/mar-forest.jpg");
-  background-size: 100vw;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  &__background {
+    background-image: url("./../../../../public/img/footer/mar-forest.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: 100vw;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    animation: 1s ease-in-out scaleIntro;
+  }
 
   &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -14,41 +25,40 @@
       max-width: 200rem;
       margin: 0 auto;
     }
-  }
-
-  &__brand {
-    // height: fit-content;
-    width: 19rem;
-    text-align: center;
-    img {
-      height: fit-content;
-      display: block;
-      width: 100%;
+    &__brand {
+      width: 19rem;
+      text-align: center;
+      img {
+        height: fit-content;
+        display: block;
+        width: 100%;
+      }
     }
-  }
 
-  & h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 0rem;
-    padding-bottom: 1rem;
-    margin: 1rem 0;
-    text-transform: uppercase;
-  }
-  & p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    font-family: "playfair_displayregular";
-  }
+    & h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0rem;
+      padding-bottom: 1rem;
+      margin: 1rem 0;
+      text-transform: uppercase;
+    }
+    & p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-family: "playfair_displayregular";
+    }
 
-  &__motto {
-    display: flex;
-    height: 100%;
-    align-items: flex-end;
-    img {
-      height: fit-content;
-      display: block;
-      width: 100%;
+    &__motto {
+      animation: 1s cubic-bezier(0.4, 0.02, 0.52, 0.88) translateMotto;
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+      img {
+        height: fit-content;
+        display: block;
+        width: 100%;
+      }
     }
   }
 }

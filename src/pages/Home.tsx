@@ -13,12 +13,31 @@ export default function Home() {
         <Hero />
         <div className="linkWrapper">
           <LinkToAll>
-            <p style={{ letterSpacing: "0.25rem" }}>show me everything</p>
+            <p
+              style={{
+                animation: "1s  cubic-bezier(.4,.02,.52,.88)  translateIntro",
+                letterSpacing: "0.25rem",
+              }}
+            >
+              show me everything
+            </p>
+            <span
+              style={{
+                animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
+              }}
+              className="linkToAll__arrow"
+            >
+              &gt;
+            </span>
           </LinkToAll>
         </div>
 
         <Products />
-        <div style={{ paddingBottom: "3rem" }}>
+        <div
+          style={{
+            paddingBottom: "3rem",
+          }}
+        >
           <div
             style={{
               paddingInline: "3rem",
@@ -32,7 +51,22 @@ export default function Home() {
               European. Made in Italy.
             </p>
             <LinkToAll>
-              <p style={{ letterSpacing: "0.25rem" }}>show me everything</p>
+              <p
+                style={{
+                  animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
+                  letterSpacing: "0.25rem",
+                }}
+              >
+                show me everything
+              </p>
+              <span
+                style={{
+                  animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
+                }}
+                className="linkToAll__arrow"
+              >
+                &gt;
+              </span>
             </LinkToAll>
           </div>
         </div>

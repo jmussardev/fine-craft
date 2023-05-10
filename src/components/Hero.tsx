@@ -13,13 +13,27 @@ const linkStyle: React.CSSProperties = {
 export default function Hero() {
   return (
     <>
-      <div className="hero">
-        <LinkToAll linkStyle={linkStyle}>
-          <p>
-            fine . lifestyle . accessories . with . down . to . earth .
-            aesthetics . established . mvii . made . in . italy
-          </p>
-        </LinkToAll>
+      <div className="heroContainer">
+        <div className="hero">
+          <LinkToAll linkStyle={linkStyle}>
+            <p
+              style={{
+                animation: "1.8s  cubic-bezier(.4,.02,.52,.88) translateIntro",
+              }}
+            >
+              fine . lifestyle . accessories . with . down . to . earth .
+              aesthetics . established . mvii . made . in . italy
+            </p>
+            <span
+              style={{
+                animation: "1.8s  cubic-bezier(.4,.02,.52,.88) translateIntro",
+              }}
+              className="linkToAll__arrow"
+            >
+              &gt;
+            </span>
+          </LinkToAll>
+        </div>
       </div>
     </>
   );

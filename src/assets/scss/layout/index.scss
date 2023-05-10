@@ -2,15 +2,15 @@
   position: relative;
   min-width: calc(100vw - 115px);
 
-  border: 2px rgb(0, 0, 0) solid;
+  // border: 2px rgb(0, 0, 0) solid;
 }
 
 .header {
   z-index: 50;
-  position: absolute;
-  height: 9.3rem;
+  position: fixed;
+  height: 10rem;
   width: 100%;
-  border: 2px rgb(255, 46, 255) solid;
+  // border: 2px rgb(255, 46, 255) solid;
 }
 
 .content {

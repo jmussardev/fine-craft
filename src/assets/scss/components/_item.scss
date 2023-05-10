@@ -2,10 +2,22 @@
   display: flex;
   flex-direction: column;
 
-  //   background-color: pink;
+  &:hover &__picture__second {
+    opacity: 100%;
+  }
+  &:hover &__picture__second__add--large {
+    transition: 0.5s ease-in-out;
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+
+  &:hover &__infos__title {
+    color: var(--COLOR-WHITE);
+  }
 
   &__picture {
     position: relative;
+    animation: 1s ease-in-out scaleIntro;
 
     img {
       height: auto;
@@ -15,10 +27,48 @@
     &__second {
       position: absolute;
       top: 0;
-      opacity: 0;
-      transition: 150ms ease-in;
-      &:hover {
-        opacity: 100%;
+      opacity: 0%;
+      transition: 150ms ease-in-out;
+
+      &__add--small {
+        z-index: 10;
+        position: absolute;
+        background-color: var(--COLOR-BG);
+        width: 5.5rem;
+        height: 5.5rem;
+        bottom: 1rem;
+        left: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+          width: 2rem;
+        }
+      }
+
+      &__add--large {
+        display: none;
+        opacity: 0%;
+        position: absolute;
+        width: 100%;
+        height: 5rem;
+        bottom: 0%;
+        left: 0%;
+        padding-top: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        background: rgba(218, 218, 210, 0.672);
+        transform: translateY(40%);
+        transition: 450ms ease-out;
+      }
+      @media (width >= 46.87em) {
+        &__add--small {
+          display: none;
+        }
+        &__add--large {
+          display: block;
+        }
       }
     }
   }
@@ -63,8 +113,6 @@
         }
         &:hover &__scrollbar .test {
           @include delayChild;
-
-          // transition: 350ms ease-in-out;
         }
 
         &__actions {

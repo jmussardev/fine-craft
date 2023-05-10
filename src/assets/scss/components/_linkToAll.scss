@@ -11,8 +11,10 @@
   font-size: 1.1rem;
   text-transform: uppercase;
 
+  // animation: 1.5s ease-in-out translateIntro;
+
   & p {
-    transition: color 150ms ease-out;
+    transition: all 150ms ease-out;
   }
 
   &__arrow {

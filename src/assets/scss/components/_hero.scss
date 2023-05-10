@@ -1,38 +1,45 @@
-.hero {
-  position: relative;
+.heroContainer {
+  overflow: hidden;
 
-  background-image: url("./../../img/hero/hardgraft-mountain-not-mobile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-
-    & p {
-      transition: 15ms ease-out;
-    }
-
-    &__arrow {
-      display: block;
-      padding-left: 1rem;
-      transition: 250ms ease-out;
-    }
-
-    &:hover {
-      color: var(--COLOR-HERO-HOVER-LINK);
-    }
-    &:hover &__arrow {
-      color: var(--COLOR-HERO-HOVER-LINK);
-      transform: translateX(0.5rem);
-      transition: 250ms ease-out;
-    }
-  }
-
-  @media (width >= 46.87em) {
-    background-image: url("./../../img/hero/hardgraft-rucksacks-not-wide.jpg");
+    background-image: url("./../../img/hero/hardgraft-mountain-not-mobile.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    animation: 1s ease-in-out scaleIntro;
+
+    // &__link {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   max-width: 100%;
+
+    //   & p {
+    //     transition: 15ms ease-out;
+    //   }
+
+    //   &__arrow {
+    //     display: block;
+    //     padding-left: 1rem;
+    //     transition: 250ms ease-out;
+    //   }
+
+    //   &:hover {
+    //     color: var(--COLOR-HERO-HOVER-LINK);
+    //   }
+    //   &:hover &__arrow {
+    //     color: var(--COLOR-HERO-HOVER-LINK);
+    //     transform: translateX(0.5rem);
+    //     transition: 250ms ease-out;
+    //   }
+    // }
+
+    @media (width >= 46.87em) {
+      background-image: url("./../../img/hero/hardgraft-rucksacks-not-wide.jpg");
+      background-size: cover;
+    }
   }
 }

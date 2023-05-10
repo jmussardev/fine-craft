@@ -12,7 +12,7 @@ export default function LinkToAll({
     <Link to={"#"} style={linkStyle}>
       <div className="linkToAll">
         {children}
-        <span className="linkToAll__arrow">&gt;</span>
+        {/* <span className="linkToAll__arrow">&gt;</span> */}
       </div>
     </Link>
   );

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import arrow from "./../assets/img/icons/arrow.svg";
+import add from "./../assets/img/icons/add.svg";
 import debounce from "./../../utils/debounce";
+import { Link } from "react-router-dom";
 
 export default function Item({
   img,
@@ -53,20 +55,21 @@ export default function Item({
     checkOverflow(scrollRef.current);
   }, [dimensions]);
 
-  useEffect(() => {
-    console.log(scrollIpt);
-    console.log(maxScrollLeft);
-    console.log(maxScrollLeft === scrollIpt);
-  }, [scrollIpt, maxScrollLeft]);
   return (
     <div className="item">
       <div className="item__picture noselect">
         <div className="item__picture__first">
           <img src={img} alt="" />
         </div>
-        <div className="item__picture__second">
+        <Link to={"#"} className="item__picture__second">
           <img src={secondImg} alt="" />
-        </div>
+          <div className="item__picture__second__add--small">
+            <img src={add} alt="" />
+          </div>
+          <div className="item__picture__second__add--large">
+            <p>quick add</p>
+          </div>
+        </Link>
       </div>
       <div className="item__infos">
         <p className="item__infos__title">
