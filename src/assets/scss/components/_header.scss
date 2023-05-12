@@ -1,252 +1,309 @@
 .header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding-inline: 5rem;
-  transition: 150ms ease-in-out;
+  position: relative;
+  width: 100%;
+  height: 100%;
   --COLOR-HEADER-ELEMENT: var(--COLOR-WHITE);
 
-  &__sticky {
+  &__board {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-inline: 5rem;
     transition: 150ms ease-in-out;
-    background-color: var(--COLOR-BG);
-    --COLOR-HEADER-ELEMENT: var(--COLOR-HEADER-STICKY);
-  }
 
-  &__left {
-    display: flex;
-    &__menu {
-      position: relative;
+    &__sticky {
+      transition: 150ms ease-in-out;
+      background-color: var(--COLOR-BG);
+      --COLOR-HEADER-ELEMENT: var(--COLOR-HEADER-STICKY);
+    }
+
+    &__left {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 2.4rem;
-      height: 100%;
-      margin-right: 2.2rem;
-
-      &__button {
+      &__menu {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3rem;
-        width: 3rem;
-        cursor: pointer;
+        width: 2.4rem;
+        height: 100%;
+        margin-right: 2.2rem;
 
-        &--close {
-          & div {
-            width: 1.8rem;
-            height: 0;
-            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 0.5rem 0.5rem;
-          }
-
-          &::before {
-            content: " ";
-            z-index: 999;
-            position: absolute;
-            top: 28%;
-            width: 1.8rem;
-            height: 0;
-
-            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 0.5rem 0.5rem;
-          }
-          &::after {
-            content: " ";
-            z-index: 999;
-            position: absolute;
-            bottom: 28%;
-            width: 1.8rem;
-            height: 0;
-
-            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 0.5rem 0.5rem;
-          }
-        }
-
-        &--open {
-          & div {
-            width: 1.8rem;
-            height: 0;
-            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 0.5rem 0.5rem;
-            transform: rotate(45deg);
-          }
-          &::before {
-            content: " ";
-            z-index: 999;
-            position: absolute;
-            // left: 50%;
-            width: 1.8rem;
-            height: 0;
-            transform: rotate(-45deg);
-
-            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 0.5rem 0.5rem;
-          }
-        }
-      }
-    }
-    &__search {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 2.4rem;
-      height: 100%;
-
-      &__button {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 3rem;
-        width: 3rem;
-        cursor: pointer;
-
-        & div {
-          width: 1.8rem;
-          height: 1.8rem;
-          border: 1px solid var(--COLOR-HEADER-ELEMENT);
-          border-radius: 50%;
-        }
-
-        &::before {
-          content: " ";
-          z-index: 999;
-          position: absolute;
-          bottom: 20%;
-          right: 4%;
-          width: 0.7rem;
-          height: 0;
-          transform: rotate(45deg);
-
-          border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
-          border-radius: 0 0.5rem 0.5rem 0;
-        }
-      }
-    }
-  }
-  &__middle {
-    position: relative;
-
-    // padding-block: 1rem;
-    &__logo {
-      z-index: 99;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%;
-      height: 6.6rem;
-      width: 21rem;
-      max-width: 21rem;
-
-      background-image: url("./../../../../public/img/header/finecraft.png");
-      background-size: 100%;
-      background-repeat: no-repeat;
-
-      @include respond(phone) {
-        padding-inline: 1.6rem;
-        width: calc(100vw * 0.3);
-      }
-    }
-  }
-  &__right {
-    display: flex;
-    justify-content: flex-end;
-    &__account {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 2.4rem;
-      height: 100%;
-      margin-right: 2.4rem;
-
-      &__button {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 3rem;
-        width: 3rem;
-        cursor: pointer;
-
-        & div {
+        &__button {
           position: relative;
-          height: 2.6rem;
-          width: 2.6rem;
-          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+          --duration: 110ms;
 
-          border: 1px solid var(--COLOR-HEADER-ELEMENT);
-          border-radius: 50%;
+          &--close {
+            & div {
+              width: 1.8rem;
+              height: 0;
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transition: transform var(--duration) linear;
+            }
+
+            &::before {
+              content: " ";
+              z-index: 999;
+              position: absolute;
+              top: 28%;
+              width: 1.8rem;
+              height: 0;
+
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transition: transform var(--duration) linear;
+            }
+            &::after {
+              content: " ";
+              z-index: 999;
+              position: absolute;
+              bottom: 28%;
+              width: 1.8rem;
+              height: 0;
+
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transition: transform var(--duration) linear;
+            }
+          }
+
+          &--open {
+            & div {
+              width: 1.8rem;
+              height: 0;
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transform: rotate(135deg);
+              transition: transform var(--duration) linear;
+            }
+            &::before {
+              content: " ";
+              z-index: 999;
+              position: absolute;
+              // left: 50%;
+              width: 1.8rem;
+              height: 0;
+              transform: rotate(-135deg);
+
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transition: transform var(--duration) linear;
+            }
+            &::after {
+              content: " ";
+              z-index: 999;
+              position: absolute;
+              // left: 50%;
+              width: 1.8rem;
+              height: 0;
+              transform: rotate(-135deg);
+
+              border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 0.5rem 0.5rem;
+              transition: transform var(--duration) linear;
+            }
+          }
+        }
+      }
+      &__search {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.4rem;
+        height: 100%;
+
+        &__button {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+
+          & div {
+            width: 1.8rem;
+            height: 1.8rem;
+            border: 1px solid var(--COLOR-HEADER-ELEMENT);
+            border-radius: 50%;
+          }
 
           &::before {
             content: " ";
             z-index: 999;
             position: absolute;
-            transform: translate(-50%, -50%);
-            top: 38%;
-            left: 50%;
-            height: 1rem;
-            width: 1rem;
+            bottom: 20%;
+            right: 4%;
+            width: 0.7rem;
+            height: 0;
+            transform: rotate(45deg);
 
-            border: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 50%;
-          }
-
-          &::after {
-            content: " ";
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 150%;
-            left: 50%;
-            height: 4rem;
-            width: 4rem;
-
-            border: 1px solid var(--COLOR-HEADER-ELEMENT);
-            border-radius: 50%;
+            border-top: 1px solid var(--COLOR-HEADER-ELEMENT);
+            border-radius: 0 0.5rem 0.5rem 0;
           }
         }
       }
     }
-    &__cart {
+    &__middle {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 2.8rem;
-      height: 100%;
 
-      &__button {
+      // padding-block: 1rem;
+      &__logo {
+        z-index: 99;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        height: 6.6rem;
+        width: 21rem;
+        max-width: 21rem;
+
+        background-image: url("./../../../../public/img/header/finecraft.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        @include respond(phone) {
+          padding-inline: 1.6rem;
+          width: calc(100vw * 0.3);
+        }
+      }
+    }
+    &__right {
+      display: flex;
+      justify-content: flex-end;
+      &__account {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3rem;
-        width: 3rem;
-        cursor: pointer;
+        width: 2.4rem;
+        height: 100%;
+        margin-right: 2.4rem;
 
-        &--white {
-          width: 100%;
-          height: 100%;
-          background-repeat: no-repeat;
-          background-size: 100%;
-          background-position: 50%;
-          background-image: url("./../../../../public/img/header/cart.png");
+        &__button {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+
+          & div {
+            position: relative;
+            height: 2.6rem;
+            width: 2.6rem;
+            overflow: hidden;
+
+            border: 1px solid var(--COLOR-HEADER-ELEMENT);
+            border-radius: 50%;
+
+            &::before {
+              content: " ";
+              z-index: 999;
+              position: absolute;
+              transform: translate(-50%, -50%);
+              top: 38%;
+              left: 50%;
+              height: 1rem;
+              width: 1rem;
+
+              border: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 50%;
+            }
+
+            &::after {
+              content: " ";
+              position: absolute;
+              transform: translate(-50%, -50%);
+              top: 100%;
+              left: 50%;
+              height: 4rem;
+              width: 4rem;
+
+              border: 1px solid var(--COLOR-HEADER-ELEMENT);
+              border-radius: 50%;
+            }
+          }
         }
-        &--brown {
-          width: 100%;
-          height: 100%;
-          background-repeat: no-repeat;
-          background-size: 100%;
-          background-position: 50%;
-          background-image: url("./../../../../public/img/header/cart--brown.png");
+      }
+      &__cart {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.8rem;
+        height: 100%;
+
+        &__button {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3rem;
+          width: 3rem;
+          cursor: pointer;
+
+          &--white {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 50%;
+            background-image: url("./../../../../public/img/header/cart.png");
+          }
+          &--brown {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 50%;
+            background-image: url("./../../../../public/img/header/cart--brown.png");
+          }
         }
       }
     }
-  }
 
-  @include respond(phone) {
-    padding-inline: 1.6rem;
+    @include respond(phone) {
+      padding-inline: 1.6rem;
+    }
+  }
+  &__menuOverlay {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    transition: all 110ms linear 50ms;
+
+    &--open {
+      background-color: #00000062;
+    }
+  }
+  &__drawer {
+    height: 100%;
+    background-color: var(--COLOR-BG);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in;
+
+    &--open {
+      transition: transform 0.3s ease-out;
+      transform: translateX(0%);
+    }
+
+    @media (1000px<width) {
+      width: 50vw;
+      max-width: 640px;
+    }
+    @media (width<=1000px) {
+      max-width: 380px;
+    }
   }
 }

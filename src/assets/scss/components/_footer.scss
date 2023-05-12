@@ -9,7 +9,9 @@
     background-size: 100vw;
     background-position: bottom;
     background-repeat: no-repeat;
-    animation: 1s ease-in-out scaleIntro;
+    &__animation {
+      animation: 1s ease-in-out scaleIntro;
+    }
   }
 
   &__wrapper {
@@ -50,7 +52,6 @@
     }
 
     &__motto {
-      animation: 1s cubic-bezier(0.4, 0.02, 0.52, 0.88) translateMotto;
       display: flex;
       height: 100%;
       align-items: flex-end;
@@ -58,6 +59,9 @@
         height: fit-content;
         display: block;
         width: 100%;
+      }
+      &__animation {
+        animation: 1s cubic-bezier(0.4, 0.02, 0.52, 0.88) translateMotto;
       }
     }
   }

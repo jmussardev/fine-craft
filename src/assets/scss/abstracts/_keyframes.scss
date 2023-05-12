@@ -6,6 +6,16 @@
     transform: scale(100%);
   }
 }
+@keyframes scaleProducts {
+  from {
+    opacity: 0%;
+    transform: scale(105%);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(100%);
+  }
+}
 
 // @keyframes translateIntro {
 //   from {

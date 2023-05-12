@@ -15,20 +15,12 @@ export default function Home() {
           <LinkToAll>
             <p
               style={{
-                animation: "1s  cubic-bezier(.4,.02,.52,.88)  translateIntro",
                 letterSpacing: "0.25rem",
               }}
             >
               show me everything
             </p>
-            <span
-              style={{
-                animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
-              }}
-              className="linkToAll__arrow"
-            >
-              &gt;
-            </span>
+            <span className="linkToAll__arrow">&gt;</span>
           </LinkToAll>
         </div>
 
@@ -53,20 +45,12 @@ export default function Home() {
             <LinkToAll>
               <p
                 style={{
-                  animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
                   letterSpacing: "0.25rem",
                 }}
               >
                 show me everything
               </p>
-              <span
-                style={{
-                  animation: "1s  cubic-bezier(.4,.02,.52,.88) translateIntro",
-                }}
-                className="linkToAll__arrow"
-              >
-                &gt;
-              </span>
+              <span className="linkToAll__arrow">&gt;</span>
             </LinkToAll>
           </div>
         </div>

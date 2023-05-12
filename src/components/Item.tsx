@@ -3,6 +3,7 @@ import arrow from "./../assets/img/icons/arrow.svg";
 import add from "./../assets/img/icons/add.svg";
 import debounce from "./../../utils/debounce";
 import { Link } from "react-router-dom";
+import observer from "./../../utils/observer";
 
 export default function Item({
   img,
@@ -23,6 +24,7 @@ export default function Item({
     width: window.innerWidth,
   });
   const scrollRef = useRef<HTMLDivElement>(null);
+  const itemRef = useRef<HTMLDivElement>(null);
   let maxScrollLeft: number | null = null;
   if (scrollRef.current !== null) {
     maxScrollLeft =
@@ -36,6 +38,10 @@ export default function Item({
     const isOverflowing = el.clientWidth < el.scrollWidth;
     setIsOverflowing(isOverflowing);
   };
+
+  useEffect(() => {
+    observer("item__picture__animation", itemRef);
+  }, []);
 
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
@@ -56,7 +62,7 @@ export default function Item({
   }, [dimensions]);
 
   return (
-    <div className="item">
+    <div className="item" ref={itemRef}>
       <div className="item__picture noselect">
         <div className="item__picture__first">
           <img src={img} alt="" />
@@ -115,7 +121,7 @@ export default function Item({
                 <div></div>
               )}
               {isOverflowing ? (
-                maxScrollLeft && maxScrollLeft <= scrollIpt ? (
+                maxScrollLeft && maxScrollLeft - 1 <= scrollIpt ? (
                   <div></div>
                 ) : (
                   <button
