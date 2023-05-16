@@ -29,3 +29,14 @@
     }
   }
 }
+
+@mixin delayList {
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      opacity: 100%;
+      // color: black;
+      transform: translateY(0%);
+      transition: all 0.2s #{$i * 0.1}s ease-in;
+    }
+  }
+}

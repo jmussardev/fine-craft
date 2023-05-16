@@ -1,0 +1,42 @@
+{
+  "devices cases": [
+    "all device cases",
+    "m2 macbok air",
+    "new 14\" macbook pro",
+    "new 16\" macbook pro",
+    "older macbook pro",
+    "new - iphone 14 range",
+    "iphone",
+    "ipad",
+    "headphones"
+  ],
+  "small goods": [
+    "all small leather goods",
+    "wallets & card cases",
+    "key fobs / key cases",
+    "passport cases",
+    "dopp kits / wash bags",
+    "eyewear cases",
+    "pencil cases"
+  ],
+  "footwear": [
+    "all footwear",
+    "search by size*b",
+    "boots",
+    "shoes",
+    "sneakers",
+    "loafers",
+    "slippers"
+  ],
+  "search by size": [
+    "eu 38 / us 5",
+    "eu 39 / us 6",
+    "eu 40 / us 7",
+    "eu 41 / us 8",
+    "eu 42 / us 9",
+    "eu 43 / us 10",
+    "eu 44 / us 11",
+    "eu 45 / us 12",
+    "eu 46 / us 13"
+  ]
+}

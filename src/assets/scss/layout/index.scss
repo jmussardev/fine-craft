@@ -17,18 +17,18 @@
   // height: calc(100vw * 1.9273);
   display: flex;
   flex-direction: column;
-  border: 2px rgb(255, 46, 88) solid;
+  // border: 2px rgb(255, 46, 88) solid;
   height: min-content;
 
   .hero {
     height: calc(100vw * 1.3102);
-    border: 2px rgb(49, 46, 255) solid;
+    // border: 2px rgb(49, 46, 255) solid;
   }
 
   .products {
     // height: calc(100vw * 1.517);
     height: min-content;
-    border: 2px rgb(46, 234, 255) solid;
+    // border: 2px rgb(46, 234, 255) solid;
   }
 
   @media (width >= 46.87em) {
@@ -49,7 +49,7 @@
 .footer {
   height: calc(100vw * 0.59);
 
-  border: 2px rgb(46, 255, 140) solid;
+  // border: 2px rgb(46, 255, 140) solid;
   @media (width >= 46.87em) {
     height: calc(100vw * 0.45);
     max-height: 70rem;

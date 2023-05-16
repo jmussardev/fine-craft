@@ -10,10 +10,10 @@ export default function observer(
   const observer = new IntersectionObserver((entries) => {
     // Loop over the entries
     entries.forEach((entry) => {
-      console.log(entry.intersectionRatio);
       if (entry.isIntersecting) {
         // Add the animation class
         entry.target.classList.add(className);
+        // observer.unobserve(entry.target);
       }
     });
   }, options);
