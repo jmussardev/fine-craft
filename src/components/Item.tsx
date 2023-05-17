@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import arrow from "./../assets/img/icons/arrow.svg";
 import add from "./../assets/img/icons/add.svg";
-import debounce from "./../../utils/debounce";
+import debounce from "../../utils/debounce";
 import { Link } from "react-router-dom";
 import observer from "./../../utils/observer";
 

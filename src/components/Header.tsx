@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import arrow from "./../assets/img/icons/arrow.svg";
-import cross from "./../assets/img/icons/cross-icon.svg";
+
 import data from "./../data/drawerLists.json";
+import SearchBar from "./SearchBar";
 
 export const Header = () => {
   const [scrollIpt, setScrollIpt] = useState<number>(0);
@@ -72,37 +73,12 @@ export const Header = () => {
         }`}
       >
         {/* <-- SEARCHBAR -->  */}
-        <div
-          className={`header__searchBar ${
-            isSearchOpen ? "header__searchBar--open" : ""
-          } `}
-        >
-          <form className={`header__searchBar__form  `}>
-            <button>
-              <div className="header__searchBar__form__search ">
-                <div></div>
-              </div>
-            </button>
-            <input
-              type="text"
-              value={searchIpt}
-              placeholder="Search"
-              onChange={(e) => {
-                setSearchIpt(e.target.value);
-              }}
-            />
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setIsSearchOpen(false);
-              }}
-            >
-              <div className="header__searchBar__form__close ">
-                <img src={cross} alt="" />
-              </div>
-            </button>
-          </form>
-        </div>
+        <SearchBar
+          searchIpt={searchIpt}
+          setSearchIpt={setSearchIpt}
+          isSearchOpen={isSearchOpen}
+          setIsSearchOpen={setIsSearchOpen}
+        />
 
         {/* <-- SEARCHBAR -->  */}
 

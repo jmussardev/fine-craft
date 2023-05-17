@@ -1,11 +1,10 @@
-/* eslint-disable prefer-rest-params */
-export default function debounce(fn, ms) {
-  let timer;
-  return () => {
+export default function debounce(callback: () => void, delay: number) {
+  let timer: number;
+  return function (this: any, ...args: any) {
+    console.log(timer);
     clearTimeout(timer);
     timer = setTimeout(() => {
-      timer = null;
-      fn.apply(this, arguments);
-    }, ms);
+      callback.apply(this, args);
+    }, delay);
   };
 }
