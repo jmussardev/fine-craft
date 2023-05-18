@@ -280,10 +280,10 @@
   &__menuOverlay {
     position: absolute;
     z-index: -1;
-    height: 100vh;
-    width: 100vw;
 
     &--open {
+      height: 100vh;
+      width: 100vw;
       transition: background-color 110ms linear 50ms;
       background-color: #00000062;
     }

@@ -4,7 +4,7 @@ import arrow from "./../assets/img/icons/arrow.svg";
 
 import data from "./../data/drawerLists.json";
 import SearchBar from "./SearchBar";
-
+//
 export const Header = () => {
   const [scrollIpt, setScrollIpt] = useState<number>(0);
   const [searchIpt, setSearchIpt] = useState("");
