@@ -36,7 +36,15 @@
       opacity: 100%;
       // color: black;
       transform: translateY(0%);
-      transition: all 0.2s #{$i * 0.1}s ease-in;
+      transition: all 0.5s #{$i * 0.1}s ease-in;
+    }
+  }
+}
+
+@mixin delaySearchItem {
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation: fade #{$i * 0.25}s ease-in;
     }
   }
 }

@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import useScrollLock from "./../../hooks/useScrollLock";
 import arrow from "./../assets/img/icons/arrow.svg";
 
 import data from "./../data/drawerLists.json";
 import SearchBar from "./SearchBar";
 //
 export const Header = () => {
+  const { lockScroll } = useScrollLock();
   const [scrollIpt, setScrollIpt] = useState<number>(0);
   const [searchIpt, setSearchIpt] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -103,7 +105,9 @@ export const Header = () => {
             <div
               className="header__board__left__search"
               onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
                 setIsSearchOpen(true);
+                lockScroll();
                 setIsDrawerOpen(false);
               }}
             >

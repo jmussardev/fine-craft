@@ -1,3 +1,8 @@
+[data-scroll-lock="true"] {
+  margin-right: var(--scrollbar-compensation);
+  max-width: calc(100vw - var(--scrollbar-compensation));
+}
+
 .header {
   position: relative;
   width: 100%;
@@ -279,8 +284,9 @@
   }
   &__menuOverlay {
     position: absolute;
-    z-index: -1;
-
+    height: 0vh;
+    width: 0vw;
+    z-index: -2;
     &--open {
       height: 100vh;
       width: 100vw;
@@ -447,45 +453,70 @@
       max-width: 380px;
     }
   }
+  /**
+   * -- SEARCHBAR--
+   */
   &__searchBar {
     z-index: 9999;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     opacity: 0%;
     transform: translateY(-120%);
-    transition: all 450ms ease-in-out;
+    transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
 
     &--open {
       opacity: 100%;
       transform: translateY(0%);
-      transition: all 450ms ease-in;
+      transition: transform 450ms ease-in, opacity 450ms ease-in-out;
     }
 
     &__loader {
       width: 100%;
       height: 3rem;
       background-color: var(--COLOR-BG);
-      // animation: fade 250ms ease-in-out;
-      transition: all 250ms ease-in-out;
     }
 
     &__results {
       background-color: var(--COLOR-BG);
       padding: 1.6rem;
+      padding-bottom: 3rem;
       width: 100%;
       min-height: 11rem;
       animation: fade 250ms ease-in-out;
-      transition: all 250ms ease-in-out;
+      transition: animation 250ms ease-in-out;
+      & div {
+        @include delaySearchItem;
+      }
 
-      & ul {
-        width: 100%;
+      &__wrapper {
         min-height: 2rem;
         margin-bottom: 3rem;
-        transition: all 250ms ease-in-out;
-        animation: fade 250ms ease-in-out;
+      }
+
+      &__grid {
+        width: 100%;
+        min-height: 2rem;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+        gap: 1rem;
+
+        // animation: fade 250ms ease-in-out;
+        // transition: animation 250ms ease-in-out;
+        & li {
+          @include delaySearchItem;
+        }
+
+        @media (width >= 46.87em) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        @media (width <= 31.25em) {
+          grid-template-columns: repeat(1, 1fr);
+        }
       }
     }
 
@@ -499,7 +530,6 @@
       box-shadow: 0 4px 10px 0px var(--COLOR-SEARCHBAR-SHADOW);
 
       & button {
-        // flex: 0 0 5%;
         display: flex;
         justify-content: center;
         height: 100%;

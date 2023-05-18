@@ -1,6 +1,6 @@
 import { useRef, useEffect, useMemo } from "react";
 import debounce from "../utils/debounce";
-export default function useDebounce(callback) {
+export default function useDebounce(callback: any) {
   const ref = useRef<() => void>();
 
   useEffect(() => {

@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
+import useScrollLock from "../../hooks/useScrollLock";
 import cross from "./../assets/img/icons/cross-icon.svg";
 import data from "./../data/products.json";
 import debounce from "./../../utils/debounce";
@@ -26,7 +28,9 @@ export default function SearchBar({
   searchIpt: string;
   setSearchIpt: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  //-- STATE
+  //-- HOOKS
+  const { unlockScroll } = useScrollLock();
+  //-- STATES
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<item[] | null>(null);
   const [isHover, setIsHover] = useState(false);
@@ -67,6 +71,7 @@ export default function SearchBar({
   };
 
   const handleClose = () => {
+    unlockScroll();
     setIsSearchOpen(false);
     setShowLoader(false);
     setShowResult(false);
@@ -90,6 +95,9 @@ export default function SearchBar({
     }
   }, [result, isLoading]);
 
+  /**
+   * -- RETURN --
+   */
   return (
     <>
       <div
@@ -137,10 +145,31 @@ export default function SearchBar({
           <div className="header__searchBar__results">
             {searchIpt !== "" && isLoading === false && (
               <>
-                <ul>
+                <div className="header__searchBar__results__wrapper">
                   {result !== null ? (
                     result.length !== 0 ? (
-                      result.map((item) => <SearchItem item={item} />)
+                      <>
+                        {" "}
+                        <p
+                          style={{
+                            fontFamily: "playfair_displayregular",
+                            fontWeight: "600",
+                            letterSpacing: "0.05rem",
+                            paddingBottom: ".5rem",
+                            borderBottom: "1px white solid",
+                          }}
+                        >
+                          Products
+                        </p>{" "}
+                        <ul className="header__searchBar__results__grid">
+                          {result.map((item) => (
+                            <SearchItem item={item} />
+                          ))}
+                          <SearchItem item={result[0]} />
+                          <SearchItem item={result[0]} />
+                          <SearchItem item={result[0]} />
+                        </ul>{" "}
+                      </>
                     ) : (
                       <p>
                         No results for "
@@ -153,24 +182,27 @@ export default function SearchBar({
                   ) : (
                     ""
                   )}
-                </ul>
-                <Link
-                  to={"#"}
-                  style={{
-                    textTransform: "uppercase",
-                    padding: "1.3rem 1.7rem",
-                    border: "white 2px solid",
-                    color: isHover ? "black" : "white",
-                    backgroundColor: isHover ? "white" : "transparent",
-                    fontWeight: "bolder",
-                    transition: "all 250ms ease-in-out",
-                    animation: "fade 250ms ease-in-out",
-                  }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  see all products
-                </Link>
+                </div>
+                <div>
+                  <Link
+                    to={"#"}
+                    style={{
+                      textTransform: "uppercase",
+                      padding: "1.3rem 1.7rem",
+                      marginBottom: "5rem",
+                      border: "white 2px solid",
+                      color: isHover ? "black" : "white",
+                      backgroundColor: isHover ? "white" : "transparent",
+                      fontWeight: "bolder",
+                      transition: "all 250ms ease-in-out",
+                      animation: "fade 250ms ease-in-out",
+                    }}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    see all products
+                  </Link>
+                </div>
               </>
             )}
           </div>

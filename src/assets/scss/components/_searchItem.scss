@@ -1,16 +1,77 @@
 .searchItem {
-  width: 50%;
-  height: 4rem;
-  background-color: pink;
-  border: solid 1px black;
+  width: 100%;
+  min-height: 3rem;
+  display: flex;
+  // background-color: pink;
+  // border: solid 1px black;
+
+  &:hover &__description__name {
+    color: white;
+  }
+
+  @media (width >= 46.87em) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
   &__picture {
-    width: 2rem;
+    width: 4rem;
     height: auto;
 
+    padding: 1rem;
+    // background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (width >= 46.87em) {
+      width: 15rem;
+    }
+
     & img {
-      height: 100%;
-      width: 100%;
+      width: 4rem;
+      height: auto;
+      transition: opacity 250ms ease-in-out;
+
+      // height: 100%;
+      // width: 100%;
+      &:nth-child(1) {
+        position: relative;
+      }
+      &:nth-child(2) {
+        position: absolute;
+        opacity: 0%;
+        &:hover {
+          opacity: 100%;
+          transition: opacity 250ms ease-in-out;
+        }
+      }
+
+      @media (width >= 46.87em) {
+        width: 15rem;
+      }
+    }
+  }
+  &__description {
+    flex: 1;
+    height: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    // background-color: greenyellow;
+    @media (width >= 46.87em) {
+      font-size: 1.1rem;
+      padding-inline: 2rem;
+    }
+
+    &__name {
+      &:hover {
+        color: var(--COLOR-WHITE);
+      }
+    }
+    &__price {
+      font-size: 0.9rem;
     }
   }
 }
