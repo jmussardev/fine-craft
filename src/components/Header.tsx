@@ -2,16 +2,22 @@
 import { useEffect, useState } from "react";
 import useScrollLock from "./../../hooks/useScrollLock";
 import arrow from "./../assets/img/icons/arrow.svg";
+import cross from "./../assets/img/icons/cross-icon.svg";
+import google from "./../assets/img/icons/gpay.svg";
+import shop from "./../assets/img/icons/Shop.svg";
+import paypal from "./../assets/img/icons/paypal-logo-svg-vector.svg";
 
 import data from "./../data/drawerLists.json";
 import SearchBar from "./SearchBar";
+import Cart from "./Cart";
 //
 export const Header = () => {
-  const { lockScroll } = useScrollLock();
+  const { lockScroll, unlockScroll } = useScrollLock();
   const [scrollIpt, setScrollIpt] = useState<number>(0);
   const [searchIpt, setSearchIpt] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [secondCategory, setSecondCategory] = useState("");
   const [thirdCategory, setThirdCategory] = useState("");
   const [isSecondary, setIsSecondary] = useState(false);
@@ -53,6 +59,9 @@ export const Header = () => {
   };
 
   useEffect(() => {
+    console.log(isCartOpen);
+  }, [isCartOpen]);
+  useEffect(() => {
     handleAnimate();
   }, [isDrawerOpen, isSecondary, isTertiary]);
 
@@ -81,9 +90,9 @@ export const Header = () => {
           isSearchOpen={isSearchOpen}
           setIsSearchOpen={setIsSearchOpen}
         />
-
         {/* <-- SEARCHBAR -->  */}
 
+        {/* <-- HEADER-BOARD -->  */}
         <div className="header__board">
           <div className="header__board__left">
             <div className="header__board__left__menu">
@@ -126,7 +135,13 @@ export const Header = () => {
               </div>
             </div>
             <div className="header__board__right__cart">
-              <div className="header__board__right__cart__button">
+              <div
+                className="header__board__right__cart__button"
+                onClick={() => {
+                  lockScroll();
+                  setIsCartOpen(true);
+                }}
+              >
                 <div
                   className={`header__board__right__cart__button${
                     scrollIpt > 0 || isDrawerOpen ? "--brown" : "--white"
@@ -136,10 +151,10 @@ export const Header = () => {
             </div>
           </div>
         </div>
+        {/* <-- HEADER-BOARD -->  */}
 
-        {/* <-- Menu Nav --> */}
+        {/* <-- Menu Nav / Drawer left --> */}
         <div
-          // hidden={isDrawerOpen ? false : true}
           className={`header__menuOverlay ${
             isDrawerOpen ? "header__menuOverlay--open" : ""
           } `}
@@ -254,7 +269,15 @@ export const Header = () => {
           </div>
         </div>
         {/* <-- Menu Nav --> */}
+        {/* <-- Cart / Drawer right --> */}
+        <Cart
+          isCartOpen={isCartOpen}
+          setIsCartOpen={setIsCartOpen}
+          unlockScroll={unlockScroll}
+        />
+        {/* <-- Cart / Drawer right --> */}
       </div>
     </>
   );
 };
+3;

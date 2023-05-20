@@ -1,0 +1,263 @@
+.header {
+  position: relative;
+  &__cart {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: calc(var(--scrollbar-compensation) * -1);
+    min-height: 100vh;
+    max-height: 100vh;
+
+    width: 380px;
+
+    border-left: 1px var(--COLOR-WHITE) solid;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    background-color: var(--COLOR-BG);
+    opacity: 0%;
+    transform: translateX(100%);
+    transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
+    &--open {
+      opacity: 100%;
+      transform: translateX(0%);
+      transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
+    }
+
+    @media (width<=380px) {
+      width: 100vw;
+    }
+
+    &__title {
+      height: 60px;
+      width: 100%;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px var(--COLOR-WHITE) solid;
+      font-size: 12px;
+
+      &__close {
+        width: 24px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & img {
+          height: 15px;
+          width: 15px;
+          transition: transform 250ms ease-in-out;
+        }
+        &:hover {
+          img {
+            @include filterBrown;
+            transform: rotate(90deg);
+            transition: transform 250ms ease-in-out;
+          }
+        }
+      }
+    }
+    &__wrapper {
+      width: 100%;
+      height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+
+      &__content {
+        flex: 1;
+        min-height: 300px;
+        overflow-y: auto;
+        // background-color: rgb(139, 241, 182);
+        border-bottom: 1px solid var(--COLOR-WHITE);
+      }
+      &__shipping {
+        flex-shrink: 0;
+        max-height: 280px;
+        text-transform: none;
+        background-color: var(--COLOR-BG);
+        border-bottom: 1px solid var(--COLOR-WHITE);
+
+        &__title {
+          height: 40px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-inline: 15px;
+          border-bottom: 1px solid var(--COLOR-WHITE);
+
+          &__btn {
+            width: 24px;
+            height: 100%;
+            @include flexCenter;
+            background-color: transparent;
+            border: none;
+            &:hover {
+              @include filterBrown;
+            }
+
+            &__icon {
+              @include flexCenter;
+              position: relative;
+              width: 14px;
+              height: 14px;
+              & div {
+                width: 100%;
+
+                border: 1px solid black;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  @include originCenter;
+                  top: 50%;
+                  left: 50%;
+                  width: 100%;
+                  transform: rotate(90deg);
+                  border: 1px solid black;
+                  transition: transform 250ms ease-in-out;
+                }
+              }
+              &--open {
+                & div {
+                  &::before {
+                    transform: rotate(180deg);
+                    transition: transform 250ms ease-in-out;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__form {
+          max-height: 0;
+          overflow: hidden;
+          padding-inline: 15px;
+          transition: max-height 0.6s ease-out;
+
+          &--open {
+            max-height: 600px;
+            transition: max-height 0.6s ease-in;
+          }
+
+          &__input {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            &:nth-child(1) {
+              padding-top: 20px;
+            }
+            & input {
+              height: 30px;
+              background-color: var(--COLOR-BG);
+              border: 1px solid var(--COLOR-WHITE);
+            }
+          }
+
+          & button {
+            margin-top: 20px;
+            width: 100%;
+            height: 35px;
+            font-size: 10px;
+            color: var(--COLOR-WHITE);
+            text-transform: uppercase;
+            background-color: var(--COLOR-BG);
+            border: 1px solid var(--COLOR-WHITE);
+            transition: all 250ms ease-in-out;
+            margin-bottom: 20px;
+
+            &:hover {
+              background-color: var(--COLOR-WHITE);
+              color: black;
+            }
+          }
+        }
+      }
+
+      &__checkout {
+        flex-shrink: 0;
+        max-height: fit-content;
+        min-height: 380px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &__regular {
+          width: 100%;
+          padding: 15px;
+          border-bottom: 1px solid var(--COLOR-WHITE);
+
+          & button {
+            position: relative;
+            z-index: 99;
+            width: 100%;
+            height: 50px;
+            font-size: 11px;
+            background-color: transparent;
+            border: 1px solid var(--COLOR-WHITE);
+
+            &:hover {
+              color: var(--COLOR-WHITE);
+              &::after {
+                left: 0;
+                opacity: 100%;
+                background-color: rgb(0, 0, 0);
+                animation: checkout 300ms ease-in-out;
+              }
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              z-index: -2;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgb(255, 255, 255);
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              z-index: -1;
+              top: 0;
+              right: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0%;
+              background-color: rgb(0, 0, 0);
+              animation: checkoutReverse 350ms ease-in-out;
+            }
+          }
+        }
+        &__fast {
+          height: 100%;
+          padding: 15px;
+          min-height: 190px;
+          width: 100%;
+
+          & button {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            border: none;
+            &:not(:last-child) {
+              margin-bottom: 10px;
+            }
+
+            img {
+              width: auto;
+            }
+            &:hover {
+              background-color: blue;
+              filter: brightness(95%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

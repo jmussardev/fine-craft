@@ -48,3 +48,18 @@
     }
   }
 }
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin originCenter {
+  translate: -50% -50%;
+}
+
+@mixin filterBrown {
+  filter: invert(19%) sepia(7%) saturate(5238%) hue-rotate(333deg)
+    brightness(100%) contrast(98%);
+}
