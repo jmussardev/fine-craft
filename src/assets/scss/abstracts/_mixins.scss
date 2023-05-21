@@ -40,6 +40,16 @@
     }
   }
 }
+@mixin delayCart {
+  @for $i from 1 through 20 {
+    div:nth-of-type(#{$i}) {
+      opacity: 100%;
+      transform: translateX(0%);
+      transition: transform 0.4s #{$i * 0.1}s ease-in-out,
+        opacity 0.6s #{$i * 0.1}s ease-in;
+    }
+  }
+}
 
 @mixin delaySearchItem {
   @for $i from 1 through 10 {

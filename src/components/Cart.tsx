@@ -56,10 +56,6 @@ export default function Cart({
           <CartItem />
           <CartItem />
           <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
         </div>
         <div className="header__cart__wrapper__shipping">
           <div className="header__cart__wrapper__shipping__title">

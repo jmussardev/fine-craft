@@ -99,3 +99,12 @@
     width: 0%;
   }
 }
+
+@keyframes test {
+  from {
+    translate: 10% 0;
+  }
+  to {
+    translate: 0% 0;
+  }
+}
