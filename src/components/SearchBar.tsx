@@ -63,6 +63,7 @@ export default function SearchBar({
     }
   };
   const debouncedSearch = useDebounce(handleSearch);
+
   const handleMouseEnter = () => {
     setIsHover(true);
   };

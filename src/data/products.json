@@ -3,11 +3,11 @@
     "id": "1",
     "name": "fuzzy iphone 14 pro/pro max cover",
     "price": 71.95,
-    "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
     "variants": [
       {
         "variant": "dusty brown",
-        "isAvailable": true,
+        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
+        "isAvailable": { "iPhone 14 Pro": true, "iPhone 14 Pro Max": true },
         "photos": [
           "./../../public/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan.jpg",
           "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02.jpg",
@@ -51,6 +51,73 @@
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
               "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+            ]
+          }
+        ]
+      },
+      {
+        "variant": "raw concrete",
+        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
+        "isAvailable": { "iPhone 14 Pro": false, "iPhone 14 Pro Max": true },
+        "photos": [
+          "./../../public/img/fuzzy-iphone/raw-concrete/alcantara-backup-grey.jpg",
+          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-01_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-02_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-03_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-04_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-05_3000x.jpg"
+        ],
+        "reviews": [
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 5,
+            "description": "Really nice feeling when holding it in your hand",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "Looks and feels great.",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          }
+        ]
+      },
+      {
+        "variant": "navy blue",
+        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
+        "isAvailable": { "iPhone 14 Pro": true, "iPhone 14 Pro Max": false },
+        "photos": [
+          "./../../public/img/fuzzy-iphone/navy-blue/alcantara-backup-blue.jpg",
+          " ./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-01_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-02_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-03_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-04_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-05_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-06_3000x.jpg",
+          " ./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-07_3000x.jpg"
+        ],
+        "reviews": [
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 5,
+            "description": "Best Case !! ^0^",
+            "isVerified": true,
+            "type": "iPhone 14 Pro Max",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": [
+              "./../../public/img/fuzzy-iphone/navy-blue/reviews/gArzo1JUY2.jpg"
             ]
           }
         ]

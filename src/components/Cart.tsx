@@ -7,6 +7,11 @@ import debounce from "../../utils/debounce";
 import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
 
+/**
+ *
+ * COMPONENT
+ *
+ */
 export default function Cart({
   isCartOpen,
   unlockScroll,
@@ -16,9 +21,16 @@ export default function Cart({
   unlockScroll: () => void;
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  /**
+   * States
+   */
   const [fakeShipping, setFakeShipping] = useState(false);
   const [isCalulating, setIsCalulating] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  /**
+   * Functions
+   */
   const dummyShipping = () => {
     setFakeShipping(false);
     setIsCalulating(true);
@@ -30,6 +42,9 @@ export default function Cart({
     return delayDummy();
   };
 
+  /**
+   * Effects
+   */
   useEffect(() => {
     const handleCalculating = () => {
       setIsCalulating(false);
