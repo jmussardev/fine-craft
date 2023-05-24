@@ -73,3 +73,48 @@
   filter: invert(19%) sepia(7%) saturate(5238%) hue-rotate(333deg)
     brightness(100%) contrast(98%);
 }
+
+@mixin line-clamp($lines, $line-height) {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  max-height: $lines * $line-height;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin btn-hover-effect($color, $firstbgcolor, $secondbgcolor) {
+  &:hover {
+    color: $color;
+    &::after {
+      left: 0;
+      opacity: 100%;
+      background-color: $firstbgcolor;
+      animation: checkout 300ms ease-in-out;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $secondbgcolor;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    background-color: $firstbgcolor;
+    animation: checkoutReverse 350ms ease-in-out;
+  }
+}

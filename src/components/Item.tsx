@@ -4,6 +4,9 @@ import add from "./../assets/img/icons/add.svg";
 import debounce from "../../utils/debounce";
 import { Link } from "react-router-dom";
 import observer from "./../../utils/observer";
+import { useCartStore } from "../stores/Cart.store";
+import { useQuickAddStore } from "../stores/QuickAdd.store";
+import useScrollLock from "../../hooks/useScrollLock";
 
 /**
  * Types
@@ -17,18 +20,20 @@ interface variant {
  * COMPONENT
  */
 export default function Item({
-  img,
-  secondImg,
+  id,
   title,
   price,
   variants,
 }: {
-  img: string;
-  secondImg: string;
+  id: string;
   title: string;
   price: number;
   variants: variant[];
 }) {
+  /**
+   * Hooks
+   */
+  const { lockScroll } = useScrollLock();
   /**
    * States
    */
@@ -37,15 +42,19 @@ export default function Item({
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
   });
-  const [isHover, setIsHover] = useState(false);
   const [current, setCurrent] = useState(variants[0]);
+  const cartContent = useCartStore((state: any) => state.content);
+  const toggleQuickAddDrawer = useQuickAddStore(
+    (state: any) => state.toggleQuickAddDrawer
+  );
+  const setId = useQuickAddStore((state: any) => state.setId);
+
   /**
    * Refs
    */
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
   const variantRef = useRef<HTMLDivElement>(null);
-  // const IsHoverVariant = useRef(false);
 
   let maxScrollLeft: number | null = null;
   if (scrollRef.current !== null) {
@@ -55,6 +64,8 @@ export default function Item({
   /**
    * Functions
    */
+  const addItemToCart = useCartStore((state: any) => state.addItem);
+
   const checkOverflow = (el: HTMLDivElement | null) => {
     if (el === null) {
       return null;
@@ -64,24 +75,22 @@ export default function Item({
   };
 
   const handleMouseEnter = (variant: variant) => {
-    // alert("enter");
-    // setIsHover(true);
-    // if (variantRef.current) variantRef.current.dataset.isHover = "true";
     setCurrent(variants[variants.indexOf(variant)]);
   };
   const handleMouseLeave = () => {
-    setIsHover(false);
     setCurrent(variants[0]);
+  };
+
+  const handleAddItem = () => {
+    // addItemToCart({ id: id });
+    // const newCart = [...cartContent, { id: id }];
+    // localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
   /**
    * Effects
    */
 
-  useEffect(() => {
-    // if (isHover) alert("enter");
-    // console.log("enter");
-  }, [isHover]);
   useEffect(() => {
     observer("item__picture__animation", itemRef);
   }, []);
@@ -106,16 +115,37 @@ export default function Item({
 
   return (
     <div className="item" ref={itemRef}>
-      <div className="item__picture noselect">
+      <div
+        className="item__picture noselect"
+        onClick={() => {
+          handleAddItem();
+        }}
+      >
         <div className="item__picture__first">
           <img src={current.photos[0]} alt="" />
         </div>
         <Link to={"#"} className="item__picture__second">
           <img src={current.photos[1]} alt="" />
-          <div className="item__picture__second__add--small">
+          <div
+            className="item__picture__second__add--small"
+            onClick={() => {
+              console.log("Id : " + id);
+              setId(id);
+              toggleQuickAddDrawer();
+              lockScroll();
+            }}
+          >
             <img src={add} alt="" />
           </div>
-          <div className="item__picture__second__add--large">
+          <div
+            className="item__picture__second__add--large"
+            onClick={() => {
+              console.log("Id : " + id);
+              setId(id);
+              toggleQuickAddDrawer();
+              lockScroll();
+            }}
+          >
             <p>quick add</p>
           </div>
         </Link>

@@ -1,13 +1,23 @@
 [
   {
-    "id": "1",
-    "name": "fuzzy iphone 14 pro/pro max cover",
+    "id": "100",
+    "name": "iphone 14 cover",
     "price": 71.95,
+    "type": [
+      "iPhone 14",
+      "iPhone 14 Plus",
+      "iPhone 14 Pro",
+      "iPhone 14 Pro Max"
+    ],
     "variants": [
       {
         "variant": "dusty brown",
-        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
-        "isAvailable": { "iPhone 14 Pro": true, "iPhone 14 Pro Max": true },
+        "isAvailable": {
+          "iPhone 14": false,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": false
+        },
         "photos": [
           "./../../public/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan.jpg",
           "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02.jpg",

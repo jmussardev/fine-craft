@@ -204,38 +204,11 @@
             background-color: transparent;
             border: 1px solid var(--COLOR-WHITE);
 
-            &:hover {
-              color: var(--COLOR-WHITE);
-              &::after {
-                left: 0;
-                opacity: 100%;
-                background-color: rgb(0, 0, 0);
-                animation: checkout 300ms ease-in-out;
-              }
-            }
-
-            &::before {
-              content: "";
-              position: absolute;
-              z-index: -2;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgb(255, 255, 255);
-            }
-            &::after {
-              content: "";
-              position: absolute;
-              z-index: -1;
-              top: 0;
-              right: 0;
-              width: 100%;
-              height: 100%;
-              opacity: 0%;
-              background-color: rgb(0, 0, 0);
-              animation: checkoutReverse 350ms ease-in-out;
-            }
+            @include btn-hover-effect(
+              var(--COLOR-WHITE),
+              black,
+              var(--COLOR-WHITE)
+            );
           }
         }
         &__fast {
@@ -260,7 +233,7 @@
               width: auto;
             }
             &:hover {
-              background-color: blue;
+              // background-color: blue;
               filter: brightness(95%);
             }
           }

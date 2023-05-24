@@ -1,0 +1,197 @@
+.quickAdd {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  // min-height: 400px;
+  width: 380px;
+  // border-left: 1px var(--COLOR-WHITE) solid;
+  font-size: 1.2rem;
+  background-color: var(--COLOR-BG);
+  opacity: 0%;
+  overflow-y: auto;
+
+  transform: translateX(100%);
+  transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
+  @for $i from 1 through 10 {
+    div:nth-of-type(#{$i}) {
+      opacity: 0%;
+      transform: translateX(10%);
+    }
+  }
+  &--open {
+    @include delayCart;
+    opacity: 100%;
+    transform: translateX(0%);
+    transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
+  }
+
+  @media (width<=380px) {
+    width: 100vw;
+  }
+  &__overlay {
+    z-index: 99;
+    position: fixed;
+    left: 0;
+    background-color: #00000062;
+    min-width: 0%;
+    height: 100%;
+    transition: opacity 450ms ease-in-out;
+
+    &--open {
+      min-width: 100%;
+      opacity: 100%;
+      transition: opacity 450ms ease-in-out;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    // height: calc(100% - 97px);
+    height: 100%;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // overflow-y: auto;
+    &__close {
+      z-index: 999;
+      position: absolute;
+      top: 30px;
+      right: 15px;
+      width: 24px;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & img {
+        height: 15px;
+        width: 15px;
+        transition: transform 250ms ease-in-out;
+      }
+      &:hover {
+        img {
+          @include filterBrown;
+          transform: rotate(90deg);
+          transition: transform 250ms ease-in-out;
+        }
+      }
+    }
+    &__picture {
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+    }
+    &__form {
+      width: 100%;
+      height: 50%;
+      margin-top: 20px;
+      padding-inline: 20px;
+      letter-spacing: 0.1px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &__options {
+        // border: green 2px solid;
+
+        &__title {
+          max-width: 260px;
+          text-transform: uppercase;
+          font-weight: bold;
+          margin-bottom: 20px;
+          & h1 {
+            font-size: 16px;
+            line-height: 1.2;
+          }
+          & p {
+            font-size: 12px;
+            color: var(--COLOR-ITEM-INFO);
+            margin-top: 8px;
+          }
+        }
+        &__variants {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          margin-bottom: 40px;
+          & div {
+            height: 43px;
+            width: 43px;
+            overflow: hidden;
+            &:not(:first-child) {
+              margin-left: 10px;
+            }
+            @include flexCenter;
+            cursor: pointer;
+            // border: 1px solid black;
+            & img {
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+        &__types {
+          margin-bottom: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          width: 260px;
+          font-size: 12px;
+          // border: 1px solid black;
+
+          & div {
+            padding: 10px;
+            padding-inline: 20px;
+            border: 1px solid var(--COLOR-WHITE);
+            margin-bottom: 10px;
+            &:not(:first-child, :nth-child(3)) {
+              margin-left: 10px;
+            }
+            cursor: pointer;
+            &:hover {
+              border: 1px solid var(--COLOR-ITEM-HOVER-BTN);
+              transition: all 250ms ease-in-out;
+            }
+          }
+        }
+
+        &__description {
+          font-size: 12px;
+          @include line-clamp(4, 1);
+          width: 100%;
+          & strong {
+            font-weight: 700;
+          }
+        }
+      }
+      &__add {
+        flex-shrink: 0;
+        position: sticky;
+        height: 95px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: linear-gradient(
+          360deg,
+          var(--COLOR-BG) 95%,
+          rgba(218, 218, 210, 0.6412) 100%
+        );
+        @include flexCenter;
+
+        &__btn {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: 500;
+          border: none;
+          background-color: transparent;
+          @include btn-hover-effect(black, #d9d9d9, var(--COLOR-WHITE));
+        }
+      }
+    }
+  }
+}

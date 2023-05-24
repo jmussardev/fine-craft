@@ -1,13 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Footer from "../components/Footer";
 import { Header } from "../components/Header";
 import Hero from "../components/Hero";
 import LinkToAll from "../components/LinkToAll";
 import Products from "../components/Products";
+import QuickAdd from "../components/QuickAdd";
 import Separator from "../components/Separator";
+import { useCartStore } from "../stores/Cart.store";
+import { useEffect } from "react";
 
 export default function Home() {
+  const cartContent = useCartStore((state: any) => state.content);
+  const resumeContent = useCartStore((state: any) => state.resumeContent);
+
+  useEffect(() => {
+    // console.log(cartContent);
+    // console.log(localStorage);
+    // console.log("cart" in localStorage);
+    if ("cart" in localStorage) {
+      const storage = localStorage.getItem("cart");
+      // console.log(storage);
+      resumeContent(storage);
+    }
+  }, []);
+
   return (
     <div className="container">
+      <QuickAdd />
       <Header />
       <section className="content">
         <Hero />
