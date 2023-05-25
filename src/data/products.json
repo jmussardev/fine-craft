@@ -1,6 +1,6 @@
 [
   {
-    "id": "100",
+    "id": "1",
     "name": "iphone 14 cover",
     "price": 71.95,
     "type": [
@@ -67,8 +67,12 @@
       },
       {
         "variant": "raw concrete",
-        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
-        "isAvailable": { "iPhone 14 Pro": false, "iPhone 14 Pro Max": true },
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": true
+        },
         "photos": [
           "./../../public/img/fuzzy-iphone/raw-concrete/alcantara-backup-grey.jpg",
           "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-01_3000x.jpg",
@@ -104,8 +108,12 @@
       },
       {
         "variant": "navy blue",
-        "type": ["iPhone 14 Pro", "iPhone 14 Pro Max"],
-        "isAvailable": { "iPhone 14 Pro": true, "iPhone 14 Pro Max": false },
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": false,
+          "iPhone 14 Pro Max": false
+        },
         "photos": [
           "./../../public/img/fuzzy-iphone/navy-blue/alcantara-backup-blue.jpg",
           " ./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-01_3000x.jpg",

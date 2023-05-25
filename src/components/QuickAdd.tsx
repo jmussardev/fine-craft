@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import cross from "./../assets/img/icons/cross-icon.svg";
 import { useState, useEffect } from "react";
 import { useQuickAddStore } from "../stores/QuickAdd.store";
@@ -5,6 +6,9 @@ import useScrollLock from "../../hooks/useScrollLock";
 import data from "./../data/products.json";
 import Carousel from "./Carousel";
 // import DOMPurify from "dompurify";
+interface types {
+  [key: string]: boolean;
+}
 
 /**
  *
@@ -26,10 +30,10 @@ export default function QuickAdd() {
     (state: any) => state.toggleQuickAddDrawer
   );
   const item = data.find((item) => {
-    return item.id === itemId;
+    return item.id === item.id;
   });
   const [currentVariant, setcurrentVariant] = useState(
-    item ? item?.variants[1] : null
+    item ? item.variants[0] : null
   );
 
   const [currentType, setcurrentType] = useState(item ? item?.type[0] : null);
@@ -47,6 +51,26 @@ export default function QuickAdd() {
   const handleMouseLeave = () => {
     setIsHover(true);
   };
+  const isTypeAvailable = (type: string) => {
+    if (currentVariant) {
+      const types: types = currentVariant.isAvailable;
+      return types[type];
+    }
+  };
+  const isCurrentType = (type: string) => {
+    if (item) {
+      return currentType === type;
+    }
+  };
+  const handleFirstAvailable = () => {
+    if (currentVariant) {
+      const types: types = currentVariant.isAvailable;
+      for (const key in types) {
+        if (types[key] === true) return key;
+      }
+    }
+    return "";
+  };
 
   /**
    * Effects
@@ -56,6 +80,9 @@ export default function QuickAdd() {
     console.log(item);
     console.log("itemId : " + itemId);
   }, [isOpen, itemId, item]);
+  useEffect(() => {
+    if (currentVariant) setcurrentType(handleFirstAvailable());
+  }, [currentVariant]);
 
   return (
     <>
@@ -93,6 +120,9 @@ export default function QuickAdd() {
                     onClick={() => {
                       setcurrentVariant(variant);
                     }}
+                    className={`${
+                      variant === currentVariant ? "currentVariant" : ""
+                    }`}
                   >
                     <img src={variant.photos[0]} alt="" />
                   </div>
@@ -100,7 +130,17 @@ export default function QuickAdd() {
               </div>
               <div className="quickAdd__wrapper__form__options__types">
                 {item?.type.map((type) => (
-                  <div>{type}</div>
+                  <button
+                    onClick={() => {
+                      setcurrentType(type);
+                    }}
+                    className={`${
+                      isTypeAvailable(type) ? "" : "notAvailable"
+                    } ${isCurrentType(type) ? "currentType" : ""}`}
+                    disabled={!isTypeAvailable(type)}
+                  >
+                    {type}
+                  </button>
                 ))}
               </div>
               <p

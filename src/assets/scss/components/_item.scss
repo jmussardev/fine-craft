@@ -201,7 +201,7 @@
 
             @include flexCenter;
             &.current {
-              outline: 2px rgba(188, 188, 188, 0.555) solid;
+              outline: 2px var(--COLOR-CURRENT-VARIANT) solid;
             }
 
             // background-color: rgb(142, 142, 238);
