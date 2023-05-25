@@ -165,8 +165,9 @@ export default function Item({
               ref={scrollRef}
               className="item__infos__variants__grid__scrollbar"
             >
-              {variants.map((variant) => (
+              {variants.map((variant, index) => (
                 <div
+                  key={index}
                   ref={variantRef}
                   className={`test ${
                     variants.indexOf(variant) === 0 ? "current" : ""
@@ -176,8 +177,9 @@ export default function Item({
                   <img src={variant.photos[0]} alt="" />
                 </div>
               ))}
-              {variants.map((variant) => (
+              {variants.map((variant, index) => (
                 <div
+                  key={index}
                   ref={variantRef}
                   className={`test ${
                     variants.indexOf(variant) === 0 ? "current" : ""

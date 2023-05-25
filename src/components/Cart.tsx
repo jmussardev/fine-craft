@@ -6,6 +6,8 @@ import countries from "./../data/countries.json";
 import debounce from "../../utils/debounce";
 import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
+import { useCartStore } from "./../stores/Cart.store.ts";
+import { ItemContainer } from "./../../config/types.ts";
 
 /**
  *
@@ -27,7 +29,7 @@ export default function Cart({
   const [fakeShipping, setFakeShipping] = useState(false);
   const [isCalulating, setIsCalulating] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-
+  const cartContent: [] = useCartStore((state: any) => state.content);
   /**
    * Functions
    */
@@ -68,9 +70,11 @@ export default function Cart({
       </div>
       <div className="header__cart__wrapper">
         <div className="header__cart__wrapper__content">
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartContent.length !== 0
+            ? cartContent.map((item, index) => (
+                <CartItem key={index} cartItem={item} />
+              ))
+            : ""}
         </div>
         <div className="header__cart__wrapper__shipping">
           <div className="header__cart__wrapper__shipping__title">
@@ -102,8 +106,8 @@ export default function Cart({
               <label htmlFor="countries">Country/region</label>
               <input list="countries" />
               <datalist id="countries">
-                {countries.map((country) => (
-                  <option value={country.name} />
+                {countries.map((country, index) => (
+                  <option key={index} value={country.name} />
                 ))}
               </datalist>
             </div>

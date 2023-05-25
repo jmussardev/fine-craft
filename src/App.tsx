@@ -1,7 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import { useEffect } from "react";
+import { useCartStore } from "./stores/Cart.store";
 
 function App() {
+  const resumeContent = useCartStore((state: any) => state.resumeContent);
+
+  useEffect(() => {
+    if ("cart" in localStorage) {
+      const storage = localStorage.getItem("cart");
+      if (!storage) return;
+      resumeContent(JSON.parse(storage));
+    }
+  }, []);
   return (
     <>
       {/* <Navbar /> */}

@@ -2,7 +2,7 @@ import products from "./../data/products.json";
 import Item from "./Item";
 
 export default function Products() {
-  console.log(products);
+  // console.log(products);
   return (
     <div className="products">
       <Item

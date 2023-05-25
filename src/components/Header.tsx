@@ -59,7 +59,7 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    console.log(isCartOpen);
+    // console.log(isCartOpen);
   }, [isCartOpen]);
   useEffect(() => {
     handleAnimate();

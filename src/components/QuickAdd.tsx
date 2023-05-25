@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable react-hooks/exhaustive-deps */
 import cross from "./../assets/img/icons/cross-icon.svg";
 import { useState, useEffect } from "react";
@@ -5,7 +6,9 @@ import { useQuickAddStore } from "../stores/QuickAdd.store";
 import useScrollLock from "../../hooks/useScrollLock";
 import data from "./../data/products.json";
 import Carousel from "./Carousel";
+
 // import DOMPurify from "dompurify";
+import useCart from "./../../hooks/useCart.ts";
 interface types {
   [key: string]: boolean;
 }
@@ -20,12 +23,13 @@ export default function QuickAdd() {
    * Hooks
    */
   const { unlockScroll } = useScrollLock();
+  const { addCart, removeCart } = useCart();
   /**
    * States
    */
   const [isHover, setIsHover] = useState(false);
   const isOpen = useQuickAddStore((state: any) => state.isOpen);
-  const itemId = useQuickAddStore((state: any) => state.itemId);
+  // const itemId = useQuickAddStore((state: any) => state.itemId);
   const toggleQuickAddDrawer = useQuickAddStore(
     (state: any) => state.toggleQuickAddDrawer
   );
@@ -75,11 +79,11 @@ export default function QuickAdd() {
   /**
    * Effects
    */
-  useEffect(() => {
-    console.log(isOpen);
-    console.log(item);
-    console.log("itemId : " + itemId);
-  }, [isOpen, itemId, item]);
+  // useEffect(() => {
+  //   console.log(isOpen);
+  //   console.log(item);
+  //   console.log("itemId : " + itemId);
+  // }, [isOpen, itemId, item]);
   useEffect(() => {
     if (currentVariant) setcurrentType(handleFirstAvailable());
   }, [currentVariant]);
@@ -112,8 +116,9 @@ export default function QuickAdd() {
                 <p>€{item?.price}</p>
               </div>
               <div className="quickAdd__wrapper__form__options__variants">
-                {item?.variants.map((variant) => (
+                {item?.variants.map((variant, index) => (
                   <div
+                    key={index}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     title={isHover ? item.name + ". " + variant.variant : ""}
@@ -129,8 +134,9 @@ export default function QuickAdd() {
                 ))}
               </div>
               <div className="quickAdd__wrapper__form__options__types">
-                {item?.type.map((type) => (
+                {item?.type.map((type, index) => (
                   <button
+                    key={index}
                     onClick={() => {
                       setcurrentType(type);
                     }}
@@ -151,7 +157,14 @@ export default function QuickAdd() {
               />
             </div>
             <div className="quickAdd__wrapper__form__add">
-              <button className="quickAdd__wrapper__form__add__btn">
+              <button
+                className="quickAdd__wrapper__form__add__btn"
+                onClick={() => {
+                  if (!item || !currentType || !currentVariant) return;
+                  addCart(item, currentType, currentVariant);
+                  // removeCart(item, currentType, currentVariant);
+                }}
+              >
                 add to cart
               </button>
             </div>
