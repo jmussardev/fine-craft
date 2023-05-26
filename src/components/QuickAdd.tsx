@@ -3,6 +3,7 @@
 import cross from "./../assets/img/icons/cross-icon.svg";
 import { useState, useEffect } from "react";
 import { useQuickAddStore } from "../stores/QuickAdd.store";
+import { useCartStore } from "../stores/Cart.store";
 import useScrollLock from "../../hooks/useScrollLock";
 import data from "./../data/products.json";
 import Carousel from "./Carousel";
@@ -23,7 +24,7 @@ export default function QuickAdd() {
    * Hooks
    */
   const { unlockScroll } = useScrollLock();
-  const { addCart, removeCart } = useCart();
+  const { addItem } = useCart();
   /**
    * States
    */
@@ -33,6 +34,7 @@ export default function QuickAdd() {
   const toggleQuickAddDrawer = useQuickAddStore(
     (state: any) => state.toggleQuickAddDrawer
   );
+  const setCartOpen = useCartStore((state: any) => state.setIsOpen);
   const item = data.find((item) => {
     return item.id === item.id;
   });
@@ -75,15 +77,18 @@ export default function QuickAdd() {
     }
     return "";
   };
+  const handleAddCart = () => {
+    toggleQuickAddDrawer();
+    setCartOpen(true);
+
+    if (!item || !currentType || !currentVariant) return;
+    addItem(item.id, item.price, currentType, currentVariant.variant);
+  };
 
   /**
    * Effects
    */
-  // useEffect(() => {
-  //   console.log(isOpen);
-  //   console.log(item);
-  //   console.log("itemId : " + itemId);
-  // }, [isOpen, itemId, item]);
+
   useEffect(() => {
     if (currentVariant) setcurrentType(handleFirstAvailable());
   }, [currentVariant]);
@@ -159,11 +164,7 @@ export default function QuickAdd() {
             <div className="quickAdd__wrapper__form__add">
               <button
                 className="quickAdd__wrapper__form__add__btn"
-                onClick={() => {
-                  if (!item || !currentType || !currentVariant) return;
-                  addCart(item, currentType, currentVariant);
-                  // removeCart(item, currentType, currentVariant);
-                }}
+                onClick={handleAddCart}
               >
                 add to cart
               </button>

@@ -1,29 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useScrollLock from "./../../hooks/useScrollLock";
 import arrow from "./../assets/img/icons/arrow.svg";
-import cross from "./../assets/img/icons/cross-icon.svg";
-import google from "./../assets/img/icons/gpay.svg";
-import shop from "./../assets/img/icons/Shop.svg";
-import paypal from "./../assets/img/icons/paypal-logo-svg-vector.svg";
-
 import data from "./../data/drawerLists.json";
 import SearchBar from "./SearchBar";
 import Cart from "./Cart";
-//
+import { useCartStore } from "../stores/Cart.store";
+
 export const Header = () => {
+  /**
+   * States
+   */
   const { lockScroll, unlockScroll } = useScrollLock();
   const [scrollIpt, setScrollIpt] = useState<number>(0);
   const [searchIpt, setSearchIpt] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [secondCategory, setSecondCategory] = useState("");
   const [thirdCategory, setThirdCategory] = useState("");
   const [isSecondary, setIsSecondary] = useState(false);
   const [isTertiary, setIsTertiary] = useState(false);
   const [animate, setAnimate] = useState(true);
+  const cartContent = useCartStore((state: any) => state.content);
+  const setIsCartOpen = useCartStore((state: any) => state.setIsOpen);
 
+  /**
+   * Functions
+   */
   const populateNav = (category: string) => {
     const str = category as keyof typeof data;
     const current: string[] = data[str];
@@ -58,9 +61,15 @@ export const Header = () => {
     setAnimate(!animate);
   };
 
-  useEffect(() => {
-    // console.log(isCartOpen);
-  }, [isCartOpen]);
+  const handleOpenCart = () => {
+    setIsSearchOpen(false);
+    lockScroll();
+    setIsCartOpen(true);
+  };
+
+  /**
+   * Effects
+   */
   useEffect(() => {
     handleAnimate();
   }, [isDrawerOpen, isSecondary, isTertiary]);
@@ -121,7 +130,11 @@ export const Header = () => {
               }}
             >
               <div className="header__board__left__search__button">
-                <div></div>
+                <div
+                  className="noselect"
+                  style={{ pointerEvents: "none" }}
+                  unselectable="on"
+                ></div>
               </div>
             </div>
           </div>
@@ -137,16 +150,21 @@ export const Header = () => {
             <div className="header__board__right__cart">
               <div
                 className="header__board__right__cart__button"
-                onClick={() => {
-                  lockScroll();
-                  setIsCartOpen(true);
-                }}
+                onClick={handleOpenCart}
               >
                 <div
                   className={`header__board__right__cart__button${
                     scrollIpt > 0 || isDrawerOpen ? "--brown" : "--white"
                   }`}
                 ></div>
+                <div
+                  className={`header__board__right__cart__tag${
+                    scrollIpt > 0 || isDrawerOpen ? "--brown" : ""
+                  }${cartContent.length > 0 ? "" : "--hidden"}`}
+                  hidden={cartContent.length > 0 ? false : true}
+                >
+                  <p>{cartContent.length}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -270,11 +288,7 @@ export const Header = () => {
         </div>
         {/* <-- Menu Nav --> */}
         {/* <-- Cart / Drawer right --> */}
-        <Cart
-          isCartOpen={isCartOpen}
-          setIsCartOpen={setIsCartOpen}
-          unlockScroll={unlockScroll}
-        />
+        <Cart unlockScroll={unlockScroll} />
         {/* <-- Cart / Drawer right --> */}
       </div>
     </>

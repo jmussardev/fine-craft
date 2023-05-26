@@ -15,6 +15,8 @@ interface cartStore {
 
 export const useCartStore = create((set) => ({
   content: [],
+  isDeleting: false,
+  isOpen: false,
   resumeContent: (local: item[]) => set(() => ({ content: [...local] })),
   addItem: (item: item) => {
     set((state: cartStore) => ({ content: [...state.content, item] }));
@@ -22,5 +24,10 @@ export const useCartStore = create((set) => ({
   updateContent: (updatedContent: item[]) => {
     set(() => ({ content: [...updatedContent] }));
   },
-  // removeItem: (item:item) => set((state:cartStore) => ( { content: [...state.content, item] }))
+  setIsDeleting: (boolean: boolean) => {
+    set(() => ({ isDeleting: boolean }));
+  },
+  setIsOpen: (boolean: boolean) => {
+    set(() => ({ isOpen: boolean }));
+  },
 }));

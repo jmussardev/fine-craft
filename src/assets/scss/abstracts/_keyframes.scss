@@ -108,3 +108,14 @@
     translate: 0% 0;
   }
 }
+
+@keyframes deleting {
+  from {
+    opacity: 0%;
+    transform: translateX(105%);
+  }
+  to {
+    opacity: 100%;
+    transform: translateX(0%);
+  }
+}

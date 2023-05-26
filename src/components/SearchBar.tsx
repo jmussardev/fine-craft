@@ -7,7 +7,7 @@ import debounce from "./../../utils/debounce";
 import useDebounce from "./../../hooks/useDebounce";
 
 import SearchLoader from "./SearchLoader";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import SearchItem from "./SearchItem";
 
@@ -96,23 +96,73 @@ export default function SearchBar({
     }
   }, [result, isLoading]);
 
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!ref.current || isSearchOpen === false) return;
+    ref.current.focus();
+  }, [isSearchOpen === true]);
+
+  useEffect(() => {
+    if (isSearchOpen === false) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      const buttonWrapper = document.querySelector(
+        ".header__board__left__search"
+      );
+      const button = document.querySelector(
+        ".header__board__left__search__button"
+      );
+      const isButton = target.isSameNode(button);
+      const isButtonWrapper = target.isSameNode(buttonWrapper);
+
+      const closest = target.closest(".header__searchBar");
+      const condition =
+        isButton === false && isButtonWrapper === false
+          ? closest === null
+            ? true
+            : false
+          : false;
+      if (condition) {
+        setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener("click", (event) => {
+      handleClick(event);
+    });
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [isSearchOpen === true]);
+
   /**
    * -- RETURN --
    */
   return (
     <>
       <div
+        // tabIndex={0}
+        // ref={ref}
         className={`header__searchBar ${
           isSearchOpen ? "header__searchBar--open" : ""
         } `}
+        // onBlur={() => {
+        //   setIsSearchOpen(false);
+        // }}
       >
-        <form className={`header__searchBar__form  `}>
+        <form
+          // tabIndex={0}
+          className={`header__searchBar__form  `}
+        >
           <button>
             <div className="header__searchBar__form__search ">
               <div></div>
             </div>
           </button>
           <input
+            ref={ref}
+            // autoFocus
             type="text"
             value={searchIpt}
             placeholder="Search"
@@ -120,7 +170,7 @@ export default function SearchBar({
               setSearchIpt(e.target.value);
               debouncedSearch();
             }}
-            onBlur={() => handleClose()}
+            // onBlur={() => handleClose()}
           />
           <button
             onClick={(e) => {

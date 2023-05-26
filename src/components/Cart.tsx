@@ -1,38 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import cross from "./../assets/img/icons/cross-icon.svg";
 import google from "./../assets/img/icons/gpay.svg";
 import shop from "./../assets/img/icons/Shop.svg";
 import paypal from "./../assets/img/icons/paypal-logo-svg-vector.svg";
 import countries from "./../data/countries.json";
 import debounce from "../../utils/debounce";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CartItem from "./CartItem";
 import { useCartStore } from "./../stores/Cart.store.ts";
-import { ItemContainer } from "./../../config/types.ts";
+import { Content, ItemContainer } from "./../../config/types";
+// import { ItemContainer } from "./../../config/types.ts";
 
 /**
  *
  * COMPONENT
  *
  */
-export default function Cart({
-  isCartOpen,
-  unlockScroll,
-  setIsCartOpen,
-}: {
-  isCartOpen: boolean;
-  unlockScroll: () => void;
-  setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
   /**
    * States
    */
   const [fakeShipping, setFakeShipping] = useState(false);
   const [isCalulating, setIsCalulating] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const cartContent: [] = useCartStore((state: any) => state.content);
+  const cartContent: ItemContainer[] = useCartStore(
+    (state: any) => state.content
+  );
+  const isDeleting = useCartStore((state: any) => state.isDeleting);
+  const isCartOpen = useCartStore((state: any) => state.isOpen);
+  const setIsCartOpen = useCartStore((state: any) => state.setIsOpen);
+
   /**
    * Functions
    */
+
+  const calculateTotal = () => {
+    let total = 0;
+    for (const item of cartContent) {
+      const sum = item.content.price * item.quantity;
+      total = total + sum;
+    }
+    return total.toFixed(2);
+  };
+
   const dummyShipping = () => {
     setFakeShipping(false);
     setIsCalulating(true);
@@ -54,8 +64,35 @@ export default function Cart({
     if (fakeShipping) handleCalculating();
   }, [fakeShipping]);
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current || isCartOpen === false) return;
+    ref.current.focus();
+  }, [isCartOpen === true]);
+
+  useEffect(() => {
+    const handleDeleting = () => {
+      const content = document.querySelector(".header__cart__wrapper__content");
+      content?.classList.add("header__cart__wrapper__content--deleting");
+    };
+    const handleRemoveDeleting = () => {
+      const content = document.querySelector(".header__cart__wrapper__content");
+      content?.classList.remove("header__cart__wrapper__content--deleting");
+    };
+    handleDeleting();
+    return debounce(handleRemoveDeleting, 2000);
+  }, [isDeleting]);
+
   return (
-    <div className={`header__cart ${isCartOpen ? "header__cart--open" : ""}  `}>
+    <div
+      tabIndex={0}
+      ref={ref}
+      className={`header__cart ${isCartOpen ? "header__cart--open" : ""}  `}
+      onBlur={() => {
+        setIsCartOpen(false);
+      }}
+    >
       <div className="header__cart__title">
         <h2>cart</h2>
         <div
@@ -69,14 +106,33 @@ export default function Cart({
         </div>
       </div>
       <div className="header__cart__wrapper">
-        <div className="header__cart__wrapper__content">
+        <div
+          className={`header__cart__wrapper__content  `}
+          style={
+            cartContent.length === 0
+              ? {
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }
+              : {}
+          }
+        >
+          {cartContent.length === 0 && (
+            <p style={{ textTransform: "initial" }}>Your Cart is Empty</p>
+          )}
           {cartContent.length !== 0
             ? cartContent.map((item, index) => (
                 <CartItem key={index} cartItem={item} />
               ))
             : ""}
         </div>
-        <div className="header__cart__wrapper__shipping">
+        <div
+          className="header__cart__wrapper__shipping"
+          style={{
+            display: `${cartContent.length === 0 ? "none" : ""}`,
+          }}
+        >
           <div className="header__cart__wrapper__shipping__title">
             <p>Estimate shipping</p>
             <button
@@ -132,7 +188,12 @@ export default function Cart({
             </button>
           </form>
         </div>
-        <div className="header__cart__wrapper__checkout">
+        <div
+          className="header__cart__wrapper__checkout"
+          style={{
+            display: `${cartContent.length === 0 ? "none" : ""}`,
+          }}
+        >
           <div className="header__cart__wrapper__checkout__regular">
             <div
               style={{
@@ -151,7 +212,7 @@ export default function Cart({
                 subtotal
               </p>
               <p style={{ fontSize: "16px", fontWeight: "bolder" }}>
-                €330,65 EUR
+                €{calculateTotal()} EUR
               </p>
             </div>
             <p

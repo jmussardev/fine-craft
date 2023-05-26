@@ -249,6 +249,36 @@
         width: 2.8rem;
         height: 100%;
 
+        &__tag {
+          position: absolute;
+          top: 10%;
+          right: -18%;
+          height: 15px;
+          width: 15px;
+          @include flexCenter;
+          font-size: 10px;
+          color: var(--COLOR-BG);
+          background-color: var(--COLOR-WHITE);
+          border-radius: 50%;
+
+          &--brown {
+            position: absolute;
+            top: 10%;
+            right: -18%;
+            height: 15px;
+            width: 15px;
+            @include flexCenter;
+            font-size: 10px;
+            color: var(--COLOR-BG);
+            border-radius: 50%;
+            background-color: var(--COLOR-BROWN);
+          }
+
+          &--hidden {
+            display: none;
+          }
+        }
+
         &__button {
           position: relative;
           display: flex;

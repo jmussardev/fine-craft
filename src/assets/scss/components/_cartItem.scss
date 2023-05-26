@@ -3,7 +3,10 @@
   min-height: fit-content;
   max-height: 140px;
   width: 100%;
+  // border-top: 1px solid var(--COLOR-WHITE);
   border-bottom: 1px solid var(--COLOR-WHITE);
+  // border-left: 1px solid var(--COLOR-WHITE);
+  transition: all 0.3s;
   display: flex;
 
   &__picture {

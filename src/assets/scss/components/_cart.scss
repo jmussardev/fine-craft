@@ -30,6 +30,10 @@
       transition: transform 450ms ease-in-out, opacity 450ms ease-in-out;
     }
 
+    &:focus {
+      outline: none;
+    }
+
     @media (width<=380px) {
       width: 100vw;
     }
@@ -77,6 +81,16 @@
         overflow-x: hidden;
         // background-color: rgb(139, 241, 182);
         border-bottom: 1px solid var(--COLOR-WHITE);
+
+        &--deleting {
+          @for $i from 1 through 10 {
+            div:nth-of-type(#{$i}) {
+              animation: deleting 2s ease-in-out;
+              // transform: translateX(0%);
+            }
+          }
+          // animation: deleting 3s ease-in-out;
+        }
       }
       &__shipping {
         flex-shrink: 0;

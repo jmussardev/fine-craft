@@ -31,8 +31,9 @@ export interface ItemReviews {
 
 export interface Content {
   id: string;
-  variant?: string;
-  type?: string;
+  price: number;
+  variant: string;
+  type: string;
 }
 export interface ItemContainer {
   content: Content;

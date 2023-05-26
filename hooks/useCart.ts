@@ -1,21 +1,23 @@
 import { useCartStore } from "./../src/stores/Cart.store";
 import isEqualObject from "./../utils/isEqualObject";
-import { Item, ItemVariant, Content, ItemContainer } from "./../config/types";
+import { Content, ItemContainer } from "./../config/types";
 
 export default function useCart() {
   const cartContent = useCartStore((state: any) => state.content);
   // const addItemToCart = useCartStore((state: any) => state.addItem);
   const updateContent = useCartStore((state: any) => state.updateContent);
 
-  const addCart = (
-    item: Item,
+  const addItem = (
+    itemId: string,
+    itemPrice: number,
     currentType: string,
-    currentVariant: ItemVariant
+    currentVariant: string
   ) => {
-    if (!item || !currentType) return;
+    // if (!itemId || !currentType) return;
     const newItemContent: Content = {
-      id: item?.id,
-      variant: currentVariant?.variant,
+      id: itemId,
+      price: itemPrice,
+      variant: currentVariant,
       type: currentType,
     };
     //is cart empty ?
@@ -25,6 +27,16 @@ export default function useCart() {
       );
       //is the item already in cart ?
       if (alreadyInCart) {
+        if (alreadyInCart.quantity === 99) {
+          const newItem = alreadyInCart;
+          const itemIndex = cartContent.indexOf(newItem);
+          const updatedItem = { ...newItem, quantity: 1 };
+          // eslint-disable-next-line prefer-const
+          let newCart = cartContent;
+          newCart[itemIndex] = updatedItem;
+          updateContent(newCart);
+          localStorage.setItem("cart", JSON.stringify(newCart));
+        }
         //copy state of the item in the cart
         const newItem = alreadyInCart;
         //find position of the item in the cart
@@ -54,7 +66,7 @@ export default function useCart() {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
   };
-  const removeCart = (cartItem: Content) => {
+  const removeItem = (cartItem: Content) => {
     const itemContent: Content = cartItem;
     const found = cartContent.find((item: ItemContainer) =>
       isEqualObject(item.content, itemContent)
@@ -71,5 +83,23 @@ export default function useCart() {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
-  return { addCart, removeCart };
+  const removeOne = (cartItem: ItemContainer) => {
+    const found = cartContent.find((item: ItemContainer) =>
+      isEqualObject(item.content, cartItem.content)
+    );
+    console.log(found);
+    if (!found) return;
+    if (found.quantity === 0) return;
+    const itemIndex = cartContent.indexOf(found);
+    const updatedItem = { ...cartItem, quantity: cartItem.quantity - 1 };
+    console.log(itemIndex);
+    // eslint-disable-next-line prefer-const
+    let newCart = cartContent;
+    newCart[itemIndex] = updatedItem;
+    console.log(newCart);
+    updateContent(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  };
+
+  return { addItem, removeItem, removeOne };
 }
