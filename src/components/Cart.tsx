@@ -50,7 +50,6 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
     const delayDummy = debounce(() => {
       setFakeShipping(true);
     }, 1500);
-    // setFakeShipping(false);
     return delayDummy();
   };
 
@@ -67,8 +66,29 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!ref.current || isCartOpen === false) return;
-    ref.current.focus();
+    if (isCartOpen === false) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      const isButtonClosest = target.closest(".header__board__right__cart");
+      const isCartClosest = target.closest(".header__cart");
+
+      const condition =
+        isButtonClosest === null
+          ? isCartClosest === null
+            ? true
+            : false
+          : false;
+
+      if (condition) {
+        unlockScroll();
+        setIsCartOpen(false);
+      }
+    };
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
   }, [isCartOpen === true]);
 
   useEffect(() => {

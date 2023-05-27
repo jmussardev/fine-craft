@@ -31,9 +31,7 @@ export default function QuickAdd() {
   const [isHover, setIsHover] = useState(false);
   const isOpen = useQuickAddStore((state: any) => state.isOpen);
   // const itemId = useQuickAddStore((state: any) => state.itemId);
-  const toggleQuickAddDrawer = useQuickAddStore(
-    (state: any) => state.toggleQuickAddDrawer
-  );
+  const setIsOpen = useQuickAddStore((state: any) => state.setIsOpen);
   const setCartOpen = useCartStore((state: any) => state.setIsOpen);
   const item = data.find((item) => {
     return item.id === item.id;
@@ -78,7 +76,7 @@ export default function QuickAdd() {
     return "";
   };
   const handleAddCart = () => {
-    toggleQuickAddDrawer();
+    setIsOpen(false);
     setCartOpen(true);
 
     if (!item || !currentType || !currentVariant) return;
@@ -93,6 +91,37 @@ export default function QuickAdd() {
     if (currentVariant) setcurrentType(handleFirstAvailable());
   }, [currentVariant]);
 
+  useEffect(() => {
+    if (isOpen === false) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      const isLargeButtonClosest = target.closest(
+        ".item__picture__second__add--large"
+      );
+      const isSmallButtonClosest = target.closest(
+        ".item__picture__second__add--small"
+      );
+      const isQuickAddClosest = target.closest(".quickAdd");
+
+      const condition =
+        isLargeButtonClosest === null && isSmallButtonClosest === null
+          ? isQuickAddClosest === null
+            ? true
+            : false
+          : false;
+
+      if (condition) {
+        unlockScroll();
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [isOpen === true]);
+
   return (
     <>
       <div
@@ -106,7 +135,7 @@ export default function QuickAdd() {
             className="quickAdd__wrapper__close "
             onClick={() => {
               unlockScroll();
-              toggleQuickAddDrawer();
+              setIsOpen(false);
             }}
           >
             <img src={cross} alt="" />

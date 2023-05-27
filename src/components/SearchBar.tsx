@@ -107,32 +107,24 @@ export default function SearchBar({
     if (isSearchOpen === false) return;
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLDivElement;
-      const buttonWrapper = document.querySelector(
-        ".header__board__left__search"
-      );
-      const button = document.querySelector(
-        ".header__board__left__search__button"
-      );
-      const isButton = target.isSameNode(button);
-      const isButtonWrapper = target.isSameNode(buttonWrapper);
+      const isButtonClosest = target.closest(".header__board__left__search");
+      const isSearchBarClosest = target.closest(".header__searchBar");
 
-      const closest = target.closest(".header__searchBar");
       const condition =
-        isButton === false && isButtonWrapper === false
-          ? closest === null
+        isButtonClosest === null
+          ? isSearchBarClosest === null
             ? true
             : false
           : false;
       if (condition) {
+        unlockScroll();
         setIsSearchOpen(false);
       }
     };
-    document.addEventListener("click", (event) => {
-      handleClick(event);
-    });
+    window.addEventListener("click", handleClick);
 
     return () => {
-      document.removeEventListener("click", handleClick);
+      window.removeEventListener("click", handleClick);
     };
   }, [isSearchOpen === true]);
 

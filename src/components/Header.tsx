@@ -62,7 +62,6 @@ export const Header = () => {
   };
 
   const handleOpenCart = () => {
-    setIsSearchOpen(false);
     lockScroll();
     setIsCartOpen(true);
   };
@@ -85,6 +84,38 @@ export const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+  // useEffect(() => {
+  //   if (isDrawerOpen === false) alert("closed");
+  // }, [isDrawerOpen === false]);
+
+  useEffect(() => {
+    if (isDrawerOpen === false) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      const isButtonClosest = target.closest(".header__board__left__menu");
+      const isDrawerClosest = target.closest(".header__drawer");
+
+      const condition =
+        isButtonClosest === null
+          ? isDrawerClosest === null
+            ? true
+            : false
+          : false;
+
+      if (condition) {
+        unlockScroll();
+        setIsDrawerOpen(false);
+        setIsSecondary(false);
+        setIsTertiary(false);
+      }
+    };
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [isDrawerOpen === true]);
+
   return (
     <>
       <div
@@ -108,7 +139,10 @@ export const Header = () => {
               <button
                 style={{ backgroundColor: "transparent", border: "none" }}
                 onClick={() => {
+                  lockScroll();
                   setIsDrawerOpen(!isDrawerOpen);
+                  setIsSecondary(false);
+                  setIsTertiary(false);
                 }}
               >
                 <div
