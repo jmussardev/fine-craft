@@ -63,23 +63,30 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
     if (fakeShipping) handleCalculating();
   }, [fakeShipping]);
 
-  const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (isCartOpen === false) return;
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLDivElement;
       const isButtonClosest = target.closest(".header__board__right__cart");
       const isCartClosest = target.closest(".header__cart");
+      const isQuickAddClosest = target.closest(".quickAdd__wrapper__form__add");
+      const isCartItemClose = target.closest(".cartItem__close");
+      console.log("########");
+      console.log("target");
+      console.log(target);
+      console.log(isCartClosest === null);
 
       const condition =
-        isButtonClosest === null
+        isButtonClosest === null &&
+        isQuickAddClosest === null &&
+        isCartItemClose === null
           ? isCartClosest === null
             ? true
             : false
           : false;
 
       if (condition) {
+        console.log(">>>passed");
         unlockScroll();
         setIsCartOpen(false);
       }
@@ -105,14 +112,7 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
   }, [isDeleting]);
 
   return (
-    <div
-      tabIndex={0}
-      ref={ref}
-      className={`header__cart ${isCartOpen ? "header__cart--open" : ""}  `}
-      onBlur={() => {
-        setIsCartOpen(false);
-      }}
-    >
+    <div className={`header__cart ${isCartOpen ? "header__cart--open" : ""}  `}>
       <div className="header__cart__title">
         <h2>cart</h2>
         <div

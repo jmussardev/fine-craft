@@ -20,12 +20,11 @@
         },
         "photos": [
           "./../../public/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-01_200x_crop_center.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02_200x_crop_center.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-03_200x_crop_center.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-04_200x_crop_center.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-05_200x_crop_center.jpg"
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-01_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-03_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-04_3000x.jpg",
+          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-05_3000x.jpg"
         ],
         "reviews": [
           {

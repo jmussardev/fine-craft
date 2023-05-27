@@ -13,7 +13,6 @@
     right: calc(var(--scrollbar-compensation) * -1);
     min-height: 100vh;
     max-height: 100vh;
-
     width: 380px;
 
     border-left: 1px var(--COLOR-WHITE) solid;
@@ -73,6 +72,8 @@
       height: calc(100vh - 60px);
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       &__content {
         flex: 1;
