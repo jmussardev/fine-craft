@@ -2,7 +2,6 @@ import cross from "./../assets/img/icons/cross-icon.svg";
 import { ItemContainer } from "./../../config/types.ts";
 import data from "./../data/products.json";
 import useCart from "./../../hooks/useCart.ts";
-import { useState, useRef, useEffect } from "react";
 import { useCartStore } from "./../stores/Cart.store.ts";
 
 export default function CartItem({ cartItem }: { cartItem: ItemContainer }) {
@@ -23,8 +22,8 @@ export default function CartItem({ cartItem }: { cartItem: ItemContainer }) {
    * Functions
    */
   const handleDeleting = () => {
-    setIsDeleting(!isDeleting);
     removeItem(cartItem.content);
+    setIsDeleting(!isDeleting);
     // ref.classList.add("cartItem--deleting");
   };
 

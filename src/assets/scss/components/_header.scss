@@ -1,5 +1,4 @@
 [data-scroll-lock="true"] {
-  // margin-right: var(--scrollbar-compensation);
   max-width: calc(100vw - var(--scrollbar-compensation));
 }
 
@@ -312,30 +311,33 @@
       padding-inline: 1.6rem;
     }
   }
+
   &__menuOverlay {
     position: absolute;
     height: 0vh;
-    width: 0vw;
+    width: 0%;
     z-index: -2;
     opacity: 0%;
-    transition: background-color 450ms ease-in-out 50ms,
-      opacity 450ms ease-in-out;
+    transition: background-color 250ms ease-out, height 0ms ease-in-out 450ms,
+      width 50ms ease-in 450ms, opacity 200ms ease-out 250ms;
+    background-color: #00000062;
+    // transition: background-color 450ms ease-in-out 450ms;
+    // opacity 450ms ease-in-out 450ms;
     &--open {
       height: 100vh;
       width: 100%;
       opacity: 100%;
-      transition: background-color 450ms ease-in-out 50ms,
-        opacity 450ms ease-in-out;
       background-color: #00000062;
+      transition: background-color 450ms ease-in-out 450ms;
     }
   }
+
   &__drawer {
     overflow: hidden;
     height: 100%;
     font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
-
     background-color: var(--COLOR-BG);
     opacity: 0%;
     transform: translateX(-100%);
@@ -477,10 +479,10 @@
       }
     }
 
-    &--open {
-      transition: transform 0.3s ease-out;
-      transform: translateX(0%);
-    }
+    // &--open {
+    //   transition: transform 0.3s ease-out;
+    //   transform: translateX(0%);
+    // }
 
     @media (1000px<width) {
       width: 50vw;

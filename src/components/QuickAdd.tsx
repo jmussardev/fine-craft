@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable react-hooks/exhaustive-deps */
 import cross from "./../assets/img/icons/cross-icon.svg";
+import check from "./../assets/img/icons/bx-check.svg";
 import { useState, useEffect } from "react";
 import { useQuickAddStore } from "../stores/QuickAdd.store";
 import { useCartStore } from "../stores/Cart.store";
@@ -10,6 +11,7 @@ import Carousel from "./Carousel";
 
 // import DOMPurify from "dompurify";
 import useCart from "./../../hooks/useCart.ts";
+import debounce from "../../utils/debounce.ts";
 interface types {
   [key: string]: boolean;
 }
@@ -23,12 +25,14 @@ export default function QuickAdd() {
   /**
    * Hooks
    */
-  const { unlockScroll } = useScrollLock();
+  const { unlockScroll, lockScroll } = useScrollLock();
   const { addItem } = useCart();
   /**
    * States
    */
   const [isHover, setIsHover] = useState(false);
+  const [isLoading, setIstLoading] = useState(false);
+  const [isValided, setIsValided] = useState(false);
   const isOpen = useQuickAddStore((state: any) => state.isOpen);
   // const itemId = useQuickAddStore((state: any) => state.itemId);
   const setIsOpen = useQuickAddStore((state: any) => state.setIsOpen);
@@ -76,8 +80,16 @@ export default function QuickAdd() {
     return "";
   };
   const handleAddCart = () => {
-    setIsOpen(false);
-    setCartOpen(true);
+    setIstLoading(true);
+    debounce(() => {
+      setIstLoading(false);
+      setIsValided(true);
+      debounce(() => {
+        setIsOpen(false);
+        setCartOpen(true);
+        setIsValided(false);
+      }, 500)();
+    }, 1000)();
 
     if (!item || !currentType || !currentVariant) return;
     addItem(item.id, item.price, currentType, currentVariant.variant);
@@ -86,6 +98,10 @@ export default function QuickAdd() {
   /**
    * Effects
    */
+
+  useEffect(() => {
+    console.log(isLoading);
+  }, [isLoading]);
 
   useEffect(() => {
     if (currentVariant) setcurrentType(handleFirstAvailable());
@@ -115,6 +131,7 @@ export default function QuickAdd() {
         setIsOpen(false);
       }
     };
+    lockScroll();
     window.addEventListener("click", handleClick);
 
     return () => {
@@ -195,7 +212,29 @@ export default function QuickAdd() {
                 className="quickAdd__wrapper__form__add__btn"
                 onClick={handleAddCart}
               >
-                add to cart
+                {isLoading ? (
+                  <div className={`loader-wrapper`}>
+                    <div className="loader-wrapper__lds-ring">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                ) : isValided ? (
+                  <div className={`loader-wrapper loader-wrapper--isValided`}>
+                    <img src={check} alt="" />
+                  </div>
+                ) : (
+                  "add to cart"
+                )}
+
+                {/* <div className="lds-ring">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div> */}
               </button>
             </div>
           </div>

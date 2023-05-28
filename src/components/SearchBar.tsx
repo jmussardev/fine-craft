@@ -109,6 +109,12 @@ export default function SearchBar({
       const target = event.target as HTMLDivElement;
       const isButtonClosest = target.closest(".header__board__left__search");
       const isSearchBarClosest = target.closest(".header__searchBar");
+      const isLargeButtonClosest = target.closest(
+        ".item__picture__second__add--large"
+      );
+      const isSmallButtonClosest = target.closest(
+        ".item__picture__second__add--small"
+      );
 
       const condition =
         isButtonClosest === null
@@ -117,7 +123,8 @@ export default function SearchBar({
             : false
           : false;
       if (condition) {
-        unlockScroll();
+        if (isLargeButtonClosest === null && isSmallButtonClosest === null)
+          unlockScroll();
         setIsSearchOpen(false);
       }
     };

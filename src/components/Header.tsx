@@ -93,6 +93,7 @@ export const Header = () => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLDivElement;
       const isButtonClosest = target.closest(".header__board__left__menu");
+      const isCartButtonClosest = target.closest(".header__board__right__cart");
       const isDrawerClosest = target.closest(".header__drawer");
 
       const condition =
@@ -103,7 +104,7 @@ export const Header = () => {
           : false;
 
       if (condition) {
-        unlockScroll();
+        if (!isCartButtonClosest) unlockScroll();
         setIsDrawerOpen(false);
         setIsSecondary(false);
         setIsTertiary(false);
@@ -139,8 +140,15 @@ export const Header = () => {
               <button
                 style={{ backgroundColor: "transparent", border: "none" }}
                 onClick={() => {
-                  lockScroll();
-                  setIsDrawerOpen(!isDrawerOpen);
+                  // isDrawerOpen ? () => lockScroll() : () => unlockScroll();
+                  // lockScroll();
+                  if (isDrawerOpen) {
+                    unlockScroll();
+                    setIsDrawerOpen(false);
+                  } else {
+                    setIsDrawerOpen(true);
+                    lockScroll();
+                  }
                   setIsSecondary(false);
                   setIsTertiary(false);
                 }}
@@ -206,14 +214,17 @@ export const Header = () => {
         {/* <-- HEADER-BOARD -->  */}
 
         {/* <-- Menu Nav / Drawer left --> */}
+
         <div
           className={`header__menuOverlay ${
-            isDrawerOpen ? "header__menuOverlay--open" : ""
+            isDrawerOpen
+              ? "header__menuOverlay--open"
+              : "header__menuOverlay--closing"
           } `}
         >
           <div
             className={`header__drawer ${
-              isDrawerOpen ? "header__drawer--open" : ""
+              isDrawerOpen ? "header__drawer--open" : "header__drawer--closing"
             }  `}
           >
             <div

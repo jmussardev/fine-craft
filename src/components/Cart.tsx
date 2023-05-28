@@ -68,13 +68,19 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLDivElement;
       const isButtonClosest = target.closest(".header__board__right__cart");
+      const isMenuButtonClosest = target.closest(".header__board__left__menu");
+      const isSearchButtonClosest = target.closest(
+        ".header__board__left__search"
+      );
       const isCartClosest = target.closest(".header__cart");
       const isQuickAddClosest = target.closest(".quickAdd__wrapper__form__add");
       const isCartItemClose = target.closest(".cartItem__close");
-      console.log("########");
-      console.log("target");
-      console.log(target);
-      console.log(isCartClosest === null);
+      const isLargeButtonClosest = target.closest(
+        ".item__picture__second__add--large"
+      );
+      const isSmallButtonClosest = target.closest(
+        ".item__picture__second__add--small"
+      );
 
       const condition =
         isButtonClosest === null &&
@@ -86,8 +92,13 @@ export default function Cart({ unlockScroll }: { unlockScroll: () => void }) {
           : false;
 
       if (condition) {
-        console.log(">>>passed");
-        unlockScroll();
+        if (
+          !isLargeButtonClosest &&
+          !isSmallButtonClosest &&
+          !isMenuButtonClosest &&
+          !isSearchButtonClosest
+        )
+          unlockScroll();
         setIsCartOpen(false);
       }
     };
