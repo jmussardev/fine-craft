@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Footer from "../components/Footer";
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import Hero from "../components/Hero";
 import LinkToAll from "../components/LinkToAll";
 import Products from "../components/Products";
@@ -12,7 +12,7 @@ export default function Home() {
     <div className="container">
       <QuickAdd />
       <Header />
-      <section className="content">
+      <section className="home-content">
         <Hero />
         <div className="linkWrapper">
           <LinkToAll>

@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 import Cart from "./Cart";
 import { useCartStore } from "../stores/Cart.store";
 
-export const Header = () => {
+export default function Header() {
   /**
    * States
    */
@@ -338,5 +338,5 @@ export const Header = () => {
       </div>
     </>
   );
-};
+}
 3;

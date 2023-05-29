@@ -71,8 +71,6 @@ export default function useCart() {
     const found = cartContent.find((item: ItemContainer) =>
       isEqualObject(item.content, itemContent)
     );
-    console.log(found);
-    if (!found) return;
     const itemIndex = cartContent.indexOf(found);
     cartContent.splice(itemIndex, 1);
     localStorage.setItem("cart", JSON.stringify(cartContent));
@@ -82,16 +80,13 @@ export default function useCart() {
     const found = cartContent.find((item: ItemContainer) =>
       isEqualObject(item.content, cartItem.content)
     );
-    // console.log(found);
     if (!found) return;
     if (found.quantity === 0) return;
     const itemIndex = cartContent.indexOf(found);
     const updatedItem = { ...cartItem, quantity: cartItem.quantity - 1 };
-    // console.log(itemIndex);
     // eslint-disable-next-line prefer-const
     let newCart = cartContent;
     newCart[itemIndex] = updatedItem;
-    // console.log(newCart);
     updateContent(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
   };

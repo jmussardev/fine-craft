@@ -98,11 +98,6 @@ export default function QuickAdd() {
   /**
    * Effects
    */
-
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
-
   useEffect(() => {
     if (currentVariant) setcurrentType(handleFirstAvailable());
   }, [currentVariant]);
@@ -228,13 +223,6 @@ export default function QuickAdd() {
                 ) : (
                   "add to cart"
                 )}
-
-                {/* <div className="lds-ring">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div> */}
               </button>
             </div>
           </div>

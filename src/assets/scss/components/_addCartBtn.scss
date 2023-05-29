@@ -1,0 +1,18 @@
+.addCart-btn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  &--quickAdd {
+    @include btn-hover-effect(black, #d9d9d9, var(--COLOR-WHITE));
+  }
+  &--product {
+    color: white;
+    border: 1px white solid;
+    @include btn-hover-effect(black, white, rgba(255, 255, 255, 0));
+  }
+}
