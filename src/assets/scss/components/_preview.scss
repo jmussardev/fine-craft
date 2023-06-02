@@ -1,0 +1,46 @@
+.preview {
+  height: 100%;
+  width: fit-content;
+
+  @media (width <= 750px) {
+    height: fit-content;
+  }
+
+  &__inner {
+    height: 100%;
+    width: fit-content;
+    white-space: nowrap;
+
+    transition: transform 0.3s;
+    @media (width <= 750px) {
+      height: fit-content;
+    }
+
+    &__items {
+      height: 100%;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      @media (width <= 750px) {
+        height: fit-content;
+      }
+      &__picture {
+        width: auto;
+        margin-right: 20px;
+        transition: scale 0.3s ease-in-out;
+        &--current {
+          scale: 0.9;
+        }
+        &:hover {
+          scale: 1.08;
+          transition: scale 0.3s ease-in-out;
+        }
+      }
+      @media (width <= 750px) {
+        height: calc(100vw * 0.09);
+      }
+      @media (width > 750px) {
+        height: 90px;
+      }
+    }
+  }
+}

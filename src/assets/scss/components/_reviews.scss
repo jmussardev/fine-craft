@@ -1,0 +1,27 @@
+.reviews {
+  height: 50px;
+  width: 100%;
+  padding-inline: 10px;
+  font-family: "playfair_displayregular";
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__average {
+      display: flex;
+      align-items: center;
+    }
+    & button {
+      font-family: inherit;
+      padding: 13px;
+      background-color: var(--COLOR-WHITE);
+      border: none;
+      border-radius: 2px;
+
+      &:hover {
+        color: var(--COLOR-WHITE);
+      }
+    }
+  }
+}

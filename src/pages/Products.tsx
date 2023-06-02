@@ -5,57 +5,185 @@ import Separator from "../components/Separator";
 import data from "./../data/products.json";
 import infos from "./../data/infos.json";
 const firstPhoto = data[0].variants[0].photos[0];
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AddCartBtn from "../components/AddCartBtn";
 import shopPay from "./../assets/img/icons/Shop.svg";
+import leather from "./../assets/img/leather-swatches-wide_8b162bf1-66b2-4bad-845a-8a94d8444bb8.jpg";
+import LinkToAll from "../components/LinkToAll";
+import Tabs from "../components/Tabs";
+import Reviews from "../components/Reviews";
+import Carousel from "../components/Carousel";
+import left from "./../assets/img/icons/bxs-chevron-left.svg";
+import cross from "./../assets/img/icons/cross-icon.svg";
+import Preview from "../components/Preview";
+import { useCarouselStore } from "../stores/Carousel.store";
 
 export default function Products() {
-  const [isOpen0, setIsOpen0] = useState(true);
-  const [isOpen1, setIsOpen1] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
-  const [isOpen4, setIsOpen4] = useState(false);
-  const [isCurrent, setIsCurrent] = useState<number | null>(null);
-
-  useEffect(() => {
-    const states = [
-      { var: isOpen0, func: setIsOpen0 },
-      { var: isOpen1, func: setIsOpen1 },
-      { var: isOpen2, func: setIsOpen2 },
-      { var: isOpen3, func: setIsOpen3 },
-      { var: isOpen4, func: setIsOpen4 },
-    ];
-    for (const state of states) {
-      const i = states.indexOf(state);
-      if (state.var && i === isCurrent) {
-        const i = states.indexOf(state);
-        states.splice(i, 1);
-        for (const state of states) {
-          if (state.var && i + 1 !== isCurrent) {
-            state.func(!state.var);
-          }
-        }
-      }
-    }
-  }, [
-    isOpen0 === true,
-    isOpen1 === true,
-    isOpen2 === true,
-    isOpen3 === true,
-    isOpen4 === true,
-  ]);
+  const [isCurrent, setIsCurrent] = useState<number | null>(0);
+  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
+  const setIndex = useCarouselStore((state: any) => state.setIndex);
+  // const currentIndex = useCarouselStore((state: any) => state.index);
+  const setIsCarouselOpen = useCarouselStore((state: any) => state.setIsOpen);
+  const isCarouselOpen = useCarouselStore((state: any) => state.isOpen);
+  const handleToggle = (index: number) => {
+    setIsCurrent(isCurrent === index ? null : index);
+  };
+  const [test, setTest] = useState(false);
+  const isZooming = (index: number) => {
+    if (index === zoomIndex) return true;
+    else return false;
+  };
+  // const imgRef = useRef<HTMLImageElement>(null);
+  // useEffect(() => {
+  //   if (zoomIndex) setZoomIndex(null);
+  // }, [zoomIndex]);
   return (
     <div className="container">
+      {/* {isCarouselOpen ? (
+        <div className="products-carousel">
+          <div className="products-carousel__header">
+            <div className="products-carousel__header__wrapper">
+              <button
+                className="products-carousel__header__title"
+                onClick={() => {
+                  setIsCarouselOpen(false);
+                }}
+              >
+                <p>
+                  <img src={left} alt="" /> item title
+                </p>
+              </button>
+
+              <button
+                className="products-carousel__header__close"
+                onClick={() => {
+                  setIsCarouselOpen(false);
+                }}
+              >
+                <img src={cross} alt="" />
+              </button>
+            </div>
+          </div>
+          <div className="products-carousel__wrapper">
+            <Carousel items={data[0].variants[0].photos} />
+          </div>
+          <div className="products-carousel__preview">
+            <Preview items={data[0].variants[0].photos} />
+          </div>
+        </div>
+      ) : (
+        ""
+      )} */}
+      <div
+        className={` ${
+          isCarouselOpen
+            ? "products-carousel products-carousel--open"
+            : "products-carousel"
+        }`}
+      >
+        <div className="products-carousel__header">
+          <div className="products-carousel__header__wrapper">
+            <button
+              className="products-carousel__header__title"
+              onClick={() => {
+                setIsCarouselOpen(false);
+              }}
+            >
+              <p>
+                <img src={left} alt="" /> item title
+              </p>
+            </button>
+
+            <button
+              className="products-carousel__header__close"
+              onClick={() => {
+                setIsCarouselOpen(false);
+              }}
+            >
+              <img src={cross} alt="" />
+            </button>
+          </div>
+        </div>
+        <div className="products-carousel__wrapper">
+          <Carousel items={data[0].variants[0].photos} />
+        </div>
+        <div className="products-carousel__preview">
+          <Preview items={data[0].variants[0].photos} />
+        </div>
+      </div>
+
       <Header />
+
       <section className="products-content">
         <div className="products-content__pictures">
-          <img src={firstPhoto} alt=""></img>
+          <img
+            src={firstPhoto}
+            alt=""
+            onClick={(e) => {
+              setIndex(0);
+              setZoomIndex(0);
+              setTest(true);
+              setIsCarouselOpen(true);
+              const target = e.target as HTMLImageElement;
+
+              const dimension = target?.getBoundingClientRect();
+
+              document.body.style.setProperty(
+                "--img-dimension-height",
+                `${dimension.height}px`
+              );
+              document.body.style.setProperty(
+                "--img-dimension-width",
+                `${dimension.width}px`
+              );
+              document.body.style.setProperty(
+                "--img-coordinate-top",
+                `${dimension.y}px`
+              );
+              document.body.style.setProperty(
+                "--img-coordinate-left",
+                `${dimension.x}px`
+              );
+            }}
+          />
           <div className="products-content__pictures__other">
             {data[0].variants[0].photos.map((photo, index) => {
               if (index === 0) {
                 return "";
               } else {
-                return <img key={index} src={photo} alt=""></img>;
+                return (
+                  <img
+                    key={index}
+                    src={photo}
+                    alt=""
+                    onClick={(e) => {
+                      setIndex(index);
+                      setZoomIndex(index);
+                      setTest(true);
+                      setIsCarouselOpen(true);
+                      const target = e.target as HTMLImageElement;
+                      const dimension = target?.getBoundingClientRect();
+                      console.log(dimension.width, dimension.height);
+
+                      document.body.style.setProperty(
+                        "--img-dimension-height",
+                        `${dimension.height}px`
+                      );
+                      document.body.style.setProperty(
+                        "--img-dimension-width",
+                        `${dimension.width}px`
+                      );
+                      document.body.style.setProperty(
+                        "--img-coordinate-top",
+                        `${dimension.y}px`
+                      );
+                      document.body.style.setProperty(
+                        "--img-coordinate-left",
+                        `${dimension.x}px`
+                      );
+                    }}
+                  />
+                );
               }
             })}
           </div>
@@ -124,15 +252,12 @@ export default function Products() {
                     <button
                       className="products-content__details__infos__wrapper__title__btn"
                       onClick={() => {
-                        const setIsOpen = eval(" setIsOpen" + index + ";");
-                        const isOpen = eval(" isOpen" + index + ";");
-                        setIsCurrent(index);
-                        setIsOpen(!isOpen);
+                        handleToggle(index);
                       }}
                     >
                       <div
                         className={`products-content__details__infos__wrapper__title__btn__icon ${
-                          eval(" isOpen" + index + ";")
+                          isCurrent === index
                             ? "products-content__details__infos__wrapper__title__btn__icon--open"
                             : ""
                         }`}
@@ -143,7 +268,7 @@ export default function Products() {
                   </div>
                   <div
                     className={`products-content__details__infos__wrapper__content ${
-                      eval(" isOpen" + index + ";")
+                      isCurrent === index
                         ? " products-content__details__infos__wrapper__content--open"
                         : ""
                     }   `}
@@ -154,7 +279,46 @@ export default function Products() {
             })}
           </div>
         </div>
-        <Separator />
+      </section>
+      <Separator />
+      <section className="products-materials">
+        <article className="products-materials__text">
+          <h3>The Materials</h3>
+          <br />
+          <p>
+            <strong>
+              Timeless designs, well-made, resourceful and sustainable.
+            </strong>
+          </p>
+          <br />
+          <p>
+            100% of our leathergoods and footwear are all made in Italy from
+            locally sourced Italian and European materials. We’ve spent the last
+            16 years tracking down the best suppliers, materials and
+            manufacturers to ensure we do justice to our designs.
+          </p>
+          <br />
+          <div className="products-materials__link">
+            <LinkToAll>
+              <p
+                style={{
+                  letterSpacing: "0.2rem",
+                  fontWeight: "100",
+                }}
+              >
+                learn more
+              </p>
+              <span className="linkToAll__arrow">&gt;</span>
+            </LinkToAll>
+          </div>
+        </article>
+        <img className="products-materials__img" src={leather} alt="" />
+      </section>
+      <section className="products-tabs">
+        <Tabs />
+      </section>
+      <section className="products-reviews">
+        <Reviews />
       </section>
       <Footer />
     </div>

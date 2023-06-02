@@ -1,0 +1,26 @@
+.tabs {
+  &__nav {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__tab {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      padding-inline: 5px;
+      margin-right: 20px;
+      cursor: pointer;
+      border-bottom: 3px solid #ebebe200;
+      transition: all 0.3s ease-in-out;
+
+      &--active {
+        cursor: default;
+        border-bottom: 3px solid #ebebe2;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
