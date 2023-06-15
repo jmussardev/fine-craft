@@ -1,0 +1,28 @@
+.review-modal {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000062;
+
+  &__modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    @include originCenter;
+    height: 584px;
+    width: 813px;
+    display: flex;
+    border-radius: 10px;
+    background-color: var(--COLOR-WHITE);
+
+    &__picture {
+      height: 100%;
+      width: 53%;
+      background-color: var(--COLOR-BG);
+      border-radius: 10px 0 0 10px;
+    }
+  }
+}

@@ -9,7 +9,6 @@ import useScrollLock from "../../hooks/useScrollLock";
 import data from "./../data/products.json";
 import Carousel from "./Carousel";
 
-// import DOMPurify from "dompurify";
 import useCart from "./../../hooks/useCart.ts";
 import debounce from "../../utils/debounce.ts";
 interface types {
@@ -50,9 +49,6 @@ export default function QuickAdd() {
    * Functions
    */
 
-  // const sanitizedData = () => ({
-  //   __html: DOMPurify.sanitize(item ? item?.description : ""),
-  // });
   const handleMouseEnter = () => {
     setIsHover(true);
   };

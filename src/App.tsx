@@ -17,10 +17,13 @@ function App() {
   }, []);
   return (
     <>
-      {/* <Navbar /> */}
       <Routes>
         <Route index path="/" element={<Home />} />
-        <Route index path="/products" element={<Products />} />
+        <Route
+          index
+          path="/products/:productId/:variant"
+          element={<Products />}
+        />
         {/* <Route path="about" element={<About />} />
         <Route path="models" element={<Models />} />
         <Route path="testimonials" element={<TestimonialsPage />} />

@@ -39,3 +39,21 @@ export interface ItemContainer {
   content: Content;
   quantity: number;
 }
+
+export type ReviewsType = ReviewType[];
+
+export interface ReviewType {
+  id: string;
+  first_name: string;
+  last_name: string;
+  rating: number;
+  description: string;
+  isVerified: boolean;
+  type: string;
+  experience: Experience;
+  photos: string[];
+}
+export interface Experience {
+  shipping: string;
+  product: string;
+}

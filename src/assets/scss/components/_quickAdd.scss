@@ -130,16 +130,15 @@
           margin-bottom: 40px;
 
           & .currentVariant {
-            outline: 2px var(--COLOR-CURRENT-VARIANT) solid;
+            outline: 2px var(--COLOR-BROWN) solid;
           }
 
           & div {
             height: 43px;
             width: 43px;
             overflow: hidden;
-            &:not(:first-child) {
-              margin-left: 10px;
-            }
+            margin-right: 10px;
+
             @include flexCenter;
             cursor: pointer;
             // border: 1px solid black;

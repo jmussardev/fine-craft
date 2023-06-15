@@ -31,7 +31,7 @@
             "id": "1",
             "first_name": "Joel",
             "last_name": "Richard",
-            "rating": 5,
+            "rating": 4,
             "description": "amazing",
             "isVerified": true,
             "type": "iPhone 14 Pro Max",
@@ -53,13 +53,13 @@
             "id": "3",
             "first_name": "Sue",
             "last_name": "Nguyen",
-            "rating": 5,
+            "rating": 4.5,
             "description": "Still before use</br>Pleasant Save ^^</br>Nice Case!!",
             "isVerified": true,
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
           }
         ]

@@ -4,8 +4,7 @@ import Header from "../components/Header";
 import Separator from "../components/Separator";
 import data from "./../data/products.json";
 import infos from "./../data/infos.json";
-const firstPhoto = data[0].variants[0].photos[0];
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import AddCartBtn from "../components/AddCartBtn";
 import shopPay from "./../assets/img/icons/Shop.svg";
 import leather from "./../assets/img/leather-swatches-wide_8b162bf1-66b2-4bad-845a-8a94d8444bb8.jpg";
@@ -17,63 +16,104 @@ import left from "./../assets/img/icons/bxs-chevron-left.svg";
 import cross from "./../assets/img/icons/cross-icon.svg";
 import Preview from "../components/Preview";
 import { useCarouselStore } from "../stores/Carousel.store";
+import { useParams } from "react-router-dom";
+import { ItemVariant } from "./../../config/types";
+import Swatches from "../components/Swatches";
+import { Link } from "react-router-dom";
+import ProductPreview from "../components/ProductPreview";
+
+interface types {
+  [key: string]: boolean;
+}
 
 export default function Products() {
+  /**
+   * States
+   */
+  const { productId, variant } = useParams();
+  const currentVariant = (
+    productId
+      ? data[parseInt(productId) - 1].variants.find(
+          (vrt: ItemVariant) => vrt.variant === variant
+        )
+      : ""
+  ) as ItemVariant;
   const [isCurrent, setIsCurrent] = useState<number | null>(0);
-  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
+  const [currentType, setCurrentType] = useState(
+    productId ? data[parseInt(productId) - 1]?.type[0] : null
+  );
   const setIndex = useCarouselStore((state: any) => state.setIndex);
-  // const currentIndex = useCarouselStore((state: any) => state.index);
   const setIsCarouselOpen = useCarouselStore((state: any) => state.setIsOpen);
   const isCarouselOpen = useCarouselStore((state: any) => state.isOpen);
+  const isZooming = useCarouselStore((state: any) => state.isZooming);
+  const [currentFirstIndex, setCurrentFirstIndex] = useState(0);
+  const [currentFirst, setCurrentFirst] = useState(
+    currentVariant ? currentVariant.photos[0] : ""
+  );
+  // const currentFirst = currentVariant ? currentVariant.photos[0] : "";
+
+  /**
+   * Functions
+   */
   const handleToggle = (index: number) => {
     setIsCurrent(isCurrent === index ? null : index);
   };
-  const [test, setTest] = useState(false);
-  const isZooming = (index: number) => {
-    if (index === zoomIndex) return true;
-    else return false;
+  const setDimensions = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    const target = e.target as HTMLImageElement;
+
+    const dimension = target?.getBoundingClientRect();
+
+    document.body.style.setProperty(
+      "--img-dimension-height",
+      `${dimension.height}px`
+    );
+    document.body.style.setProperty(
+      "--img-dimension-width",
+      `${dimension.width}px`
+    );
+    document.body.style.setProperty("--img-coordinate-top", `${dimension.y}px`);
+    document.body.style.setProperty(
+      "--img-coordinate-left",
+      `${dimension.x}px`
+    );
   };
-  // const imgRef = useRef<HTMLImageElement>(null);
-  // useEffect(() => {
-  //   if (zoomIndex) setZoomIndex(null);
-  // }, [zoomIndex]);
+  const isTypeAvailable = (type: string) => {
+    if (currentVariant) {
+      const types: types = currentVariant.isAvailable;
+      return types[type];
+    }
+  };
+  const isCurrentType = (type: string) => {
+    return currentType === type;
+  };
+  const handleFirstAvailable = () => {
+    if (currentVariant) {
+      const types: types = currentVariant.isAvailable;
+      for (const key in types) {
+        if (types[key] === true) return key;
+      }
+    }
+    return "";
+  };
+
+  /**
+   * Effects
+   */
+  useEffect(() => {
+    console.log(isZooming);
+  }, [isZooming]);
+  useEffect(() => {
+    if (currentVariant) setCurrentType(handleFirstAvailable());
+    setCurrentFirst(currentVariant ? currentVariant.photos[0] : "");
+  }, [currentVariant]);
+  useEffect(() => {
+    setCurrentFirst(
+      currentVariant ? currentVariant.photos[currentFirstIndex] : ""
+    );
+  }, [currentFirstIndex]);
+
   return (
     <div className="container">
-      {/* {isCarouselOpen ? (
-        <div className="products-carousel">
-          <div className="products-carousel__header">
-            <div className="products-carousel__header__wrapper">
-              <button
-                className="products-carousel__header__title"
-                onClick={() => {
-                  setIsCarouselOpen(false);
-                }}
-              >
-                <p>
-                  <img src={left} alt="" /> item title
-                </p>
-              </button>
-
-              <button
-                className="products-carousel__header__close"
-                onClick={() => {
-                  setIsCarouselOpen(false);
-                }}
-              >
-                <img src={cross} alt="" />
-              </button>
-            </div>
-          </div>
-          <div className="products-carousel__wrapper">
-            <Carousel items={data[0].variants[0].photos} />
-          </div>
-          <div className="products-carousel__preview">
-            <Preview items={data[0].variants[0].photos} />
-          </div>
-        </div>
-      ) : (
-        ""
-      )} */}
       <div
         className={` ${
           isCarouselOpen
@@ -82,7 +122,7 @@ export default function Products() {
         }`}
       >
         <div className="products-carousel__header">
-          <div className="products-carousel__header__wrapper">
+          <div className={`products-carousel__header__wrapper `}>
             <button
               className="products-carousel__header__title"
               onClick={() => {
@@ -104,11 +144,15 @@ export default function Products() {
             </button>
           </div>
         </div>
-        <div className="products-carousel__wrapper">
-          <Carousel items={data[0].variants[0].photos} />
+        <div
+          className={`products-carousel__wrapper ${
+            isZooming ? "products-carousel__wrapper--zoom" : ""
+          }`}
+        >
+          <Carousel items={currentVariant.photos} />
         </div>
         <div className="products-carousel__preview">
-          <Preview items={data[0].variants[0].photos} />
+          <Preview items={currentVariant.photos} />
         </div>
       </div>
 
@@ -117,37 +161,22 @@ export default function Products() {
       <section className="products-content">
         <div className="products-content__pictures">
           <img
-            src={firstPhoto}
+            src={currentFirst}
             alt=""
             onClick={(e) => {
-              setIndex(0);
-              setZoomIndex(0);
-              setTest(true);
+              setIndex(currentFirstIndex);
               setIsCarouselOpen(true);
-              const target = e.target as HTMLImageElement;
-
-              const dimension = target?.getBoundingClientRect();
-
-              document.body.style.setProperty(
-                "--img-dimension-height",
-                `${dimension.height}px`
-              );
-              document.body.style.setProperty(
-                "--img-dimension-width",
-                `${dimension.width}px`
-              );
-              document.body.style.setProperty(
-                "--img-coordinate-top",
-                `${dimension.y}px`
-              );
-              document.body.style.setProperty(
-                "--img-coordinate-left",
-                `${dimension.x}px`
-              );
+              setDimensions(e);
             }}
           />
+          <div className="products-content__pictures__preview">
+            <ProductPreview
+              items={currentVariant.photos}
+              setCurrentFirstIndex={setCurrentFirstIndex}
+            />
+          </div>
           <div className="products-content__pictures__other">
-            {data[0].variants[0].photos.map((photo, index) => {
+            {currentVariant?.photos.map((photo, index) => {
               if (index === 0) {
                 return "";
               } else {
@@ -158,29 +187,8 @@ export default function Products() {
                     alt=""
                     onClick={(e) => {
                       setIndex(index);
-                      setZoomIndex(index);
-                      setTest(true);
                       setIsCarouselOpen(true);
-                      const target = e.target as HTMLImageElement;
-                      const dimension = target?.getBoundingClientRect();
-                      console.log(dimension.width, dimension.height);
-
-                      document.body.style.setProperty(
-                        "--img-dimension-height",
-                        `${dimension.height}px`
-                      );
-                      document.body.style.setProperty(
-                        "--img-dimension-width",
-                        `${dimension.width}px`
-                      );
-                      document.body.style.setProperty(
-                        "--img-coordinate-top",
-                        `${dimension.y}px`
-                      );
-                      document.body.style.setProperty(
-                        "--img-coordinate-left",
-                        `${dimension.x}px`
-                      );
+                      setDimensions(e);
                     }}
                   />
                 );
@@ -191,43 +199,39 @@ export default function Products() {
         <div className="products-content__details">
           <div className="products-content__details__options">
             <div className="products-content__details__options__path">
-              <p>Home &bull; Fuzzy iPhone 14 Cover . Dusty Brown </p>
+              <p>
+                <Link to={"/"}>
+                  <span className="products-content__details__options__path__link">
+                    Home
+                  </span>
+                </Link>{" "}
+                &bull; {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
+                {currentVariant.variant}
+              </p>
             </div>
             <div className="products-content__details__options__title">
-              <h1>Fuzzy iPhone 14 Cover . Dusty Brown </h1>
+              <h1>
+                {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
+                {currentVariant.variant}
+              </h1>
             </div>
             <div className="products-content__details__options__price">
               <p>€72,95</p>
             </div>
             <div className="products-content__details__options__variants">
-              {data[0]?.variants.map((variant, index) => (
-                <div
-                  key={index}
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
-                  // title={isHover ? item.name + ". " + variant.variant : ""}
-                  // onClick={() => {
-                  //   setcurrentVariant(variant);
-                  // }}
-                  // className={`${
-                  //   variant === currentVariant ? "currentVariant" : ""
-                  // }`}
-                >
-                  <img src={variant.photos[0]} alt="" />
-                </div>
-              ))}
+              <Swatches id={productId} currentVariant={currentVariant} />
             </div>
             <div className="products-content__details__options__types">
               {data[0]?.type.map((type, index) => (
                 <button
                   key={index}
-                  //   onClick={() => {
-                  //     setcurrentType(type);
-                  //   }}
-                  //   className={`${isTypeAvailable(type) ? "" : "notAvailable"} ${
-                  //     isCurrentType(type) ? "currentType" : ""
-                  //   }`}
-                  //   disabled={!isTypeAvailable(type)}
+                  onClick={() => {
+                    setCurrentType(type);
+                  }}
+                  className={`${isTypeAvailable(type) ? "" : "notAvailable"} ${
+                    isCurrentType(type) ? "currentType" : ""
+                  }`}
+                  disabled={!isTypeAvailable(type)}
                 >
                   {type}
                 </button>
@@ -318,7 +322,7 @@ export default function Products() {
         <Tabs />
       </section>
       <section className="products-reviews">
-        <Reviews />
+        <Reviews reviews={currentVariant.reviews} />
       </section>
       <Footer />
     </div>

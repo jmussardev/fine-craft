@@ -4,19 +4,29 @@
   max-width: calc(100vw - 21px);
   height: 100%;
   @include flexCenter;
+  @media (width > 1200px) {
+    cursor: default !important;
+  }
 
   &--fade {
     opacity: 100%;
     visibility: visible;
     transition: visibility 0.3s, opacity 0.5s linear;
   }
-
   &__wrapper {
     height: fit-content;
     max-width: 1700px;
     width: 100vh;
     overflow: hidden;
     border: red 4px dashed;
+    transition: all 0.3s ease-in-out;
+    &--zoom {
+      @media (width < 1200px) {
+        max-width: none;
+        transition: all 0.3s ease-in-out;
+        width: 200vh;
+      }
+    }
   }
 
   &__inner {
@@ -35,9 +45,15 @@
 
       &__picture {
         max-width: 1700px;
-        // max-height: 1000px;
         height: auto;
-        width: 100vh;
+
+        transition: all 0.4s ease-in-out;
+        &--zoom {
+          @media (width < 1200px) {
+            width: 200vh;
+            transition: all 0.4s ease-in-out;
+          }
+        }
       }
     }
   }
@@ -81,7 +97,7 @@
 }
 
 .carousel-dummy {
-  z-index: 99999;
+  z-index: 9999;
   position: fixed;
   opacity: 0%;
   top: var(--final-coordinate-top);

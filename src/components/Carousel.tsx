@@ -16,9 +16,8 @@ export default function Carousel({ items }: { items?: string[] }) {
   const isOpen = useCarouselStore((state: any) => state.isOpen);
   const activeIndex = useCarouselStore((state: any) => state.index);
   const setActiveIndex = useCarouselStore((state: any) => state.setIndex);
-  // const [dimensions, setDimensions] = useState<dimensions | null>(null);
-
-  // const [activeIndex, setActiveIndex] = useState(index ? index : 0);
+  const setIsZooming = useCarouselStore((state: any) => state.setIsZooming);
+  const isZooming: boolean = useCarouselStore((state: any) => state.isZooming);
 
   const updateIndex = (newIndex: number) => {
     if (items && newIndex < 0) {
@@ -31,19 +30,30 @@ export default function Carousel({ items }: { items?: string[] }) {
   };
 
   useEffect(() => {
+    if (isZooming === false) return;
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      const isLeft = target.closest(".carousel__actions__wrapper__left");
+      const isRight = target.closest(".carousel__actions__wrapper__right");
+
+      const condition = isLeft === null && isRight === null ? false : true;
+
+      if (condition) {
+        setIsZooming(false);
+      }
+    };
+
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [isZooming === true]);
+
+  useEffect(() => {
     const wrapper = document.querySelector(".carousel__wrapper");
     const dimension = wrapper?.getBoundingClientRect();
     if (!dimension) return;
-    // const dim = {
-    //   height: dimension.width,
-    //   width: dimension.height,
-    //   top: dimension.top,
-    //   left: dimension.left,
-    // };
-
-    // if (!isEqual(dimension, dim)) {
-    //   setDimensions(dim);
-    // }
 
     document.body.style.setProperty(
       "--final-dimension-height",
@@ -75,17 +85,36 @@ export default function Carousel({ items }: { items?: string[] }) {
         <img src={items ? items[activeIndex] : ""} alt="" />
       </div>
 
-      <div className={` ${isOpen ? "carousel carousel--fade" : "carousel"}`}>
-        <div className={` carousel__wrapper  }`}>
+      <div
+        className={` noselect ${
+          isOpen ? "carousel carousel--fade" : "carousel"
+        }`}
+        onClick={() => {
+          setIsZooming(!isZooming);
+        }}
+        style={{ cursor: `${isZooming ? "zoom-out" : "zoom-in"}` }}
+      >
+        <div
+          className={`carousel__wrapper   ${
+            isZooming ? "carousel__wrapper--zoom" : ""
+          }`}
+        >
           <div
             className="carousel__inner"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {items &&
               items.map((item, index) => (
-                <div className="carousel__inner__item" key={index}>
+                <div
+                  className={`carousel__inner__item  ${
+                    isZooming ? "carousel__inner__item--zoom" : ""
+                  }`}
+                  key={index}
+                >
                   <img
-                    className="carousel__inner__item__picture"
+                    className={`carousel__inner__item__picture ${
+                      isZooming ? "carousel__inner__item__picture--zoom" : ""
+                    }`}
                     src={item}
                     alt=""
                   />
@@ -98,6 +127,7 @@ export default function Carousel({ items }: { items?: string[] }) {
           <div className="carousel__actions__wrapper">
             {" "}
             <button
+              className="carousel__actions__wrapper__left"
               onClick={() => {
                 updateIndex(activeIndex - 1);
               }}
@@ -105,6 +135,7 @@ export default function Carousel({ items }: { items?: string[] }) {
               <img src={left} alt="" />
             </button>
             <button
+              className="carousel__actions__wrapper__right"
               onClick={() => {
                 updateIndex(activeIndex + 1);
               }}

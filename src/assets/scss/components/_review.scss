@@ -1,0 +1,54 @@
+.review {
+  float: left;
+  margin-bottom: 10px;
+  width: 23%;
+
+  @media (width < 1200px) {
+    width: calc(100vw * 0.23);
+  }
+  @media (width<750px) {
+    width: 31.3%;
+  }
+
+  // border: #620f68 1px dashed;
+  &__picture {
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__details {
+    padding: 10px;
+
+    &__name {
+      font-weight: bolder;
+      font-size: larger;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      & img {
+        width: 18px;
+        margin-left: 5px;
+        padding-bottom: 5px;
+      }
+    }
+    & .stars {
+      margin-bottom: 8px;
+      & img {
+        height: auto;
+        width: 15px;
+      }
+    }
+    &__description {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    &__item-type {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+  }
+}
