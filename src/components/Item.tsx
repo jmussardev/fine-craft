@@ -23,11 +23,13 @@ export default function Item({
   title,
   price,
   variants,
+  currentVariant,
 }: {
   id: string;
   title: string;
   price: number;
   variants: variant[];
+  currentVariant?: any;
 }) {
   /**
    * Hooks
@@ -44,6 +46,7 @@ export default function Item({
   });
   const [current, setCurrent] = useState(variants[0]);
   const setIsOpen = useQuickAddStore((state: any) => state.setIsOpen);
+  const setQuickCurrent = useQuickAddStore((state: any) => state.setCurrent);
   const setId = useQuickAddStore((state: any) => state.setId);
 
   /**
@@ -74,7 +77,7 @@ export default function Item({
     setCurrent(variants[variants.indexOf(variant)]);
   };
   const handleMouseLeave = () => {
-    setCurrent(variants[0]);
+    setCurrent(currentVariant);
   };
 
   /**
@@ -83,6 +86,7 @@ export default function Item({
 
   useEffect(() => {
     observer("item__picture__animation", itemRef);
+    if (currentVariant) setCurrent(currentVariant);
   }, []);
 
   useEffect(() => {
@@ -116,6 +120,7 @@ export default function Item({
             onClick={() => {
               setId(id);
               setIsOpen(true);
+              setQuickCurrent(current);
               lockScroll();
             }}
           >
@@ -126,6 +131,7 @@ export default function Item({
             onClick={() => {
               setId(id);
               setIsOpen(true);
+              setQuickCurrent(current);
               lockScroll();
             }}
           >
@@ -135,7 +141,7 @@ export default function Item({
       </div>
       <div className="item__infos">
         <p className="item__infos__title">
-          {title}.{current.variant}
+          {title}.{currentVariant ? currentVariant.variant : current.variant}
         </p>
         <p className="item__infos__price">€{price} EUR</p>
         <div className="item__infos__variants">
@@ -153,7 +159,11 @@ export default function Item({
                   key={index}
                   ref={variantRef}
                   className={`test ${
-                    variants.indexOf(variant) === 0 ? "current" : ""
+                    variants.indexOf(
+                      currentVariant ? currentVariant : variant
+                    ) === index
+                      ? "current"
+                      : ""
                   }`}
                   onMouseEnter={() => handleMouseEnter(variant)}
                 >
@@ -165,7 +175,11 @@ export default function Item({
                   key={index}
                   ref={variantRef}
                   className={`test ${
-                    variants.indexOf(variant) === 0 ? "current" : ""
+                    variants.indexOf(
+                      currentVariant ? currentVariant : variant
+                    ) === index
+                      ? "current"
+                      : ""
                   }`}
                   onMouseEnter={() => handleMouseEnter(variant)}
                 >

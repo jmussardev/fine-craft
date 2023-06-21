@@ -21,12 +21,20 @@ import { ItemVariant } from "./../../config/types";
 import Swatches from "../components/Swatches";
 import { Link } from "react-router-dom";
 import ProductPreview from "../components/ProductPreview";
+import QuickAdd from "../components/QuickAdd";
+import useSeen from "./../../hooks/useSeen";
+import { useSeenStore } from "../stores/Seen.store";
+import debounce from "../../utils/debounce";
+import { flushSync } from "react-dom";
 
 interface types {
   [key: string]: boolean;
 }
 
 export default function Products() {
+  const { addItem } = useSeen();
+  const seenContent = useSeenStore((state: any) => state.content);
+  const resumeSeen = useSeenStore((state: any) => state.resumeContent);
   /**
    * States
    */
@@ -50,6 +58,7 @@ export default function Products() {
   const [currentFirst, setCurrentFirst] = useState(
     currentVariant ? currentVariant.photos[0] : ""
   );
+
   // const currentFirst = currentVariant ? currentVariant.photos[0] : "";
 
   /**
@@ -95,17 +104,55 @@ export default function Products() {
     }
     return "";
   };
+  const handleOpenCarousel = () => {
+    setIsCarouselOpen(true);
+  };
+  const handleCloseCarousel = () => {
+    setIsCarouselOpen(false);
+  };
 
   /**
    * Effects
    */
+
   useEffect(() => {
-    console.log(isZooming);
-  }, [isZooming]);
+    if (!productId) return;
+    addItem(productId, currentVariant.variant);
+  }, [productId, currentVariant]);
+
+  useEffect(() => {
+    const handleCloseCarousel = (event: KeyboardEvent) => {
+      if (event.key === "Escape" || event.code === "Space") {
+        setIsCarouselOpen(false);
+      }
+    };
+    window.addEventListener("keydown", (e) => {
+      handleCloseCarousel(e);
+    });
+    return () => {
+      window.removeEventListener("keydown", (e) => {
+        handleCloseCarousel(e);
+      });
+    };
+  }, [isCarouselOpen === true]);
+
+  useEffect(() => {
+    const lockScroll = () => {
+      if (isCarouselOpen) {
+        window.scroll(0, 0);
+      }
+    };
+    window.addEventListener("scroll", lockScroll);
+    return () => {
+      window.removeEventListener("scroll", lockScroll);
+    };
+  });
+
   useEffect(() => {
     if (currentVariant) setCurrentType(handleFirstAvailable());
     setCurrentFirst(currentVariant ? currentVariant.photos[0] : "");
   }, [currentVariant]);
+
   useEffect(() => {
     setCurrentFirst(
       currentVariant ? currentVariant.photos[currentFirstIndex] : ""
@@ -126,7 +173,7 @@ export default function Products() {
             <button
               className="products-carousel__header__title"
               onClick={() => {
-                setIsCarouselOpen(false);
+                handleCloseCarousel();
               }}
             >
               <p>
@@ -137,7 +184,7 @@ export default function Products() {
             <button
               className="products-carousel__header__close"
               onClick={() => {
-                setIsCarouselOpen(false);
+                handleCloseCarousel();
               }}
             >
               <img src={cross} alt="" />
@@ -155,17 +202,19 @@ export default function Products() {
           <Preview items={currentVariant.photos} />
         </div>
       </div>
-
+      <QuickAdd />
       <Header />
 
       <section className="products-content">
         <div className="products-content__pictures">
           <img
+            className="products-content__pictures__first"
+            key={currentFirst}
             src={currentFirst}
             alt=""
             onClick={(e) => {
               setIndex(currentFirstIndex);
-              setIsCarouselOpen(true);
+              handleOpenCarousel();
               setDimensions(e);
             }}
           />
@@ -187,7 +236,7 @@ export default function Products() {
                     alt=""
                     onClick={(e) => {
                       setIndex(index);
-                      setIsCarouselOpen(true);
+                      handleOpenCarousel();
                       setDimensions(e);
                     }}
                   />
@@ -238,7 +287,13 @@ export default function Products() {
               ))}
             </div>
             <div className="products-content__details__options__add">
-              <AddCartBtn location={"product"} />
+              <AddCartBtn
+                location={"product"}
+                itemId={productId}
+                price={data[productId ? parseInt(productId) - 1 : 0].price}
+                currentType={currentType}
+                currentVariant={currentVariant.variant}
+              />
               <button className="products-content__details__options__add__btn">
                 <img src={shopPay} alt="" />
               </button>
@@ -318,10 +373,13 @@ export default function Products() {
         </article>
         <img className="products-materials__img" src={leather} alt="" />
       </section>
-      <section className="products-tabs">
-        <Tabs />
+      <section className="products-tabs" key={Math.floor(Math.random() * 100)}>
+        <Tabs
+          currentVariant={currentVariant}
+          productId={productId ? parseInt(productId) : 0}
+        />
       </section>
-      <section className="products-reviews">
+      <section className="products-reviews" key={currentVariant.variant}>
         <Reviews reviews={currentVariant.reviews} />
       </section>
       <Footer />

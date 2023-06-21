@@ -39,6 +39,10 @@ export interface ItemContainer {
   content: Content;
   quantity: number;
 }
+export interface ItemSeenContainer {
+  id: string;
+  variant: string;
+}
 
 export type ReviewsType = ReviewType[];
 

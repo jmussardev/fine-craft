@@ -7,7 +7,7 @@ import { useQuickAddStore } from "../stores/QuickAdd.store";
 import { useCartStore } from "../stores/Cart.store";
 import useScrollLock from "../../hooks/useScrollLock";
 import data from "./../data/products.json";
-import Carousel from "./Carousel";
+import CarouselQuickAdd from "./Carousel-QuickAdd";
 
 import useCart from "./../../hooks/useCart.ts";
 import debounce from "../../utils/debounce.ts";
@@ -33,11 +33,12 @@ export default function QuickAdd() {
   const [isLoading, setIstLoading] = useState(false);
   const [isValided, setIsValided] = useState(false);
   const isOpen = useQuickAddStore((state: any) => state.isOpen);
-  // const itemId = useQuickAddStore((state: any) => state.itemId);
+  const itemId = useQuickAddStore((state: any) => state.itemId);
   const setIsOpen = useQuickAddStore((state: any) => state.setIsOpen);
+  const current = useQuickAddStore((state: any) => state.current);
   const setCartOpen = useCartStore((state: any) => state.setIsOpen);
   const item = data.find((item) => {
-    return item.id === item.id;
+    return item.id === itemId;
   });
   const [currentVariant, setcurrentVariant] = useState(
     item ? item.variants[0] : null
@@ -94,6 +95,11 @@ export default function QuickAdd() {
   /**
    * Effects
    */
+
+  useEffect(() => {
+    setcurrentVariant(current);
+  }, [current]);
+
   useEffect(() => {
     if (currentVariant) setcurrentType(handleFirstAvailable());
   }, [currentVariant]);
@@ -149,12 +155,16 @@ export default function QuickAdd() {
             <img src={cross} alt="" />
           </div>
           <div className="quickAdd__wrapper__picture">
-            <Carousel items={currentVariant ? currentVariant.photos : []} />
+            <CarouselQuickAdd
+              items={currentVariant ? currentVariant.photos : []}
+            />
           </div>
           <div className="quickAdd__wrapper__form">
             <div className="quickAdd__wrapper__form__options">
               <div className="quickAdd__wrapper__form__options__title">
-                <h1>{item?.name}. dusty black</h1>
+                <h1>
+                  {item?.name}. {currentVariant?.variant}
+                </h1>
                 <p>€{item?.price}</p>
               </div>
               <div className="quickAdd__wrapper__form__options__variants">

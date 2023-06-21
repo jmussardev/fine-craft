@@ -4,17 +4,31 @@ import Home from "./pages/Home";
 import { useEffect } from "react";
 import { useCartStore } from "./stores/Cart.store";
 import Products from "./pages/Products";
+import { useSeenStore } from "./stores/Seen.store";
+import { flushSync } from "react-dom";
 
 function App() {
-  const resumeContent = useCartStore((state: any) => state.resumeContent);
+  const resumeCart = useCartStore((state: any) => state.resumeContent);
+  const resumeSeen = useSeenStore((state: any) => state.resumeContent);
+  const handleResumeSeen = () => {
+    if ("seen" in localStorage) {
+      const storage = localStorage.getItem("seen");
+      if (!storage) return;
+      flushSync(() => {
+        resumeSeen(JSON.parse(storage));
+      });
+    }
+  };
+  handleResumeSeen();
 
   useEffect(() => {
     if ("cart" in localStorage) {
       const storage = localStorage.getItem("cart");
       if (!storage) return;
-      resumeContent(JSON.parse(storage));
+      resumeCart(JSON.parse(storage));
     }
   }, []);
+
   return (
     <>
       <Routes>
@@ -25,10 +39,7 @@ function App() {
           element={<Products />}
         />
         {/* <Route path="about" element={<About />} />
-        <Route path="models" element={<Models />} />
-        <Route path="testimonials" element={<TestimonialsPage />} />
-        <Route path="team" element={<Team />} />
-        <Route path="contact" element={<Contact />} /> */}
+         */}
       </Routes>
     </>
   );

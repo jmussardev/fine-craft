@@ -5,29 +5,14 @@ export const useQuickAddStore = create((set) => ({
   itemId: "",
   isLoading: false,
   isValided: false,
+  current: "",
   setIsOpen: (boolean: boolean) => {
     set((state: any) => ({ isOpen: boolean }));
   },
   setId: (id: string) => {
     set((state: any) => ({ itemId: id }));
   },
+  setCurrent: (variant: any) => {
+    set((state: any) => ({ current: variant }));
+  },
 }));
-
-// {isLoading && (
-//   <div
-//     className={`loader-wrapper ${
-//       isValided ? "loader-wrapper--isValided" : ""
-//     }`}
-//   >
-//     {isValided ? (
-//       <img src={check} alt="" />
-//     ) : (
-//       <div className="loader-wrapper__lds-ring">
-//         <div></div>
-//         <div></div>
-//         <div></div>
-//         <div></div>
-//       </div>
-//     )}
-//   </div>
-// )}

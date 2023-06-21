@@ -24,9 +24,8 @@ export default function Swatches({
   return (
     <>
       {data[0]?.variants.map((variant, index) => (
-        <Link to={`/products/${id}/${variant.variant}`}>
+        <Link key={index} to={`/products/${id}/${variant.variant}`}>
           <div
-            key={index}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             title={isHover ? item?.name + ". " + variant.variant : ""}

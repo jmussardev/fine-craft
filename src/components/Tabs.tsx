@@ -2,7 +2,13 @@ import { useState } from "react";
 import FirstTab from "./FirstTab";
 import SecondTab from "./SecondTab";
 
-export default function Tabs() {
+export default function Tabs({
+  currentVariant,
+  productId,
+}: {
+  currentVariant: any;
+  productId: number;
+}) {
   const [activeTab, setActiveTab] = useState("tab1");
   const handleTab1 = () => {
     setActiveTab("tab1");
@@ -31,7 +37,11 @@ export default function Tabs() {
         </li>
       </ul>
       <div className="tabs__outlet">
-        {activeTab === "tab1" ? <FirstTab /> : <SecondTab />}
+        {activeTab === "tab1" ? (
+          <FirstTab currentVariant={currentVariant} productId={productId} />
+        ) : (
+          <SecondTab />
+        )}
       </div>
     </div>
   );

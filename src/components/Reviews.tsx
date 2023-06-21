@@ -38,8 +38,10 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
           data-masonry='{ "itemSelector": ".review"}'
         >
           <div className="reviews__container__sizer"></div>
-          {reviews.map((review) => (
-            <Review review={review} />
+          {reviews.map((review, i) => (
+            <div key={i}>
+              <Review review={review} />
+            </div>
           ))}
         </div>
       </div>

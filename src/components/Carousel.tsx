@@ -1,16 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import left from "./../assets/img/icons/bxs-chevron-left.svg";
 import right from "./../assets/img/icons/bxs-chevron-right.svg";
 import { useCarouselStore } from "../stores/Carousel.store";
-// import isEqual from "./../../utils/isEqualObject";
-
-// interface dimensions {
-//   height: number;
-//   width: number;
-//   top: number;
-//   left: number;
-// }
 
 export default function Carousel({ items }: { items?: string[] }) {
   const isOpen = useCarouselStore((state: any) => state.isOpen);

@@ -14,17 +14,14 @@
     transition: visibility 0.3s, opacity 0.5s linear;
   }
   &__wrapper {
-    height: fit-content;
-    max-width: 1700px;
     width: 100vh;
     overflow: hidden;
     border: red 4px dashed;
-    transition: all 0.3s ease-in-out;
     &--zoom {
       @media (width < 1200px) {
         max-width: none;
         transition: all 0.3s ease-in-out;
-        width: 200vh;
+        width: 150vh;
       }
     }
   }
@@ -44,10 +41,10 @@
       overflow: hidden;
 
       &__picture {
+        width: 100%;
         max-width: 1700px;
         height: auto;
 
-        transition: all 0.4s ease-in-out;
         &--zoom {
           @media (width < 1200px) {
             width: 200vh;
@@ -58,7 +55,7 @@
     }
   }
   &__actions {
-    z-index: 99999;
+    z-index: 999;
     position: absolute;
     top: 0;
     height: 100%;
@@ -97,7 +94,7 @@
 }
 
 .carousel-dummy {
-  z-index: 9999;
+  z-index: 999;
   position: fixed;
   opacity: 0%;
   top: var(--final-coordinate-top);

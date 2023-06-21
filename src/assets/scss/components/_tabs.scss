@@ -1,4 +1,5 @@
 .tabs {
+  height: fit-content;
   &__nav {
     height: 40px;
     width: 100%;
@@ -6,7 +7,7 @@
     justify-content: center;
     align-items: center;
     &__tab {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 600;
       letter-spacing: 0.2px;
       text-transform: uppercase;
@@ -20,6 +21,38 @@
         cursor: default;
         border-bottom: 3px solid #ebebe2;
         transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.firstTab {
+  margin-top: 30px;
+  padding-inline: 40px;
+  width: 100%;
+  // display: flex-inline;
+  // justify-content: center;
+  @include flexCenter;
+  &__wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    // background-color: pink;
+
+    @media (width<750px) {
+      width: 500px;
+      display: flex-inline;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      // background-color: rgb(191, 17, 46);
+      &__item {
+        width: 500px;
       }
     }
   }

@@ -124,8 +124,7 @@ export default function SearchBar({
           : false;
       if (condition) {
         if (isLargeButtonClosest === null && isSmallButtonClosest === null)
-          unlockScroll();
-        setIsSearchOpen(false);
+          handleClose();
       }
     };
     window.addEventListener("click", handleClick);
@@ -215,9 +214,6 @@ export default function SearchBar({
                           {result.map((item) => (
                             <SearchItem item={item} />
                           ))}
-                          <SearchItem item={result[0]} />
-                          <SearchItem item={result[0]} />
-                          <SearchItem item={result[0]} />
                         </ul>{" "}
                       </>
                     ) : (

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import left from "./../assets/img/icons/bxs-chevron-left.svg";
 import right from "./../assets/img/icons/bxs-chevron-right.svg";
 
-export default function Carousel({ items }: { items?: string[] }) {
+export default function CarouselQuickAdd({ items }: { items?: string[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex: number) => {
@@ -19,23 +19,23 @@ export default function Carousel({ items }: { items?: string[] }) {
     setActiveIndex(0);
   }, [items]);
   return (
-    <div className="carousel">
+    <div className="carousel-quickadd">
       <div
-        className="carousel__inner"
+        className="carousel-quickadd__inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {items &&
           items.map((item, index) => (
-            <div className="carousel__inner__item" key={index}>
+            <div className="carousel-quickadd__inner__item" key={index}>
               <img
-                className="carousel__inner__item__picture"
+                className="carousel-quickadd__inner__item__picture"
                 src={item}
                 alt=""
               />
             </div>
           ))}
       </div>
-      <div className="carousel__actions">
+      <div className="carousel-quickadd__actions">
         <button
           onClick={() => {
             updateIndex(activeIndex - 1);
