@@ -5,10 +5,15 @@ import Stars from "./Stars";
 import Masonry from "masonry-layout";
 import { useState } from "react";
 import ReviewModal from "./ReviewModal";
-import { ReviewsType } from "../../config/types";
+import { ReviewsType, ReviewType } from "../../config/types";
+import ReviewForm from "./ReviewForm";
+import useScrollLock from "../../hooks/useScrollLock";
 
 export default function Reviews({ reviews }: { reviews: ReviewsType }) {
+  const { lockScroll } = useScrollLock();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [currentReview, setCurrentReview] = useState<ReviewType | null>(null);
   const avg = parseInt(calcAvg(reviews));
   const elem = document.querySelector(".reviews__container") as Element;
   const msnry = new Masonry(elem, {
@@ -20,7 +25,10 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
 
   return (
     <>
-      {isModalOpen && <ReviewModal />}
+      {isModalOpen && (
+        <ReviewModal review={currentReview} setIsModalOpen={setIsModalOpen} />
+      )}
+      {isFormOpen && <ReviewForm setIsFormOpen={setIsFormOpen} />}
       <div className="reviews">
         <div className="reviews__header">
           <div className="reviews__header__average">
@@ -31,7 +39,16 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
               &nbsp; {reviews.length} Review{reviews.length > 1 ? "s" : ""}
             </p>
           </div>
-          <button className="reviews__header__btn"> Write a review</button>
+          <button
+            className="reviews__header__btn"
+            onClick={() => {
+              setIsFormOpen(true);
+              lockScroll();
+            }}
+          >
+            {" "}
+            Write a review
+          </button>
         </div>
         <div
           className="reviews__container"
@@ -40,7 +57,11 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
           <div className="reviews__container__sizer"></div>
           {reviews.map((review, i) => (
             <div key={i}>
-              <Review review={review} />
+              <Review
+                review={review}
+                setCurrentReview={setCurrentReview}
+                setIsModalOpen={setIsModalOpen}
+              />
             </div>
           ))}
         </div>

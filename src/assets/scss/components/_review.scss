@@ -12,6 +12,7 @@
 
   // border: #620f68 1px dashed;
   &__picture {
+    cursor: zoom-in;
     width: 100%;
     height: auto;
 
@@ -43,6 +44,7 @@
       }
     }
     &__description {
+      cursor: pointer;
       font-size: 12px;
       margin-bottom: 8px;
     }

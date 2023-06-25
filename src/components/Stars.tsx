@@ -7,7 +7,7 @@ export default function Stars({
   review,
   avg,
 }: {
-  review?: ReviewType;
+  review?: ReviewType | null;
   avg?: number;
 }) {
   const rating = review ? review.rating : avg;

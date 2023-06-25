@@ -16,7 +16,7 @@ export default function Tabs({
   const handleTab2 = () => {
     setActiveTab("tab2");
   };
-  return (
+  return ( 
     <div className="tabs">
       <ul className="tabs__nav">
         <li

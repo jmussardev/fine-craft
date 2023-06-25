@@ -1,11 +1,28 @@
 import { ReviewType } from "./../../config/types";
 import check from "./../assets/img/icons/check-circle.svg";
 import Stars from "./Stars";
+import useScrollLock from "../../hooks/useScrollLock";
 
-export default function Review({ review }: { review: ReviewType }) {
+export default function Review({
+  review,
+  setCurrentReview,
+  setIsModalOpen,
+}: {
+  review: ReviewType;
+  setCurrentReview: React.Dispatch<React.SetStateAction<ReviewType | null>>;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const { lockScroll } = useScrollLock();
   return (
     <div className="review">
-      <div className="review__picture">
+      <div
+        className="review__picture"
+        onClick={() => {
+          setCurrentReview(review);
+          setIsModalOpen(true);
+          lockScroll();
+        }}
+      >
         <img src={review.photos[0] ? review.photos[0] : ""} alt="" />
       </div>
       <div className="review__details">
@@ -19,6 +36,11 @@ export default function Review({ review }: { review: ReviewType }) {
         <div
           className="review__details__description"
           dangerouslySetInnerHTML={{ __html: review.description }}
+          onClick={() => {
+            setCurrentReview(review);
+            setIsModalOpen(true);
+            lockScroll();
+          }}
         />
         <div className="review__details__item-type">
           <p style={{ fontSize: "10px" }}>item type:</p>
