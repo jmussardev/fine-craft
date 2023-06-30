@@ -109,40 +109,46 @@ export default function Item({
 
   return (
     <div className="item" ref={itemRef}>
-      <div className="item__picture noselect">
-        <div className="item__picture__first">
-          <img src={current.photos[0]} alt="" />
+      <div>
+        <div className="item__picture noselect">
+          <div className="item__picture__first">
+            <img src={current.photos[0]} alt="" />
+          </div>
+          <div className="item__picture__second">
+            <Link to={`/products/${id}/${currentVariant.variant}`}>
+              <img src={current.photos[1]} alt="" />
+            </Link>
+            <div
+              className="item__picture__second__add--small"
+              onClick={() => {
+                setId(id);
+                setIsOpen(true);
+                setQuickCurrent(current);
+                lockScroll();
+              }}
+            >
+              <img src={add} alt="" />
+            </div>
+            <div
+              className="item__picture__second__add--large"
+              onClick={() => {
+                setId(id);
+                setIsOpen(true);
+                setQuickCurrent(current);
+                lockScroll();
+              }}
+            >
+              <p>quick add</p>
+            </div>
+          </div>
         </div>
-        <Link to={"#"} className="item__picture__second">
-          <img src={current.photos[1]} alt="" />
-          <div
-            className="item__picture__second__add--small"
-            onClick={() => {
-              setId(id);
-              setIsOpen(true);
-              setQuickCurrent(current);
-              lockScroll();
-            }}
-          >
-            <img src={add} alt="" />
-          </div>
-          <div
-            className="item__picture__second__add--large"
-            onClick={() => {
-              setId(id);
-              setIsOpen(true);
-              setQuickCurrent(current);
-              lockScroll();
-            }}
-          >
-            <p>quick add</p>
-          </div>
-        </Link>
       </div>
       <div className="item__infos">
-        <p className="item__infos__title">
-          {title}.{currentVariant ? currentVariant.variant : current.variant}
-        </p>
+        <Link to={`/products/${id}/${currentVariant.variant}`}>
+          <p className="item__infos__title">
+            {title}.{currentVariant ? currentVariant.variant : current.variant}
+          </p>
+        </Link>
         <p className="item__infos__price">€{price} EUR</p>
         <div className="item__infos__variants">
           <p>{variants.length} colors </p>

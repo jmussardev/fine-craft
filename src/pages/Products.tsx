@@ -23,9 +23,9 @@ import { Link } from "react-router-dom";
 import ProductPreview from "../components/ProductPreview";
 import QuickAdd from "../components/QuickAdd";
 import useSeen from "./../../hooks/useSeen";
-import { useSeenStore } from "../stores/Seen.store";
-import debounce from "../../utils/debounce";
-import { flushSync } from "react-dom";
+// import { useSeenStore } from "../stores/Seen.store";
+// import debounce from "../../utils/debounce";
+// import { flushSync } from "react-dom";
 
 interface types {
   [key: string]: boolean;
@@ -33,8 +33,8 @@ interface types {
 
 export default function Products() {
   const { addItem } = useSeen();
-  const seenContent = useSeenStore((state: any) => state.content);
-  const resumeSeen = useSeenStore((state: any) => state.resumeContent);
+  // const seenContent = useSeenStore((state: any) => state.content);
+  // const resumeSeen = useSeenStore((state: any) => state.resumeContent);
   /**
    * States
    */
@@ -114,6 +114,10 @@ export default function Products() {
   /**
    * Effects
    */
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [productId, currentVariant]);
 
   useEffect(() => {
     if (!productId) return;
@@ -253,7 +257,7 @@ export default function Products() {
                   <span className="products-content__details__options__path__link">
                     Home
                   </span>
-                </Link>{" "}
+                </Link>
                 &bull; {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
                 {currentVariant.variant}
               </p>
@@ -379,7 +383,10 @@ export default function Products() {
           productId={productId ? parseInt(productId) : 0}
         />
       </section>
-      <section className="products-reviews" key={currentVariant.variant}>
+      <section
+        className="products-reviews"
+        key={Math.floor(Math.random() * 100)}
+      >
         <Reviews reviews={currentVariant.reviews} />
       </section>
       <Footer />

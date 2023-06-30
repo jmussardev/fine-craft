@@ -73,3 +73,16 @@
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
+.loader {
+  height: 100vh;
+  width: 100vw;
+  @include flexCenter;
+
+  &__container {
+    position: relative;
+    height: fit-content;
+    width: 150px;
+    // border: 1px dashed #000000;
+  }
+}

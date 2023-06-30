@@ -6,6 +6,7 @@ import data from "./../data/drawerLists.json";
 import SearchBar from "./SearchBar";
 import Cart from "./Cart";
 import { useCartStore } from "../stores/Cart.store";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   /**
@@ -181,13 +182,17 @@ export default function Header() {
             </div>
           </div>
           <div className="header__board__middle">
-            <div className="header__board__middle__logo"></div>
+            <Link to={"/"}>
+              <div className="header__board__middle__logo"></div>
+            </Link>
           </div>
           <div className="header__board__right">
             <div className="header__board__right__account">
-              <div className="header__board__right__account__button ">
-                <div></div>
-              </div>
+              <Link to={"/login"}>
+                <div className="header__board__right__account__button ">
+                  <div></div>
+                </div>
+              </Link>
             </div>
             <div className="header__board__right__cart">
               <div
