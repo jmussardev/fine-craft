@@ -79,7 +79,6 @@ export default function Item({
   const handleMouseLeave = () => {
     setCurrent(currentVariant);
   };
-
   /**
    * Effects
    */
