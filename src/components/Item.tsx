@@ -112,11 +112,11 @@ export default function Item({
       <div>
         <div className="item__picture noselect">
           <div className="item__picture__first">
-            <img src={current.photos[0]} alt="" />
+            <img src={`${current.photos[0]}`} alt="" />
           </div>
           <div className="item__picture__second">
             <Link to={`/products/${id}/${currentVariant.variant}`}>
-              <img src={current.photos[1]} alt="" />
+              <img src={`${current.photos[1]}`} alt="" />
             </Link>
             <div
               className="item__picture__second__add--small"
