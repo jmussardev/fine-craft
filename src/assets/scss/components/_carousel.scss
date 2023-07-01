@@ -1,11 +1,14 @@
 .carousel {
   opacity: 0%;
   visibility: hidden;
-  max-width: calc(100vw - 21px);
+  // max-width: calc(100vw - 21px);
   height: 100%;
   @include flexCenter;
   @media (width > 1200px) {
     cursor: default !important;
+  }
+  @media (width > 950) {
+    max-width: calc(100vw - 21px);
   }
 
   &--fade {
