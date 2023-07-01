@@ -1,4 +1,3 @@
-import data from "./../data/products.json";
 import Review from "./Review";
 import { calcAvg } from "./../../utils/calcAvg";
 import Stars from "./Stars";

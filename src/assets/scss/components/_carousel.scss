@@ -16,7 +16,7 @@
   &__wrapper {
     width: 100vh;
     overflow: hidden;
-    border: red 4px dashed;
+    // border: red 4px dashed;
     &--zoom {
       @media (width < 1200px) {
         max-width: none;

@@ -23,18 +23,14 @@ import { Link } from "react-router-dom";
 import ProductPreview from "../components/ProductPreview";
 import QuickAdd from "../components/QuickAdd";
 import useSeen from "./../../hooks/useSeen";
-// import { useSeenStore } from "../stores/Seen.store";
-// import debounce from "../../utils/debounce";
-// import { flushSync } from "react-dom";
 
-interface types {
-  [key: string]: boolean;
-}
+// interface types {
+//   [key: string]: boolean;
+// }
 
 export default function Products() {
   const { addItem } = useSeen();
-  // const seenContent = useSeenStore((state: any) => state.content);
-  // const resumeSeen = useSeenStore((state: any) => state.resumeContent);
+
   /**
    * States
    */
@@ -391,6 +387,7 @@ export default function Products() {
         />
       </section>
       <section className="products-reviews" key={currentVariant.variant}>
+        <Separator />
         <Reviews reviews={currentVariant.reviews} />
       </section>
       <Footer />

@@ -1,6 +1,7 @@
 .footer {
   position: relative;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   &__background {
     background-image: url("./../../../../public/img/footer/mar-forest.jpg");
@@ -15,14 +16,16 @@
   }
 
   &__wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     @media (width >= 46.87em) {
       max-width: 200rem;
       margin: 0 auto;
@@ -55,6 +58,7 @@
       display: flex;
       height: 100%;
       align-items: flex-end;
+
       img {
         height: fit-content;
         display: block;

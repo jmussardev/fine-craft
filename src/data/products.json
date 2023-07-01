@@ -61,6 +61,111 @@
             "photos": [
               "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "iPhone 14 Pro Max",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "3",
+            "first_name": "Sue",
+            "last_name": "Nguyen",
+            "rating": 4.5,
+            "description": "Still before use</br>Pleasant Save ^^</br>Nice Case!!",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": [
+              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+            ]
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "iPhone 14 Pro Max",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "3",
+            "first_name": "Sue",
+            "last_name": "Nguyen",
+            "rating": 4.5,
+            "description": "Still before use</br>Pleasant Save ^^</br>Nice Case!!",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": [
+              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+            ]
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "iPhone 14 Pro Max",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "3",
+            "first_name": "Sue",
+            "last_name": "Nguyen",
+            "rating": 4.5,
+            "description": "Still before use</br>Pleasant Save ^^</br>Nice Case!!",
+            "isVerified": true,
+            "type": "iPhone 14 Pro",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": [
+              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+            ]
           }
         ]
       },
@@ -560,6 +665,94 @@
           "./../../public/img/tall-story-key/classic/tallstory-key-classic-08_3000x.jpg          "
         ],
         "reviews": [
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "1",
+            "first_name": "Joel",
+            "last_name": "Richard",
+            "rating": 4,
+            "description": "amazing",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
+          {
+            "id": "2",
+            "first_name": "John",
+            "last_name": "Lionel",
+            "rating": 5,
+            "description": "I was worried that this case was going to be ruined with water but it actually looks good after being wet.",
+            "isVerified": true,
+            "type": "",
+            "experience": { "shipping": "All good", "product": "Looks great" },
+            "photos": []
+          },
           {
             "id": "1",
             "first_name": "Joel",

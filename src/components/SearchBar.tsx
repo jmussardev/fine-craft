@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import SearchItem from "./SearchItem";
 
 interface item {
+  id: string;
   name: string;
   price: number;
   photos: string[];
@@ -50,6 +51,7 @@ export default function SearchBar({
         return x.name.toLowerCase().includes(searchIpt.toLowerCase());
       });
       const result = found.map((item) => ({
+        id: `${item.id}`,
         name: `${item.name}.${item.variants[0].variant}`,
         price: item.price,
         photos: [item.variants[0].photos[0], item.variants[0].photos[1]],
@@ -212,7 +214,7 @@ export default function SearchBar({
                         </p>{" "}
                         <ul className="header__searchBar__results__grid">
                           {result.map((item) => (
-                            <SearchItem item={item} />
+                            <SearchItem item={item} handleClose={handleClose} />
                           ))}
                         </ul>{" "}
                       </>

@@ -150,33 +150,34 @@ export default function Item({
           </p>
         </Link>
         <p className="item__infos__price">€{price} EUR</p>
-        <div className="item__infos__variants">
-          <p>{variants.length} colors </p>
-          <div
-            className="item__infos__variants__grid"
-            onMouseLeave={handleMouseLeave}
-          >
+        {variants.length > 1 ? (
+          <div className="item__infos__variants">
+            <p>{variants.length} colors </p>
             <div
-              ref={scrollRef}
-              className="item__infos__variants__grid__scrollbar"
+              className="item__infos__variants__grid"
+              onMouseLeave={handleMouseLeave}
             >
-              {variants.map((variant, index) => (
-                <div
-                  key={index}
-                  ref={variantRef}
-                  className={`test ${
-                    variants.indexOf(
-                      currentVariant ? currentVariant : variant
-                    ) === index
-                      ? "current"
-                      : ""
-                  }`}
-                  onMouseEnter={() => handleMouseEnter(variant)}
-                >
-                  <img src={variant.photos[0]} alt="" />
-                </div>
-              ))}
-              {/* {variants.map((variant, index) => (
+              <div
+                ref={scrollRef}
+                className="item__infos__variants__grid__scrollbar"
+              >
+                {variants.map((variant, index) => (
+                  <div
+                    key={index}
+                    ref={variantRef}
+                    className={`test ${
+                      variants.indexOf(
+                        currentVariant ? currentVariant : variant
+                      ) === index
+                        ? "current"
+                        : ""
+                    }`}
+                    onMouseEnter={() => handleMouseEnter(variant)}
+                  >
+                    <img src={variant.photos[0]} alt="" />
+                  </div>
+                ))}
+                {/* {variants.map((variant, index) => (
                 <div
                   key={index}
                   ref={variantRef}
@@ -192,49 +193,52 @@ export default function Item({
                   <img src={variant.photos[0]} alt="" />
                 </div>
               ))} */}
-            </div>
-            <div className="item__infos__variants__grid__actions">
-              {isOverflowing ? (
-                scrollIpt ? (
-                  <button
-                    className="item__infos__variants__grid__actions__btn btn--left noselect"
-                    onClick={() => {
-                      if (scrollRef.current !== null) {
-                        scrollRef.current.scrollLeft -= 40;
-                        setScrollIpt(scrollRef.current.scrollLeft);
-                      }
-                    }}
-                  >
-                    <img src={arrow} alt="" />
-                  </button>
+              </div>
+              <div className="item__infos__variants__grid__actions">
+                {isOverflowing ? (
+                  scrollIpt ? (
+                    <button
+                      className="item__infos__variants__grid__actions__btn btn--left noselect"
+                      onClick={() => {
+                        if (scrollRef.current !== null) {
+                          scrollRef.current.scrollLeft -= 40;
+                          setScrollIpt(scrollRef.current.scrollLeft);
+                        }
+                      }}
+                    >
+                      <img src={arrow} alt="" />
+                    </button>
+                  ) : (
+                    <div></div>
+                  )
                 ) : (
                   <div></div>
-                )
-              ) : (
-                <div></div>
-              )}
-              {isOverflowing ? (
-                maxScrollLeft && maxScrollLeft - 1 <= scrollIpt ? (
-                  <div></div>
+                )}
+                {isOverflowing ? (
+                  maxScrollLeft && maxScrollLeft - 1 <= scrollIpt ? (
+                    <div></div>
+                  ) : (
+                    <button
+                      className="item__infos__variants__grid__actions__btn btn--right noselect"
+                      onClick={() => {
+                        if (scrollRef.current !== null) {
+                          scrollRef.current.scrollLeft += 40;
+                          setScrollIpt(scrollRef.current.scrollLeft);
+                        }
+                      }}
+                    >
+                      <img src={arrow} alt="" />
+                    </button>
+                  )
                 ) : (
-                  <button
-                    className="item__infos__variants__grid__actions__btn btn--right noselect"
-                    onClick={() => {
-                      if (scrollRef.current !== null) {
-                        scrollRef.current.scrollLeft += 40;
-                        setScrollIpt(scrollRef.current.scrollLeft);
-                      }
-                    }}
-                  >
-                    <img src={arrow} alt="" />
-                  </button>
-                )
-              ) : (
-                <div></div>
-              )}
+                  <div></div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
