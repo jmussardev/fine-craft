@@ -9,8 +9,8 @@ import { useState } from "react";
 import Lottie from "lottie-react";
 import star1 from "./../assets/animation/star1.json";
 import star2 from "./../assets/animation/star2.json";
-import star3 from "./../assets/animation/star3.json";
-import star4 from "./../assets/animation/star4.json";
+import star3 from "./../assets/animation/Star3.json";
+import star4 from "./../assets/animation/Star4.json";
 
 export default function ReviewForm({
   setIsFormOpen,
