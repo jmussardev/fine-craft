@@ -11,7 +11,7 @@ export default function Swatches({
   currentVariant?: ItemVariant;
 }) {
   const [isHover, setIsHover] = useState(false);
-  const item = data.find((item: Item) => {
+  const item = data.find((item: any) => {
     return item.id === id;
   });
 
@@ -23,7 +23,7 @@ export default function Swatches({
   };
   return (
     <>
-      {data[0]?.variants.map((variant, index) => (
+      {data[id ? parseInt(id) - 1 : 0]?.variants.map((variant, index) => (
         <Link key={index} to={`/products/${id}/${variant.variant}`}>
           <div
             onMouseEnter={handleMouseEnter}

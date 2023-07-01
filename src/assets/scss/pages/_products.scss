@@ -185,6 +185,9 @@
         font-weight: 500;
         border-top: 1px solid #ebebe2;
         border-bottom: 1px solid #ebebe2;
+        & h2 {
+          font-weight: bolder;
+        }
         & strong {
           font-weight: 700;
           border-bottom: 1px black solid;

@@ -9,7 +9,7 @@ export interface Item {
 export interface ItemVariant {
   variant: string;
   isAvailable: {
-    [key: string]: boolean;
+    [key: string]: boolean | null;
   };
   photos: string[];
   reviews: ItemReviews[];

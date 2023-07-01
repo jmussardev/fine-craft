@@ -42,7 +42,7 @@ export default function Products() {
   const currentVariant = (
     productId
       ? data[parseInt(productId) - 1].variants.find(
-          (vrt: ItemVariant) => vrt.variant === variant
+          (vrt: any) => vrt.variant === variant
         )
       : ""
   ) as ItemVariant;
@@ -58,6 +58,11 @@ export default function Products() {
   const [currentFirst, setCurrentFirst] = useState(
     currentVariant ? currentVariant.photos[0] : ""
   );
+
+  const infosData = infos;
+  infosData[0].content = productId
+    ? data[parseInt(productId) - 1].description
+    : "";
 
   // const currentFirst = currentVariant ? currentVariant.photos[0] : "";
 
@@ -88,7 +93,7 @@ export default function Products() {
   };
   const isTypeAvailable = (type: string) => {
     if (currentVariant) {
-      const types: types = currentVariant.isAvailable;
+      const types: any = currentVariant.isAvailable;
       return types[type];
     }
   };
@@ -97,7 +102,7 @@ export default function Products() {
   };
   const handleFirstAvailable = () => {
     if (currentVariant) {
-      const types: types = currentVariant.isAvailable;
+      const types: any = currentVariant.isAvailable;
       for (const key in types) {
         if (types[key] === true) return key;
       }
@@ -269,26 +274,28 @@ export default function Products() {
               </h1>
             </div>
             <div className="products-content__details__options__price">
-              <p>€72,95</p>
+              <p>€{productId ? data[parseInt(productId) - 1].price : ""}</p>
             </div>
             <div className="products-content__details__options__variants">
               <Swatches id={productId} currentVariant={currentVariant} />
             </div>
             <div className="products-content__details__options__types">
-              {data[0]?.type.map((type, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentType(type);
-                  }}
-                  className={`${isTypeAvailable(type) ? "" : "notAvailable"} ${
-                    isCurrentType(type) ? "currentType" : ""
-                  }`}
-                  disabled={!isTypeAvailable(type)}
-                >
-                  {type}
-                </button>
-              ))}
+              {data[productId ? parseInt(productId) - 1 : 0]?.type.map(
+                (type, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setCurrentType(type);
+                    }}
+                    className={`${
+                      isTypeAvailable(type) ? "" : "notAvailable"
+                    } ${isCurrentType(type) ? "currentType" : ""}`}
+                    disabled={!isTypeAvailable(type)}
+                  >
+                    {type}
+                  </button>
+                )
+              )}
             </div>
             <div className="products-content__details__options__add">
               <AddCartBtn
@@ -304,7 +311,7 @@ export default function Products() {
             </div>
           </div>
           <div className="products-content__details__infos ">
-            {infos.map((info, index) => {
+            {infosData.map((info, index) => {
               return (
                 <div
                   key={index}
@@ -377,16 +384,13 @@ export default function Products() {
         </article>
         <img className="products-materials__img" src={leather} alt="" />
       </section>
-      <section className="products-tabs" key={Math.floor(Math.random() * 100)}>
+      <section className="products-tabs" key={Math.floor(Math.random() * 66)}>
         <Tabs
           currentVariant={currentVariant}
           productId={productId ? parseInt(productId) : 0}
         />
       </section>
-      <section
-        className="products-reviews"
-        key={Math.floor(Math.random() * 100)}
-      >
+      <section className="products-reviews" key={currentVariant.variant}>
         <Reviews reviews={currentVariant.reviews} />
       </section>
       <Footer />

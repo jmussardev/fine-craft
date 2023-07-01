@@ -176,7 +176,7 @@ export default function Item({
                   <img src={variant.photos[0]} alt="" />
                 </div>
               ))}
-              {variants.map((variant, index) => (
+              {/* {variants.map((variant, index) => (
                 <div
                   key={index}
                   ref={variantRef}
@@ -191,7 +191,7 @@ export default function Item({
                 >
                   <img src={variant.photos[0]} alt="" />
                 </div>
-              ))}
+              ))} */}
             </div>
             <div className="item__infos__variants__grid__actions">
               {isOverflowing ? (
