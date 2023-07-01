@@ -8,6 +8,9 @@
   font-family: playfair_displayregular;
   letter-spacing: 0.5px;
   background-color: #00000062;
+  @media (width<800px) {
+    background-color: #ffffff;
+  }
   &__modal {
     position: fixed;
     top: 50%;
@@ -19,6 +22,12 @@
     overflow: hidden;
     background-color: var(--COLOR-WHITE);
     animation: scale-in 0.3s ease-in-out;
+
+    @media (width<800px) {
+      // height: 68rem;
+      width: 77rem;
+    }
+
     &__close {
       z-index: 9999;
       position: absolute;
@@ -32,6 +41,11 @@
       transition: visibility 0.5s ease-in-out 1.5s,
         opacity 0.5s ease-in-out 1.5s;
       @include flexCenter;
+      @media (width<800px) {
+        top: 40px;
+        left: 50px;
+      }
+
       & img {
         height: 14px;
         width: 14px;
@@ -55,6 +69,11 @@
       // border: 1px darkblue dashed;
       transition: visibility 0.3s ease-in-out 1.2s,
         translate 0.3s ease-in-out 1.2s;
+
+      @media (width<800px) {
+        width: 100vw;
+        justify-content: space-around;
+      }
 
       & .disabled {
         background-color: #c8c8c8ba;
@@ -90,12 +109,19 @@
         @include flexCenter;
         gap: 10px;
 
+        @media (width<800px) {
+          width: 50%;
+        }
         & div {
           width: 80px;
           height: 8px;
           border-radius: 50px;
 
           background-color: #c8c8c8ba;
+          @media (width<800px) {
+            width: 50px;
+            height: 20px;
+          }
         }
       }
       &__skip {
@@ -125,8 +151,13 @@
         &__four,
         &__five,
         &__six {
-          min-height: 100%;
+          height: 100%;
           min-width: 770px;
+
+          @media (width<800px) {
+            min-width: 77rem;
+          }
+
           // border: 1px dashed black;
         }
         &__one {
@@ -136,6 +167,9 @@
           justify-content: center;
           & h1 {
             font-size: 20px;
+            @media (width<800px) {
+              font-size: 2rem;
+            }
           }
           &__stars {
             position: relative;
@@ -146,10 +180,20 @@
               padding: 0;
               border: none;
               background-color: transparent;
+
+              @media (width<800px) {
+                height: 8rem;
+                width: 8rem;
+              }
               & img {
                 height: auto;
                 width: 52px;
                 padding-bottom: 11px;
+                @media (width<800px) {
+                  height: auto;
+                  width: 5.2rem;
+                  padding-bottom: 1.1rem;
+                }
               }
             }
 
@@ -192,6 +236,10 @@
             gap: 10px;
             border: 1px solid black;
 
+            @media (width<800px) {
+              width: 50rem;
+            }
+
             & label {
               height: 55px;
               width: 100%;
@@ -226,6 +274,10 @@
             font-size: 30px;
             font-weight: bolder;
             margin-bottom: 30px;
+
+            @media (width<800px) {
+              font-size: 3rem;
+            }
           }
           &__btns {
             height: fit-content;
@@ -235,6 +287,10 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
+
+            @media (width<800px) {
+              width: 50rem;
+            }
 
             & button {
               height: 50px;
@@ -263,12 +319,19 @@
             font-size: 30px;
             font-weight: bolder;
             margin-bottom: 30px;
+            @media (width<800px) {
+              font-size: 3rem;
+            }
           }
           & textarea {
             height: 280px;
             width: 500px;
             padding: 20px 15px;
             resize: none;
+
+            @media (width<800px) {
+              width: 50rem;
+            }
             &::placeholder {
               font-family: playfair_displayregular;
               font-size: 14px;
@@ -285,6 +348,9 @@
           & h1 {
             font-size: 30px;
             margin-bottom: 20px;
+            @media (width<800px) {
+              font-size: 3rem;
+            }
           }
           &__inputs {
             display: flex;
@@ -294,6 +360,9 @@
             height: fit-content;
             width: 500px;
             gap: 20px;
+            @media (width<800px) {
+              width: 50rem;
+            }
             & label {
               font-size: 16px;
             }

@@ -145,6 +145,7 @@ export default function ReviewForm({
               }
               if (activeIndex === 5) {
                 setIsFormOpen(false);
+                unlockScroll();
               }
             }}
             disabled={activeIndex === 4 ? (text === "" ? true : false) : false}

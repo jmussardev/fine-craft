@@ -169,9 +169,8 @@
             border: 1px solid #eaeaea;
             background-color: transparent;
             margin-bottom: 10px;
-            &:not(:first-child, :nth-child(3)) {
-              margin-left: 10px;
-            }
+            margin-right: 10px;
+
             cursor: pointer;
             &:hover {
               border: 1px solid var(--COLOR-ITEM-HOVER-BTN);

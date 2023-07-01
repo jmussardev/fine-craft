@@ -1,5 +1,7 @@
 .tabs {
-  height: fit-content;
+  // height: fit-content;
+  width: 100%;
+  // border: 1px darkblue dashed;
   &__nav {
     height: 40px;
     width: 100%;
@@ -27,33 +29,42 @@
 }
 
 .firstTab {
+  // border: 1px darkblue dashed;
   margin-top: 30px;
-  padding-inline: 40px;
   width: 100%;
-  // display: flex-inline;
-  // justify-content: center;
+
   @include flexCenter;
   &__wrapper {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    max-width: 1100px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    display: inline-flex;
     gap: 20px;
-    // background-color: pink;
+    // border: 1px rgb(88, 0, 139) dashed;
 
-    @media (width<750px) {
-      width: 500px;
-      display: flex-inline;
-      overflow-x: hidden;
-      overflow-y: auto;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
-      &::-webkit-scrollbar {
-        display: none;
+    @media (width< 1800px) {
+      max-width: 1035px;
+    }
+    @media (width< 1200px) {
+      max-width: 965px;
+    }
+    @media (width< 950px) {
+      max-width: 480px;
+      justify-content: left !important;
+    }
+    @media (width< 600px) {
+      .item {
+        width: 300px;
       }
-      // background-color: rgb(191, 17, 46);
-      &__item {
-        width: 500px;
-      }
+      display: flex;
+      justify-content: left !important;
+      max-width: 290px;
     }
   }
 }

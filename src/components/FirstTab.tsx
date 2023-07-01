@@ -17,7 +17,12 @@ export default function FirstTab({
 
   return (
     <div className="firstTab">
-      <div className="firstTab__wrapper">
+      <div
+        className="firstTab__wrapper"
+        style={{
+          justifyContent: `${variants.length < 3 ? "center" : "left"}`,
+        }}
+      >
         {variants.map((variant, i) => (
           <div key={i} className="firstTab__wrapper__item">
             <Item

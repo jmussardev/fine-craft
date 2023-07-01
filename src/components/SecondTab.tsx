@@ -19,7 +19,13 @@ export default function SecondTab() {
           );
           if (!product || !variant) return;
           return (
-            <div key={i} className="firstTab__wrapper__item">
+            <div
+              key={i}
+              className="firstTab__wrapper__item"
+              style={{
+                justifyContent: `${seenContent < 3 ? "center" : "left"}`,
+              }}
+            >
               <Item
                 id={product.id}
                 title={product.name}
