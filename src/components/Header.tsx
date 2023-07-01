@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import useScrollLock from "./../../hooks/useScrollLock";
 import arrow from "./../assets/img/icons/arrow.svg";
 import data from "./../data/drawerLists.json";

@@ -1,6 +1,6 @@
 import data from "./../data/products.json";
 import { useState } from "react";
-import { ItemVariant, Item } from "../../config/types";
+import { ItemVariant } from "../../config/types";
 import { Link } from "react-router-dom";
 
 export default function Swatches({

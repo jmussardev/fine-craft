@@ -5,10 +5,10 @@ import shop from "./../assets/img/icons/Shop.svg";
 import paypal from "./../assets/img/icons/paypal-logo-svg-vector.svg";
 import countries from "./../data/countries.json";
 import debounce from "../../utils/debounce";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import { useCartStore } from "./../stores/Cart.store.ts";
-import { Content, ItemContainer } from "./../../config/types";
+import { ItemContainer } from "./../../config/types";
 // import { ItemContainer } from "./../../config/types.ts";
 
 /**

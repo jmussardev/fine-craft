@@ -7,12 +7,12 @@ export const useQuickAddStore = create((set) => ({
   isValided: false,
   current: "",
   setIsOpen: (boolean: boolean) => {
-    set((state: any) => ({ isOpen: boolean }));
+    set(() => ({ isOpen: boolean }));
   },
   setId: (id: string) => {
-    set((state: any) => ({ itemId: id }));
+    set(() => ({ itemId: id }));
   },
   setCurrent: (variant: any) => {
-    set((state: any) => ({ current: variant }));
+    set(() => ({ current: variant }));
   },
 }));

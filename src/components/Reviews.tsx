@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Review from "./Review";
 import { calcAvg } from "./../../utils/calcAvg";
 import Stars from "./Stars";
@@ -15,7 +16,7 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
   const [currentReview, setCurrentReview] = useState<ReviewType | null>(null);
   const avg = parseInt(calcAvg(reviews));
   const elem = document.querySelector(".reviews__container") as Element;
-  const msnry = new Masonry(elem, {
+  new Masonry(elem, {
     itemSelector: ".review",
     columnWidth: ".reviews__container__sizer",
     gutter: 15,

@@ -1,8 +1,8 @@
-function isObject(object) {
+function isObject(object: any) {
   return object != null && typeof object === "object";
 }
 
-export default function isEqual(obj1, obj2) {
+export default function isEqual(obj1: any, obj2: any) {
   const props1 = Object.getOwnPropertyNames(obj1);
   const props2 = Object.getOwnPropertyNames(obj2);
   if (props1.length != props2.length) {

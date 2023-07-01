@@ -5,7 +5,7 @@ import emptyStar from "./../assets/img/icons/star-empty.svg";
 import fullStar from "./../assets/img/icons/star.svg";
 import image from "./../assets/img/icons/image.svg";
 import video from "./../assets/img/icons/video.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Lottie from "lottie-react";
 import star1 from "./../assets/animation/star1.json";
 import star2 from "./../assets/animation/star2.json";
