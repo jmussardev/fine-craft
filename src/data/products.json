@@ -19,12 +19,12 @@
           "iPhone 14 Pro Max": false
         },
         "photos": [
-          "./../../public/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-01_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-03_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-04_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-05_3000x.jpg"
+          "./../assets/img/fuzzy-iphone/dusty-brown/alcantara-backup-tan_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-02_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-01_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-03_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-04_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/dusty-brown/fuzzy-dustytan-05_3000x.jpg"
         ],
         "reviews": [
           {
@@ -59,7 +59,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
           },
           {
@@ -94,7 +94,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
           },
           {
@@ -129,7 +129,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
           },
           {
@@ -164,7 +164,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
+              "./../assets/img/fuzzy-iphone/dusty-brown/reviews/zMhqJRX2K.jpg"
             ]
           }
         ]
@@ -178,12 +178,12 @@
           "iPhone 14 Pro Max": true
         },
         "photos": [
-          "./../../public/img/fuzzy-iphone/raw-concrete/alcantara-backup-grey.jpg",
-          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-01_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-02_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-03_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-04_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-05_3000x.jpg"
+          "./../assets/img/fuzzy-iphone/raw-concrete/alcantara-backup-grey.jpg",
+          "./../assets/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-01_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-02_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-03_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-04_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/raw-concrete/fuzzy-rawconcrete-05_3000x.jpg"
         ],
         "reviews": [
           {
@@ -219,14 +219,14 @@
           "iPhone 14 Pro Max": false
         },
         "photos": [
-          "./../../public/img/fuzzy-iphone/navy-blue/alcantara-backup-blue.jpg",
-          " ./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-01_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-02_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-03_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-04_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-05_3000x.jpg",
-          "./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-06_3000x.jpg",
-          " ./../../public/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-07_3000x.jpg"
+          "./../assets/img/fuzzy-iphone/navy-blue/alcantara-backup-blue.jpg",
+          " ./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-01_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-02_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-03_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-04_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-05_3000x.jpg",
+          "./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-06_3000x.jpg",
+          " ./../assets/img/fuzzy-iphone/navy-blue/fuzzy-navyblue-07_3000x.jpg"
         ],
         "reviews": [
           {
@@ -239,7 +239,7 @@
             "type": "iPhone 14 Pro Max",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/fuzzy-iphone/navy-blue/reviews/gArzo1JUY2.jpg"
+              "./../assets/img/fuzzy-iphone/navy-blue/reviews/gArzo1JUY2.jpg"
             ]
           }
         ]
@@ -257,21 +257,21 @@
         "variant": "VEGAN",
         "isAvailable": {},
         "photos": [
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-V.jpg",
-          "./../../public/img/all-rounder/vegan/Vegan-info.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-01_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-02_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-03_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-04_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-05_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-06_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-07_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-08_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-09_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-10_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-11_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/vegan-allrounder-pack-12_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/Vegan-material_f68cba81-9580-4fb3-ad08-b67cedf56828_3000x.jpg"
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-V.jpg",
+          "./../assets/img/all-rounder/vegan/Vegan-info.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-01_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-02_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-03_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-04_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-05_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-06_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-07_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-08_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-09_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-10_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-11_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/vegan-allrounder-pack-12_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/Vegan-material_f68cba81-9580-4fb3-ad08-b67cedf56828_3000x.jpg"
         ],
         "reviews": [
           {
@@ -307,25 +307,25 @@
           "iPhone 14 Pro Max": true
         },
         "photos": [
-          "./../../public/img/all-rounder/black-coated/canvas_pack_3000x.jpg",
-          "./../../public/img/all-rounder/vegan/Vegan-info.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-01_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-02_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-02_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-04_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-05_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-06_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-07_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-08_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-09_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-10_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-11_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-12_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-13_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-14_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-15_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-16_3000x.jpg",
-          "./../../public/img/all-rounder/black-coated/Allrounder_Coated_Canvas-17_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/canvas_pack_3000x.jpg",
+          "./../assets/img/all-rounder/vegan/Vegan-info.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-01_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-02_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-02_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-04_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-05_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-06_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-07_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-08_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-09_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-10_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-11_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-12_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-13_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-14_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-15_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-16_3000x.jpg",
+          "./../assets/img/all-rounder/black-coated/Allrounder_Coated_Canvas-17_3000x.jpg",
           ""
         ],
         "reviews": [
@@ -339,7 +339,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/all-rounder/black-coated/reviews/VJVzzKKxO.jpg"
+              "./../assets/img/all-rounder/black-coated/reviews/VJVzzKKxO.jpg"
             ]
           },
           {
@@ -352,7 +352,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/all-rounder/black-coated/reviews/NyV8MNX-o.jpg"
+              "./../assets/img/all-rounder/black-coated/reviews/NyV8MNX-o.jpg"
             ]
           }
         ]
@@ -386,25 +386,25 @@
           "EU 46 / US 13": true
         },
         "photos": [
-          "./../../public/img/alpine-derby-shoes/chestnut/alpineduckboot-chestnut_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-15_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-01_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-02_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-03_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-04_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-05_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-06_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-07_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-08_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-09_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-10_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-12_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-13_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-11_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-16_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-17_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-18_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-19_3000x.jpg          "
+          "./../assets/img/alpine-derby-shoes/chestnut/alpineduckboot-chestnut_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-15_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-01_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-02_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-03_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-04_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-05_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-06_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-07_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-08_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-09_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-10_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-12_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-13_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-11_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-16_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-17_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-18_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/chestnut/alpine-duckboot-brown-19_3000x.jpg          "
         ],
         "reviews": [
           {
@@ -443,21 +443,21 @@
           "EU 46 / US 13": false
         },
         "photos": [
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpinederby-dustyblack_fc959ccc-3512-4196-b188-0aa70a10cbad.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-02_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-03_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-04_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-05_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-06_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-07_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-08_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-09_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-10_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-11_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-12_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-13_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-14_3000x.jpg          ",
-          "./../../public/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-15_3000x.jpg          "
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpinederby-dustyblack_fc959ccc-3512-4196-b188-0aa70a10cbad.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-02_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-03_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-04_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-05_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-06_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-07_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-08_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-09_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-10_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-11_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-12_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-13_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-14_3000x.jpg          ",
+          "./../assets/img/alpine-derby-shoes/dusty-black/alpine-derbyshoes-dustyblack-15_3000x.jpg          "
         ],
         "reviews": [
           {
@@ -470,7 +470,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/all-rounder/black-coated/reviews/VJVzzKKxO.jpg"
+              "./../assets/img/all-rounder/black-coated/reviews/VJVzzKKxO.jpg"
             ]
           },
           {
@@ -483,7 +483,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/all-rounder/black-coated/reviews/NyV8MNX-o.jpg"
+              "./../assets/img/all-rounder/black-coated/reviews/NyV8MNX-o.jpg"
             ]
           }
         ]
@@ -504,18 +504,18 @@
           "NEW 16 / 15 inch": true
         },
         "photos": [
-          "./../../public/img/less-is-more/lessismore-macbookpro-front.jpg",
-          "./../../public/img/less-is-more/lessismore-macbookpro-back.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-01_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-02_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-03_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-04_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-05_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-06_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-06_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-07_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-08_3000x.jpg  ",
-          "./../../public/img/less-is-more/lessismore-macbook-09_3000x.jpg  "
+          "./../assets/img/less-is-more/lessismore-macbookpro-front.jpg",
+          "./../assets/img/less-is-more/lessismore-macbookpro-back.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-01_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-02_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-03_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-04_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-05_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-06_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-06_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-07_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-08_3000x.jpg  ",
+          "./../assets/img/less-is-more/lessismore-macbook-09_3000x.jpg  "
         ],
         "reviews": [
           {
@@ -527,9 +527,7 @@
             "isVerified": true,
             "type": "",
             "experience": { "shipping": "All good", "product": "Looks great" },
-            "photos": [
-              "./../../public/img/less-is-more/reviews/lpUs29MW0.jpg    "
-            ]
+            "photos": ["./../assets/img/less-is-more/reviews/lpUs29MW0.jpg    "]
           },
           {
             "id": "2",
@@ -557,15 +555,15 @@
         "variant": "classic",
         "isAvailable": {},
         "photos": [
-          "./../../public/img/one-pack/classic/one-pack-brown_3000x.jpg",
-          "./../../public/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-classic-01_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-classic-02_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-classic-03_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-08_3000x.jpg",
-          "./../../public/img/one-pack/classic/doublet-turnkey-onep_1a022b39-029e-405d-a8ad-dddc1ae0c79f_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-classic-05_3000x.jpg",
-          "./../../public/img/one-pack/classic/OnePack-05_3000x.jpg"
+          "./../assets/img/one-pack/classic/one-pack-brown_3000x.jpg",
+          "./../assets/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-classic-01_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-classic-02_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-classic-03_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-08_3000x.jpg",
+          "./../assets/img/one-pack/classic/doublet-turnkey-onep_1a022b39-029e-405d-a8ad-dddc1ae0c79f_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-classic-05_3000x.jpg",
+          "./../assets/img/one-pack/classic/OnePack-05_3000x.jpg"
         ],
         "reviews": [
           {
@@ -578,7 +576,7 @@
             "type": "",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/one-pack/classic/reviews/VkUmLKprF.jpg  "
+              "./../assets/img/one-pack/classic/reviews/VkUmLKprF.jpg  "
             ]
           },
           {
@@ -591,7 +589,7 @@
             "type": "",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/one-pack/classic/reviews/VyjHeK-RD.jpg          "
+              "./../assets/img/one-pack/classic/reviews/VyjHeK-RD.jpg          "
             ]
           }
         ]
@@ -600,17 +598,17 @@
         "variant": "coal",
         "isAvailable": {},
         "photos": [
-          "./../../public/img/one-pack/coal/one-pack-black_3000x.jpg",
-          "./../../public/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-01_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-02_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-coal-03_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-coal-05_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-03_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-04_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-05_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-06_3000x.jpg",
-          "./../../public/img/one-pack/coal/OnePack-black-08_3000x.jpg"
+          "./../assets/img/one-pack/coal/one-pack-black_3000x.jpg",
+          "./../assets/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-01_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-02_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-coal-03_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-coal-05_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-03_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-04_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-05_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-06_3000x.jpg",
+          "./../assets/img/one-pack/coal/OnePack-black-08_3000x.jpg"
         ],
         "reviews": [
           {
@@ -623,7 +621,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/one-pack/coal/reviews/NyMZQJL9K.jpg            "
+              "./../assets/img/one-pack/coal/reviews/NyMZQJL9K.jpg            "
             ]
           },
           {
@@ -636,7 +634,7 @@
             "type": "iPhone 14 Pro",
             "experience": { "shipping": "All good", "product": "Looks great" },
             "photos": [
-              "./../../public/img/one-pack/coal/reviews/NyOHar5Js.jpg            "
+              "./../assets/img/one-pack/coal/reviews/NyOHar5Js.jpg            "
             ]
           }
         ]
@@ -654,15 +652,15 @@
         "variant": "classic",
         "isAvailable": {},
         "photos": [
-          "./../../public/img/tall-story-key/classic/keypocket-classic_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-01_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-02_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-03_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-04_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-05_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-06_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-07_3000x.jpg          ",
-          "./../../public/img/tall-story-key/classic/tallstory-key-classic-08_3000x.jpg          "
+          "./../assets/img/tall-story-key/classic/keypocket-classic_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-01_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-02_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-03_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-04_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-05_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-06_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-07_3000x.jpg          ",
+          "./../assets/img/tall-story-key/classic/tallstory-key-classic-08_3000x.jpg          "
         ],
         "reviews": [
           {
