@@ -46,7 +46,6 @@ export default function Reviews({ reviews }: { reviews: ReviewsType }) {
               lockScroll();
             }}
           >
-            {" "}
             Write a review
           </button>
         </div>

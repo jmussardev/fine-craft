@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [input, setInput] = useState("");
@@ -19,12 +20,14 @@ export default function Login() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button
-            className={`${input === "" ? "disabled" : ""}`}
-            disabled={input === "" ? true : false}
-          >
-            Continue
-          </button>
+          <Link to={"/"}>
+            <button
+              className={`${input === "" ? "disabled" : ""}`}
+              disabled={input === "" ? true : false}
+            >
+              Continue
+            </button>
+          </Link>
         </div>
       </div>
     </div>

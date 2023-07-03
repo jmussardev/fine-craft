@@ -245,7 +245,12 @@
     "variants": [
       {
         "variant": "VEGAN",
-        "isAvailable": {},
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": true
+        },
         "photos": [
           "/img/all-rounder/vegan/vegan-allrounder-pack-V.jpg",
           "/img/all-rounder/vegan/Vegan-info.jpg",
@@ -475,7 +480,7 @@
   },
   {
     "id": "4",
-    "name": "LESS IS MORE MACBOOK PRO SLEEVE",
+    "name": "less is more macbook pro sleeve",
     "price": 110.95,
     "type": ["NEW 14 / 13 inch", "NEW 16 / 15 inch"],
     "variants": [
@@ -488,6 +493,7 @@
         "photos": [
           "/img/less-is-more/lessismore-macbookpro-front.jpg",
           "/img/less-is-more/lessismore-macbookpro-back.jpg  ",
+          "/img/less-is-more/04-ffeltro-cigar_03da6303-988f-4eac-846d-7d9cdfa1ad7a_3000x.jpg",
           "/img/less-is-more/lessismore-macbook-01_3000x.jpg  ",
           "/img/less-is-more/lessismore-macbook-02_3000x.jpg  ",
           "/img/less-is-more/lessismore-macbook-03_3000x.jpg  ",
@@ -535,10 +541,14 @@
     "variants": [
       {
         "variant": "classic",
-        "isAvailable": {},
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": true
+        },
         "photos": [
           "/img/one-pack/classic/one-pack-brown_3000x.jpg",
-          "/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
           "/img/one-pack/classic/OnePack-classic-01_3000x.jpg",
           "/img/one-pack/classic/OnePack-classic-02_3000x.jpg",
           "/img/one-pack/classic/OnePack-classic-03_3000x.jpg",
@@ -574,11 +584,14 @@
       },
       {
         "variant": "coal",
-        "isAvailable": {},
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": true
+        },
         "photos": [
           "/img/one-pack/coal/one-pack-black_3000x.jpg",
-          "/img/one-pack/classic/01-cigar-greylining_5bd69281-be66-4bfe-adc0-bde6fd3de44d_3000x.jpg",
-          "/img/one-pack/coal/OnePack-black-01_3000x.jpg",
           "/img/one-pack/coal/OnePack-black-02_3000x.jpg",
           "/img/one-pack/coal/OnePack-coal-03_3000x.jpg",
           "/img/one-pack/coal/OnePack-coal-05_3000x.jpg",
@@ -624,7 +637,12 @@
     "variants": [
       {
         "variant": "classic",
-        "isAvailable": {},
+        "isAvailable": {
+          "iPhone 14": true,
+          "iPhone 14 Plus": true,
+          "iPhone 14 Pro": true,
+          "iPhone 14 Pro Max": true
+        },
         "photos": [
           "/img/tall-story-key/classic/keypocket-classic_3000x.jpg          ",
           "/img/tall-story-key/classic/tallstory-key-classic-01_3000x.jpg          ",

@@ -3,16 +3,17 @@ import { ItemContainer } from "./../../config/types.ts";
 import data from "./../data/products.json";
 import useCart from "./../../hooks/useCart.ts";
 import { useCartStore } from "./../stores/Cart.store.ts";
+import { ItemVariant, Item } from "./../../config/types.ts";
 
 export default function CartItem({ cartItem }: { cartItem: ItemContainer }) {
   /**
    * States
    */
   const { removeItem, removeOne, addItem } = useCart();
-  const item = data.find((item) => item.id === cartItem.content.id);
+  const item = data.find((item) => item.id === cartItem.content.id) as Item;
   const variant = item
     ? item.variants.find(
-        (variant) => variant.variant === cartItem.content.variant
+        (variant: ItemVariant) => variant.variant === cartItem.content.variant
       )
     : null;
   const isDeleting = useCartStore((state: any) => state.isDeleting);

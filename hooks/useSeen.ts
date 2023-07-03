@@ -17,8 +17,8 @@ export default function useSeen() {
       const alreadyInCart = seenContent.find((item: ItemSeenContainer) =>
         isEqualObject(item, newItem)
       );
-      console.log("seen hook :");
-      console.log(seenContent);
+      // console.log("seen hook :");
+      // console.log(seenContent);
       //is the item already in seen ?
       if (alreadyInCart) return;
       const newSeen = [...seenContent, newItem];

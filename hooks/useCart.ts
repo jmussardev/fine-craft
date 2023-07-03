@@ -63,7 +63,7 @@ export default function useCart() {
     } else {
       const newCart = { content: newItemContent, quantity: 1 };
       updateContent([newCart]);
-      localStorage.setItem("cart", JSON.stringify(newCart));
+      localStorage.setItem("cart", JSON.stringify([newCart]));
     }
   };
   const removeItem = (cartItem: Content) => {

@@ -35,13 +35,13 @@ export default function Products() {
    * States
    */
   const { productId, variant } = useParams();
-  const currentVariant = (
-    productId
-      ? data[parseInt(productId) - 1].variants.find(
-          (vrt: any) => vrt.variant === variant
-        )
-      : ""
-  ) as ItemVariant;
+
+  const currentItem = productId
+    ? (data[parseInt(productId) - 1].variants as ItemVariant[])
+    : null;
+  const currentVariant = currentItem
+    ? (currentItem.find((vrt: any) => vrt.variant === variant) as ItemVariant)
+    : null;
   const [isCurrent, setIsCurrent] = useState<number | null>(0);
   const [currentType, setCurrentType] = useState(
     productId ? data[parseInt(productId) - 1]?.type[0] : null
@@ -121,7 +121,7 @@ export default function Products() {
   }, [productId, currentVariant]);
 
   useEffect(() => {
-    if (!productId) return;
+    if (!productId || currentVariant === null) return;
     addItem(productId, currentVariant.variant);
   }, [productId, currentVariant]);
 
@@ -182,7 +182,9 @@ export default function Products() {
               }}
             >
               <p>
-                <img src={left} alt="" /> item title
+                <img src={left} alt="" />{" "}
+                {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
+                {currentVariant?.variant}
               </p>
             </button>
 
@@ -201,10 +203,10 @@ export default function Products() {
             isZooming ? "products-carousel__wrapper--zoom" : ""
           }`}
         >
-          <Carousel items={currentVariant.photos} />
+          <Carousel items={currentVariant?.photos} />
         </div>
         <div className="products-carousel__preview">
-          <Preview items={currentVariant.photos} />
+          <Preview items={currentVariant?.photos} />
         </div>
       </div>
       <QuickAdd />
@@ -225,7 +227,7 @@ export default function Products() {
           />
           <div className="products-content__pictures__preview">
             <ProductPreview
-              items={currentVariant.photos}
+              items={currentVariant?.photos}
               setCurrentFirstIndex={setCurrentFirstIndex}
             />
           </div>
@@ -260,20 +262,22 @@ export default function Products() {
                   </span>
                 </Link>
                 &bull; {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
-                {currentVariant.variant}
+                {currentVariant?.variant}
               </p>
             </div>
             <div className="products-content__details__options__title">
               <h1>
                 {productId ? data[parseInt(productId) - 1].name : ""} .{" "}
-                {currentVariant.variant}
+                {currentVariant?.variant}
               </h1>
             </div>
             <div className="products-content__details__options__price">
               <p>€{productId ? data[parseInt(productId) - 1].price : ""}</p>
             </div>
             <div className="products-content__details__options__variants">
-              <Swatches id={productId} currentVariant={currentVariant} />
+              {currentVariant && (
+                <Swatches id={productId} currentVariant={currentVariant} />
+              )}
             </div>
             <div className="products-content__details__options__types">
               {data[productId ? parseInt(productId) - 1 : 0]?.type.map(
@@ -294,13 +298,15 @@ export default function Products() {
               )}
             </div>
             <div className="products-content__details__options__add">
-              <AddCartBtn
-                location={"product"}
-                itemId={productId}
-                price={data[productId ? parseInt(productId) - 1 : 0].price}
-                currentType={currentType}
-                currentVariant={currentVariant.variant}
-              />
+              {currentVariant && (
+                <AddCartBtn
+                  location={"product"}
+                  itemId={productId}
+                  price={data[productId ? parseInt(productId) - 1 : 0].price}
+                  currentType={currentType}
+                  currentVariant={currentVariant?.variant}
+                />
+              )}
               <button className="products-content__details__options__add__btn">
                 <img src={shopPay} alt="" />
               </button>
@@ -386,9 +392,9 @@ export default function Products() {
           productId={productId ? parseInt(productId) : 0}
         />
       </section>
-      <section className="products-reviews" key={currentVariant.variant}>
+      <section className="products-reviews" key={currentVariant?.variant}>
         <Separator />
-        <Reviews reviews={currentVariant.reviews} />
+        {currentVariant && <Reviews reviews={currentVariant?.reviews} />}
       </section>
       <Footer />
     </div>
