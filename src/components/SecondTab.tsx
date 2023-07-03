@@ -1,6 +1,7 @@
 import { useSeenStore } from "../stores/Seen.store";
 import data from "./../data/products.json";
-import Item from "./Item";
+import Itemm from "./Item";
+import { ItemVariant, Item } from "../../config/types";
 
 interface item {
   id: string;
@@ -13,9 +14,11 @@ export default function SecondTab() {
     <div className="firstTab">
       <div className="firstTab__wrapper">
         {seenContent.map((item: item, i: number) => {
-          const product = data.find((product) => product.id === item.id);
-          const variant = data[parseInt(item.id) - 1].variants.find(
-            (variant) => variant.variant === item.variant
+          const product = data.find(
+            (product) => product.id === item.id
+          ) as Item;
+          const variant = product.variants.find(
+            (variant: ItemVariant) => variant.variant === item.variant
           );
           if (!product || !variant) return;
           return (
@@ -26,7 +29,7 @@ export default function SecondTab() {
                 justifyContent: `${seenContent < 3 ? "center" : "left"}`,
               }}
             >
-              <Item
+              <Itemm
                 id={product.id}
                 title={product.name}
                 price={product.price}
